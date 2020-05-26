@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title>  Mark Rothko - Art &amp; Artists | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+  <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+  <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*######################## container + artistHeader ####################*/
+		#container{width:100%; overflow:hidden;}
+			#artistHeader{width:1280px; overflow:hidden; margin:100px auto 0; border:2px solid #ccc;}
+				#artistHeader h2{height:60px; margin:60px 0 30px; font-size:40px; text-align:center;}
+				#artistHeader p{height:40px; font-size:20px; text-align:center; margin-bottom:20px;}
+				.socialShare{height:40px; margin-bottom:20px;}
+					.socialShare:after{content:""; display:block; clear:both;}
+					.socialShare ul{width:90px; height:40px; margin:0 auto;}
+						.socialShare li{width:40px; height:40px; float:left;}
+						.socialShare li:first-child{margin-right:10px;}
+				#artistHeader .mainImg{width:100%; overflow:hidden;}
+					#artistHeader .mainImg .imgArea{height:440px;}
+						#artistHeader .mainImg p.imgArea img{height:100%;}
+					#artistHeader .mainImg .captionArea{height:40px; font-size:12px;}
+					#artistHeader .mainImg .captionArea a{text-decoration:underline;}
+
+
+	/*######################## content + biography ####################*/
+		#content{width:100%; overflow:hidden; margin:0 auto;}		
+			#biography{width:1280px; overflow:hidden; margin:0 auto; padding-bottom:50px; border-bottom:2px solid #ccc;}
+				#biography  h2{width:1280px; height:120px; font-size:24px; line-height:120px;}
+				.bioText{font-size:15px; line-height:25px;}
+					.bioText p{margin-bottom:30px;}
+					.bioText p a{text-decoration:underline;}
+					.wikiBtn{font-size:18px; line-height:50px; text-align:center; background-color:rgba(20,20,20,0.1); padding:10px 20px;}
+					.typeofArt{border:1px solid #f4f4f4; padding:0 10px; box-shadow:1px 1px 6px #ccc; color:#313131; font-size:14px; float:right; margin-right:10px;}
+
+		.wikiBtn:hover, .wikiBtn:focus{text-decoration:none; background-color:rgba(20,20,20,0.2);}
+		.typeofArt:hover, .typeofArt:focus{background-color:#f4f4f4;}
+
+
+	/*######################## content + artworks ####################*/
+		#artworks{width:100%; overflow:hidden; margin:20px auto; position:relative; padding-bottom:50px;}
+			#artworks h2{width:1280px; height:120px; font-size:24px; line-height:120px; margin:0 auto;}
+			#artworks .screen{width:1280px; margin:0 auto; overflow:hidden;}
+			#artworks ul{width:1910px; overflow:hidden;}
+				#artworks li{overflow:hidden; margin-bottom:30px; float:left; margin-right:50px; font-size:13px; text-align:center;}
+					#artworks li .imgArea{height:250px;}
+						#artworks li .imgArea img{height:100%;}
+					#artworks li .descArea{width:200px; height:50px; padding-top:10px; margin:0 auto;}
+					#artworks .back{position:absolute; top:40%; left:12%;}
+					#artworks .next{position:absolute; top:40%; right:12%;}
+
+
+
+		.bioText p a:hover, .bioText p a:focus{color:#777;}
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+			
+			/*######################## container + artistHeader ####################*/
+				#container{width:100%;}
+				#artistHeader{width:90%;}
+					#artistHeader h2{height:40px; margin:50px 0 20px; font-size:34px;}
+					#artistHeader p{height:30px; font-size:20px; margin-bottom:10px;}
+					.socialShare{height:34px;}
+						.socialShare ul{width:78px; height:34px;}
+							.socialShare li{width:34px; height:34px;}
+							.socialShare li img{width:100%;}
+						#artistHeader .mainImg .imgArea{height:320px;}
+						#artistHeader .mainImg .captionArea{font-size:10px; padding-top:10px;}
+
+
+			/*######################## content + biography ####################*/
+				#content{width:100%;}	
+					#biography{width:90%;padding-bottom:20px;}
+						#biography  h2{width:100%; height:100px; line-height:120px;}
+						.bioText{font-size:11px;  line-height:16px;}
+							.bioText p{margin-bottom:10px;}
+							.wikiBtn{font-size:14px; padding:7px 14px;}
+							.typeofArt{padding:0 7px; font-size:14px; margin-top:13px;}
+			
+			/*######################## content + artworks ####################*/
+				#artworks{width:100%; padding-bottom:20px;}
+					#artworks h2{width:90%; height:110px; }
+					#artworks .screen{width:88%;}
+					#artworks ul{width:1370px;}
+						#artworks li{margin-bottom:0; margin-right:10px; font-size:12px;}
+							#artworks li .imgArea{height:160px;}
+							#artworks .back{top:45%; left:-1%;}
+							#artworks .next{top:45%; right:-1%;}
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			
+			/*######################## container + artistHeader ####################*/
+				#container{width:100%;}
+				#artistHeader{width:90%; margin-top:30px;}
+					#artistHeader h2{height:40px; margin:50px 0 20px; font-size:34px;}
+					#artistHeader p{height:30px; font-size:20px; margin-bottom:10px;}
+					.socialShare{height:34px;}
+						.socialShare ul{width:78px; height:34px;}
+							.socialShare li{width:34px; height:34px;}
+							.socialShare li img{width:100%;}
+					#artistHeader .mainImg .imgArea{height:240px;}
+						#artistHeader .mainImg .captionArea{font-size:10px; padding-top:10px;}
+
+
+			/*######################## content + biography ####################*/
+				#content{width:100%;}	
+					#biography{width:90%; padding-bottom:20px;}
+						#biography  h2{width:100%; height:100px; font-size:22px; line-height:120px;}
+						.bioText{font-size:9px;  line-height:16px;}
+							.bioText p{margin-bottom:10px;}
+							.wikiBtn{font-size:10px; padding:5px 10px;}
+							.typeofArt{padding:0 5px; font-size:10px; margin-top:13px;}
+
+
+
+			/*######################## content + artworks ####################*/
+				#artworks{width:90%; padding-bottom:20px;}
+					#artworks h2{width:100%; height:100px; font-size:22px;}
+					#artworks .screen{width:100%; overflow:visible;}
+					#artworks ul{width:100%;margin:0 auto;}
+						#artworks li{width:33%; margin-bottom:10px; margin-right:0; font-size:10px;}
+							#artworks li .imgArea{height:100px; overflow:hidden;}
+								#artworks li .imgArea img{height:100%;}
+							#artworks li .descArea{height:30px; width:100%;}
+							#artworks .back{display:none;}
+							#artworks .next{display:none;}
+
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+		
+			/*######################## container + artistHeader ####################*/
+				#container{width:100%;}
+				#artistHeader{width:95%; margin-top:30px;}
+					#artistHeader h2{height:40px; margin:50px 0 20px; font-size:34px;}
+					#artistHeader p{height:30px; font-size:20px; margin-bottom:10px;}
+					.socialShare{height:34px;}
+						.socialShare ul{width:78px; height:34px;}
+							.socialShare li{width:34px; height:34px;}
+							.socialShare li img{width:100%;}
+						#artistHeader .mainImg .imgArea{height:150px;}
+						#artistHeader .mainImg img{height:100%;}
+						#artistHeader .mainImg .captionArea{font-size:10px; padding-top:10px;}
+
+
+			/*######################## content + biography ####################*/
+				#content{width:95%;}		
+					#biography{width:100%; padding-bottom:20px;}
+						#biography h2{width:100%; height:100px; font-size:22px; line-height:120px;}
+						.bioText{font-size:12px;  line-height:20px;}
+							.bioText p{margin-bottom:10px;}
+							.wikiBtn{font-size:13px; padding:5px 10px;}
+							.typeofArt{padding:0 5px; font-size:13px; margin-top:13px;}
+
+
+
+			/*######################## content + artworks ####################*/
+				#artworks{width:100%; padding-bottom:20px;}
+					#artworks h2{width:100%; height:100px; font-size:22px;}
+					#artworks .screen{width:100%; overflow:visible;}
+					#artworks ul{width:100%; margin:0 auto; }
+						#artworks li{width:50%; margin-bottom:20px; margin-right:0; font-size:10px;}
+							#artworks li .imgArea{height:100px; overflow:hidden;}
+								#artworks li .imgArea img{height:100%;}
+							#artworks li .descArea{height:30px; width:100%;}
+							#artworks .back{display:none;}
+							#artworks .next{display:none;}
+
+
+		}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+	
+	/*########### artwork 좌우 화살표버튼 #############*/
+		$(".back").hide();
+		// 다음 버튼
+		var filmW = parseInt($("#film").width()); //1860
+		var screenW = parseInt($(".screen").width()); //1280
+		var cnt = parseInt(filmW/1000); // 1// 너비를 1000으로 나누면 1이나 2가 나오고 거기에 +1을해서 클릭힐 수 있는 횟수를 만듬
+		console.log(filmW);
+
+		 $(".next").click(function(){
+			 filmMovPx = parseInt((filmW-screenW)/(cnt+1)); // 한번 클릭할 때 움직이는 정도 px
+			 //console.log(filmMovPx);
+			 filmMarginL = parseInt($("#film").css("marginLeft"));
+			 //console.log(filmMarginL);
+			$("#film:not(:animated)").stop().animate({"marginLeft":"-="+filmMovPx+"px"},500,"swing",function(){
+				if(filmMarginL <= -(filmMovPx*cnt)){
+					$(".next").hide();
+				}
+				if(filmMarginL <= 0){
+					$(".back").show();
+				}
+			});
+			
+		 });
+		 // 이전 버튼
+		 $(".back").click(function(){
+			 filmMarginL = parseInt($("#film").css("marginLeft"));
+			  //console.log(filmMovPx);
+			$("#film:not(:animated)").stop().animate({"marginLeft":"+="+filmMovPx+"px"},500,"swing",function(){
+				//console.log(filmMarginL);
+				if(filmMarginL >= -filmMovPx){
+					$(".back").hide();
+				}
+				if(filmMarginL >= -(filmMovPx*(cnt+2))){
+					$(".next").show();
+				}				
+			}); 	
+		});
+		
+	});
+  </script>
+
+ </head>
+
+ <body>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)"  autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<form id="sideSearchForm" action="#none" method="post">
+								<fieldset>
+									<legend>Search</legend>
+									<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+									<p class="searchBtn" onclick="sideSearching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search_white.png" alt="search icon"/>
+										</a>
+									</p>
+								</fieldset>
+							</form>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<section id="artistHeader">
+				<h2>Mark Rothko</h2>
+				<p>born 1937</p>
+				<div class="socialShare">
+					<ul>
+						<li>
+							<a href="preparing.html" title="share via Twitter">
+								<img src="img/footer/twt.png" alt="twitter_icon"/>
+							</a>
+						</li>
+						<li>
+							<a href="preparing.html" title="share via Facebook">
+								<img src="img/footer/facebook.png" alt="facebook icon"/>
+							</a>
+						</li>			
+					</ul>
+				</div>
+				<div class="mainImg">
+					<p class="imgArea">
+						<img src="img/sub_artists/mark_main.jpg" alt="Mark Rothko - Black on Maroon"/>
+					</p>
+					<p class="captionArea">
+						Black on Maroon 1958<br/>
+						&copy; Kate Rothko Prizel and Christopher Rothko/DACS 2018<br/>
+						<a href="preparing.html" title="Mark Rothko license">License this image</a>
+					</p>
+				</div>
+			</section>
+
+			<div id="content">
+				<section id="biography">
+					<h2>BIOGRAPHY</h2>
+					<div class="bioText">
+						<p><strong>Mark Rothko</strong> (), <strong>born Markus Yakovlevich Rothkowitz</strong> (Russian: Ма́ркус Я́ковлевич Ротко́вич, Latvian: Markuss Rotkovičs; September 25, 1903 – February 25, 1970), was an American painter of Russian Jewish descent. Although Rothko himself refused to adhere to any art movement, he is generally identified as an abstract expressionist.</p>
+						<p>This biography is from Wikipedia under an <a href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" title="Text of Creative Commons Attribution from Wikipedia">Attribution-ShareAlike Creative Commons License.</a> Spotted a problem? <a href="preparing.html" title="let us know">Let us know.</a></p>
+						<a class="wikiBtn" href="https://en.wikipedia.org/wiki/Mark_Rothko" title="René Magritte on Wikipedia">Read full Wikipedia entry <span>▷</span></a>
+						<a class="typeofArt" href="preparing.html" title="about Abstract art">Abstract art</a>
+					</div>
+					
+				</section>
+
+				<section id="artworks">
+					<h2>ARTWORKS</h2>
+					<div class="screen">
+						<ul id="film">
+							<li>
+								<div class="imgArea">
+									<img src="img/sub_artists/mark0.jpg" alt="Mark Rothko - Black on Maroon"/>
+								</div>
+								<div class="descArea">
+									<p class="title">Black on Maroon</p>
+									<p class="date">1958</p>
+								</div>
+							</li>
+							<li>
+								<div class="imgArea">
+									<img src="img/sub_artists/mark1.jpg" alt="Mark Rothko - Red on Maroon"/>
+								</div>
+								<div class="descArea">
+									<p class="title">Red on Maroon</p>
+									<p class="date">1959</p>
+								</div>
+							</li>
+							<li>
+								<div class="imgArea">
+									<img src="img/sub_artists/mark2.jpg" alt="Mark Rothko - Light Red Over Black"/>
+								</div>
+								<div class="descArea">
+									<p class="title">Light Red Over Black</p>
+									<p class="date">1957</p>
+								</div>
+							</li>
+							<li>
+								<div class="imgArea">
+									<img src="img/sub_artists/mark3.jpg" alt="Mark Rothko - Untitled"/>
+								</div>
+								<div class="descArea">
+									<p class="title">Untitled</p>
+									<p class="date">c.1950-2</p>
+								</div>
+							</li>
+							<li>
+								<div class="imgArea">
+									<img src="img/sub_artists/mark4.jpg" alt="Mark Rothko - Untitled"/>
+								</div>
+								<div class="descArea">
+									<p class="title">Untitled</p>
+									<p class="date">1969</p>
+								</div>
+							</li>
+							<li>
+								<div class="imgArea">
+									<img src="img/sub_artists/mark5.jpg" alt="Mark Rothko - Red on Maroon"/>
+								</div>
+								<div class="descArea">
+									<p class="title">Red on Maroon</p>
+									<p class="date">1959</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<p class="back"><a href="#none" title="back"><img src="img/sub_artists/back64.png" alt="back"/></a></p>
+					<p class="next"><a href="#none" title="next"><img src="img/sub_artists/next64.png" alt="next"/></a></p>
+				</section>
+			</div>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

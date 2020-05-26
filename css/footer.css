@@ -1,0 +1,203 @@
+/*###################### footerWrap #####################*/
+		#footerWrap{width:100%; height:330px; }
+			#footer1Wrap{width:100%; height:280px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+				
+
+
+	/*############## footer #############*/
+		#m_footerWrap{display:none;}
+		#footerWrap{display:block; width:100%; height:330px;}
+			#footer1Wrap{width:100%; height:280px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+					
+				#footer1{width:1250px; height:100%; margin:0 auto; }
+					#footer1 h3{width:100%; height:20px; font-size:15px; padding:40px 0 20px;}/* 40+20+20 ==80px*/
+
+						 #footer1 .about{width:20%; height:100%; float:left;}
+							#footer1 .about h3{width:100%; height:20px; font-size:15px; padding:40px 0 20px;}
+							 #footer1 .about ul{width:100%; height:200px;}
+								#footer1 .about li{width:100%; height:18px; margin-bottom:10px; font-size:14px;}
+
+						#footer1 .support{width:20%; height:100%; float:left;}
+							#footer1 .support h3{width:100%; height:20px; font-size:15px; padding:40px 0 20px;}
+							#footer1 .support ul{width:100%; height:200px;}
+								#footer1 .support li{width:100%; height:18px; margin-bottom:10px; font-size:14px;}
+
+						#footer1 .join{width:34%; height:100%; float:left;}
+							#footer1 .join ul{width:100%; height:40px;}
+								#footer1 .join li{width:40px; height:40px; float:left; margin-right:10px;}
+
+						#footer1 .stay{width:26%; height:100%; float:left;}
+							#footer1 .stay label{vertical-align:middle;}
+							#footer1 .stay input#email{width:180px; height:30px; text-indent:4px; background-color:#fff; border:1px solid #ccc; color:#777; vertical-align:middle;}
+							#footer1 .stay input#emailBtn{width:80px; height:30px; box-shadow:1px 1px 6px #ccc; border:none; color:#313131; background-color:#fff;
+								vertical-align:middle;
+								transition:all 0.3s ease-out;}
+							#footer1 .stay legend{display:none;}
+							#footer1 .stay fieldset{border:none;}
+
+					/*########기능*/
+						input#emailBtn:hover, input#emailBtn:focus{background-color:#ccc; color:#fff;}
+
+			#footer2wrap{width:100%; height:50px;}
+
+				#footer2{width:1250px; height:100%; margin:0 auto;}
+					#footer2 .footerLogo{width:8%; height:42px; float:left; padding-top:8px;}
+						#footer2 .footerLogo a img{width:100%;}
+
+					 #footer2 .footerLink{width:92%; height:100%; float:left; padding-top:8px;}
+						#footer2 .footerLink ul{width:100%; height:42px; text-align:right; line-height:42px;}
+
+							#footer2 .footerLink li{display:inline; margin-left:14px;}
+								#footer2 .footerLink li a{font-size:12px; padding:2px 4px;}
+								#footer2 .footerLink li .bar{padding-left:12px; color:#ccc;}
+
+			
+
+			/*######### gotoTop #########*/
+			.gotoTop{width:40px; height:40px;transform:rotate(-90deg); position:fixed; right:50px; bottom:50px; border:1px solid #313131; padding:10px; background-color:rgba(90,90,90,0.15);}
+				.gotoTop a{display:block; width:100%; height:100%;}
+					.gotoTop a img{width:100%; height:100%;}
+
+
+
+
+
+/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1280px){
+			/*###################### footerWrap #####################*/
+				#footerWrap{width:100%; height:330px; }
+					#footer1Wrap{width:100%; height:280px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+						
+
+
+			/*############## footer #############*/
+				#m_footerWrap{display:none;}
+					#footer1Wrap{width:100%;}	
+						#footer1{width:94%;}
+								#footer1 .about{width:18%;}
+								#footer1 .support{width:14%;}							
+								#footer1 .join{width:34%;}					
+								#footer1 .stay{width:33%;}
+								
+
+					#footer2wrap{width:100%;}
+						#footer2{width:94%;}
+				
+
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+
+
+			/*################## footer1 #################*/
+				#footer1{width:95%;}
+				#footer1 .about{width:20%; margin-left:5%;}
+				#footer1 .support{width:20%; margin-left:5%;}
+				#footer1 .join{width:45%; height:140px;}
+				#footer1 .stay{width:45%; height:140px;}
+
+			
+			/*################## footer2 #################*/
+				#footer2{width:95%;}
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+		
+			/*################## m_footer1 #################*/
+				#footerWrap{display:none;}
+				#m_footerWrap{display:block; width:100%;}
+					#m_footer1Wrap{width:100%; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding-top:10px; margin-bottom:10px; }
+						#m_footer1{width:90%; margin:0 auto;}
+							#m_footer1 div{width:100%; margin-bottom:10px;}
+								#m_footer1 h3{width:100%; line-height:20px; font-size:11px; padding:2px 0; cursor:pointer; margin-bottom:6px;}
+									#m_footer1 h3 span.plusMinus{width:20px; height:20px; float:right; overflow:hidden;}
+										#m_footer1 h3 span.plusMinus span{display:block; width:20px; height:20px; font-size:20px; text-align:right; margin-left:-5px;}
+								#m_footer1 .about ul, #m_footer1 .support ul{width:100%;}
+									#m_footer1 .about ul li, #m_footer1 .support ul li{line-height:16px; font-size:9px; margin-bottom:2px; text-indent:10px;}
+
+								#m_footer1 .join ul{width:100%; padding-top:10px;}
+								#m_footer1 .join ul:after{content:""; display:block; clear:both;}
+									#m_footer1 .join ul li{width:30px; height:30px; float:left; margin-left:10px;}
+										#m_footer1 .join ul li img{width:100%;}
+
+								#m_footer1 .stay .emailBox{padding-top:10px;}
+									#m_footer1 .stay label{vertical-align:middle; font-size:14px; margin-left:10px;}
+									#m_footer1 .stay input#m_email{width:180px; height:26px; text-indent:8px; background-color:#fff; border:1px solid #ccc; color:#777; vertical-align:middle; font-size:12px;}
+									#m_footer1 .stay input#m_emailBtn{width:80px; height:28px; box-shadow:1px 1px 6px #ccc; border:none; color:#313131; background-color:#fff; font-size:13px;
+										vertical-align:middle;
+										transition:all 0.3s ease-out;}
+									#m_footer1 .stay legend{display:none;}
+									#m_footer1 .stay fieldset{border:none;}
+
+				
+			/*################## m_footer2 #################*/
+				#m_footer2Wrap{width:90%; margin:0 auto;}
+					#m_footer2{width:100%; height:30px;}
+					#m_footer2:after{content:""; display:block; clear:both;}
+						#m_footer2 .footerLogo{width:100px;}
+							#m_footer2 .footerLogo{width:15%; float:left;}
+								#m_footer2 .footerLogo a{display:block; width:40px;}
+									#m_footer2 .footerLogo a img{width:100%;}
+
+						#m_footer2 .footerLink{width:85%; float:left;}
+							#m_footer2 .footerLink ul{width:100%; text-align:right;}
+								#m_footer2 .footerLink li{display:inline;}
+									#m_footer2 .footerLink li a{font-size:10px;}
+									#m_footer2 .footerLink li .bar{color:#ccc; padding:0 5px; vertical-align:middle;}
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*################## m_footer1 #################*/
+				#footerWrap{display:none;}
+				#m_footerWrap{display:block; width:100%;}
+					#m_footer1Wrap{width:100%; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding-top:10px; margin-bottom:10px; }
+						#m_footer1{width:90%; margin:0 auto;}
+							#m_footer1 div{width:100%; margin-bottom:10px;}
+								#m_footer1 h3{width:100%; line-height:20px; font-size:13px; padding:5px 0; cursor:pointer; margin-bottom:6px;}
+									#m_footer1 h3 span.plusMinus{width:20px; height:20px; float:right; overflow:hidden;}
+										#m_footer1 h3 span.plusMinus span{display:block; width:20px; height:20px; font-size:20px; text-align:right; margin-left:-5px;}
+								#m_footer1 .about ul, #m_footer1 .support ul{width:100%;}
+									#m_footer1 .about ul li, #m_footer1 .support ul li{line-height:20px; font-size:12px; margin-bottom:5px; text-indent:10px;}
+
+								#m_footer1 .join ul{width:100%; padding-top:10px;}
+								#m_footer1 .join ul:after{content:""; display:block; clear:both;}
+									#m_footer1 .join ul li{width:30px; height:30px; float:left; margin-left:10px;}
+										#m_footer1 .join ul li img{width:100%;}
+
+								#m_footer1 .stay .emailBox{padding-top:10px;}
+									#m_footer1 .stay label{vertical-align:middle; font-size:12px; margin-left:10px;}
+									#m_footer1 .stay input#m_email{width:160px; height:26px; text-indent:8px; background-color:#fff; border:1px solid #ccc; color:#777; vertical-align:middle; font-size:11px;}
+									#m_footer1 .stay input#m_emailBtn{width:70px; height:28px; box-shadow:1px 1px 6px #ccc; border:none; color:#313131; background-color:#fff; font-size:12px;
+										vertical-align:middle;
+										transition:all 0.3s ease-out;}
+									#m_footer1 .stay legend{display:none;}
+									#m_footer1 .stay fieldset{border:none;}
+
+				
+			/*################## m_footer2 #################*/
+				#m_footer2Wrap{width:90%; margin:0 auto;}
+					#m_footer2{width:100%; height:30px;}
+					#m_footer2:after{content:""; display:block; clear:both;}
+						#m_footer2 .footerLogo{width:100px;}
+							#m_footer2 .footerLogo{width:15%; float:left;}
+								#m_footer2 .footerLogo a{display:block; width:40px;}
+									#m_footer2 .footerLogo a img{width:100%;}
+
+						#m_footer2 .footerLink{width:85%; float:left;}
+							#m_footer2 .footerLink ul{width:100%; text-align:right;}
+								#m_footer2 .footerLink li{display:inline;}
+									#m_footer2 .footerLink li a{font-size:10px;}
+									#m_footer2 .footerLink li .bar{color:#ccc; padding:0 5px; vertical-align:middle;}
+		}

@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> TateRe </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+   <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+  <style>
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*###################### header + h1:logo #################*/
+		#headerWrap{width:100%; height:84px; background-color:rgba(200,200,200,0.3); position:absolute; z-index:1;}	
+			#header{width:67%; height:84px; margin:0 auto; position:relative;}
+			#header:after{content:""; display:block; clear:both;}
+				h1{width:160px; position:absolute; left:0; top:10px;}
+					h1 img{width:100%;}
+		/*기*/
+		/*능*/
+		#headerWrap:hover{background-color:rgba(200,200,200,0.8);}
+
+	
+	/* 1280/1920 == 61% */
+	/*###################### gnb #################*/
+		#gnb{width:61%; margin-left:160px; float:left;}
+			#gnb ul{width:100%;}
+			#gnb ul:after{content:""; display:block; clear:both;}
+				#gnb li{width:27%; height:84px; float:left; margin-left:2%;}
+				#gnb li:first-child{margin-left:12%;}
+					#gnb li a{display:block; width:100%; height:50px; padding-top:30px;border-top:4px solid rgba(100,100,100,0); text-align:center;  letter-spacing:2px; text-shadow:1px 1px 10px rgba(255,255,255,0.5); font-size:15px;}
+		/*기*/
+		/*능*/
+		#gnb a:hover, #gnb a:focus{border-top:4px solid #333; font-weight:bold;}
+
+
+
+
+	/*###################### infoMenu #################*/
+		#infoMenu{width:14%; margin-right:120px; float:right;}
+			#infoMenu ul{width:100%;}
+			#infoMenu ul:after{content:""; display:block; clear:both;}
+				#infoMenu li{width:50%; height:54px; float:left; text-align:right; padding-top:30px;}
+					#infoMenu li a{padding:6px; font-size:15px; text-shadow:1px 1px 10px rgba(255,255,255,0.5);}
+		/*기*/
+		/*능*/
+		#infoMenu a:hover, #infoMenu a:focus{font-weight:bold;}
+	
+
+
+
+	/*###################### joinBtn #################*/
+		#joinBtn{width:120px; height:120px; position:absolute; right:0; top:0;}
+			#joinBtn p{width:100%; height:100%; border-radius:120px; position:relative; overflow:hidden;}
+				#joinBtn a{display:block; width:120px; height:80px; border-radius:120px; 
+				background-image:-webkit-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-ms-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-moz-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-o-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				text-align:center; padding-top:40px; line-height:24px; font-size:18px; letter-spacing:2px; color:#fff; background-color:rgba(0,0,0,0.2); transition:all 0.5s; }
+				#joinBtn .pass{width:200px; height:110px; background-color:rgba(255,255,255,0.5); position:absolute; left:80px; top:-100px; transform:rotate(30deg); transition:all 0.3s}
+		/*기*/
+		/*능*/
+		#joinBtn a:hover, #joinBtn a:focus{transform:rotate(30deg); background-color:rgba(0,0,0,0); text-decoration:none;}
+		#joinBtn a:hover .pass, #joinBtn a:focus .pass{left:-90px; top:140px;}	
+
+
+
+
+	/*###################### sideMenu #################*/
+		#sideMenu nav{display:none;}
+
+	/*###################### container + visual #################*/
+		#container{width:100%;}
+		#visuial{width:100%; position:relative;}
+			.intro{width:100%; overflow:hidden;}
+				.intro video{width:100%;}
+				
+			/*마우스 크기 41*59*/
+			.mouse{position:absolute; left:50%; bottom:15%; text-align:center; font-size:11px; /*animation:mouse 1s infinite alternate;*/}
+
+
+			@keyframes mouse{
+				0%{bottom:15%;}
+				100%{bottom:10%;}
+			}
+
+	/*############## container 모든 영역의 제목들 공통 스타일  #############*/
+		#container .head{width:100%; height:170px;}
+			/*위패딩80 글씨높이50 아래패딩40 ==170*/
+			#container h3{height:50px; text-align:center; font-size:46px; font-weight:400; letter-spacing:4px; padding:80px 0 40px; float:left;}
+			/*위패딩90 글씨높이50 아래패딩30 ==170*/
+			#container .arrowR{height:50px; padding:90px 0 30px; float:left;}
+				#container .arrowR img{vertical-align:bottom;}
+
+		/*위로가기 연습중*/
+				.gotoTop{width:50px; height:50px;transform:rotate(-90deg); position:fixed; right:50px; bottom:50px; display:block;}
+					.gotoTop img{width:100%; height:100%; }
+
+
+	/*######################### container : gallery ######################*/
+		#gallery{width:1280px; height:740px; margin:0 auto;}
+			#gallery h3{width:100%;}
+
+			#gallery ul{width:100%; height:460px;}
+			#gallery ul:after{content:""; display:block; clear:both;}
+				#gallery li{width:280px; height:460px;  float:left; box-shadow:3px 3px 30px rgba(96,96,96,0.3); margin-right:50px; background-color:pink;}
+				#gallery li:last-child{margin-right:0;}
+
+				/*######## p.img ########*/
+					#gallery li .img{width:100%; height:260px; overflow:hidden;  position:relative; }
+					#gallery li .img img{height:100%; transition:transform 0.5s;}
+					#gallery li .img a{display:block; width:100%; height:100%;}
+						#gallery li .img a strong{display:block; width:100%; height:100%; position:absolute; left:0; top:0; text-align:center; line-height:260px; letter-spacing:3px; background-color:rgba(96,96,96,0.3); transition:all 0.5s;font-weight:400; color:#fff; font-size:24px;}
+
+				/*######## p.desc ########*/
+				/* 너비:88% + 6%*2 ==100%  높이:160px + 20px*2 == 200px*/
+				#gallery li .desc{width:260px; height:160px; background-color:#f4f4f4; line-height:20px; font-size:15px; padding:20px 10px;}
+
+		/*기*/
+		/*능*/
+		#gallery li .img a:hover strong, #gallery li .img a:focus strong{text-decoration:none; background-color:rgba(96,50,128,0.5);}/*#603280*/
+		#gallery li .img a:hover img, #gallery li .img a:focus img{transform:scale(1.1,1.1);}
+
+
+
+
+	/*############## container : EXHIBITIONS &amp; EVENTS #############*/
+		#exhWrap{width:100%; height:900px; background-color:#f4f4f4;}/*head(170) + ul(730)*/
+			#exh{width:1280px; height:900px; margin:0 auto;}
+				#exh h3{width:80%; padding-left:10%;}
+				#exh .arrowR{width:10%;}
+
+
+				/*EXHIBITIONS &amp; EVENTS 공통 스타일*/
+				#exh li{width:100%;}
+					#exh li p{float:left;}
+					#exh .text{position:relative;}
+						#exh .text .infoDesc{font-size:12px;}
+						#exh .text .border{display:block; width:0px; height:2px; background-color:#803279; position:absolute; transition:width 0.5s ease-out;}
+						#exh .text strong{font-weight:400;}
+					#exh .img{overflow:hidden; box-shadow:3px 3px 20px rgba(96,96,96,0.6);}
+						#exh .img a{display:block;width:100%; height:100%;}
+							#exh .img a img{height:100%;  transition:transform 0.5s linear;}
+
+				/*#######왼쪽#########*/
+				.exhLeft{width:620px; height:700px; float:left; margin-right:16px;}
+				.exhLeft:after{content:""; display:block; clear:both;}
+					.exh0{width:100%; height:412px; margin-bottom:40px;}
+					.exh0 .img{width:309px; height:411px;}
+						.exh0 .text{width:46%; height:34%; padding:10% 2% 2%;}
+							.exh0 .text .border{left:0; bottom:0;}
+
+					.exh1{width:100%; height:230px;}
+						.exh1 .img{width:309px; height:229px;}
+						.exh1 .text{width:46%; height:43%; text-align:right; padding:2%;}
+							.exh1 .text .border{right:0; bottom:0;}
+
+				/*#######오른쪽#######*/
+				.exhRight{width:620px;  height:700px; float:right;}
+				.exhRight:after{content:""; display:block; clear:both;}
+						.exh2{width:100%; height:269px; float:right; margin-bottom:40px;}
+						.exh2 .img{width:310px; height:269px;}
+							.exh2 .text{width:46%; height:52%; padding:0% 2% 2%; text-align:right;}
+								.exh2 .text .border{right:0; bottom:0;}
+
+						.exh3{width:100%; height:310px; float:right;}
+							.exh3 .img{width:310px; height:310px;}
+							.exh3 .text{width:46%; height:33%; padding:8% 2% 2%;}
+								.exh3 .text .border{left:0; bottom:0;}
+						
+		/*기*/
+		/*능*/
+		#exh li .text a:hover, #exh li .text a:focus{text-decoration:none;}
+		#exh li .text a:hover .border, #exh li .text a:focus .border{width:300px;}
+		#exh li .img a:hover img, #exh li .img a:focus img{transform:scale(1.1,1.1);}
+	
+	
+		
+
+	/*############## container : ART IN THE COLLECTION #############*/
+		#collectWrap{width:100%; height:920px; background-image:url("img/index/bg.png"); background-repeat:no-repeat;}
+			#collect{width:1280px; height:690px; margin:0 auto; }
+				#collect h3{width:76%; padding-left:10%;}
+				#collect .arrowR{width:14%;}
+
+				#collect ul{width:100%; height:520px;}
+					#collect li{width:100%; height:100%; position:relative;}
+
+						/*######## text ######## 패딩포함 700*404 */
+						#collect li .text{width:420px; height:300px; border:2px solid #313131; line-height:24px; padding:4% 4% 4% 20%; font-size:13px; position:absolute; right:150px; top:50px;}
+							#collect li .text .title{text-align:left;}
+								#collect li .text .title a .large{font-size:16px;}
+							#collect li .text .desc{text-align:right; font-size:12px;}
+
+						/*######## img ######## */
+						#collect li .img{width:480px; height:335px; overflow:hidden; position:absolute; left:140px; top:80px;}
+							#collect li .img a{display:block; width:100%; height:100%;}
+								#collect li .img a img{width:100%; box-shadow:3px 3px 30px rgba(96,96,96,0.3); transition:all 0.5s linear;}
+
+						/*######## slideDot ######## */
+						.slideDot{width:14px; height:120px; position:absolute; left:640px; top:180px; font-size:22px; color:#ccc;}
+						.slideArrow{display:none;}
+						
+
+		/*기*/
+		/*능*/
+		#collect .img a:hover img, #collect .img a:focus img{transform:scale(1.1);}
+		#collect .text .title a:hover, #collect .text .title a:focus{font-weight:bold;}
+		#collect .slideDot span:hover{color:#803279; cursor:pointer;}
+		#collect .slideArrow span a:hover, #collect .slideArrow span a:focus{text-decoration:none;}
+	
+			
+	
+
+	/*############## container : SUPPORT TATE #############*/
+		#support{width:100%; height:500px; background-image:url("img/index/supportBg.jpg"); background-repeat:no-repeat; background-attachment:fixed; overflow:hidden; background-position:center bottom;}
+			.supportText{width:67%; height:400px; background-color:rgba(100,100,100,0.5); color:#fff; text-align:center; margin:50px auto;}
+
+				/*##### 제목 ####*/
+				.supportText h3{width:100%;}
+
+				/*##### 작은글씨들 ####*/
+				.supportText .desc{width:100%; height:230px;}
+					.supportText .desc .text{width:100%; height:20px; font-size:20px; margin:30px 0;}
+
+				/*##### support 버튼 ####*/
+				.supportText .desc .supportBtn{width:180px; height:50px; margin:0 auto;
+				background-image:-webkit-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-ms-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-moz-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-o-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				position:relative; overflow:hidden;}
+					.supportText .desc .supportBtn a{display:block; line-height:50px; font-size:18px; letter-spacing:2px; color:#fff; background-color:rgba(0,0,0,0.2);}
+						.supportText .desc .supportBtn .pass{width:400px; height:120px; background-color:rgba(255,255,255,0.5); position:absolute; left:10px; top:-120px; transform:rotate(30deg); transition:all 0.3s}
+		
+		/*기*/
+		/*능*/
+		#support .supportBtn a:hover, #support .supportBtn a:focus{text-decoration:none; background-color:rgba(0,0,0,0);}
+		#support .supportBtn a:hover .pass, #support .supportBtn a:focus .pass{left:-160px; top:140px;  text-decoration:none;}
+
+	
+
+
+	/*############## container : SHOP #############*/
+			#shop{width:1280px; height:600px; margin:0 auto;}
+				#shop h3{width:82%; padding-left:10%;}
+				#shop .arrowR{width:8%; }
+
+				#shop ul{width:100%; height:340px;}
+				#shop ul:after{content:""; display:block; clear:both;}
+					#shop li{width:280px; height:340px; float:left; margin-right:50px;}
+					#shop li:last-child{margin-right:0;}/*세개만잡아서 우마진*/
+						#shop li a{display:block; width:100%; height:100%;}
+
+						/*######## p.img ########*/
+						#shop li .img{width:100%; height:280px;text-align:center;}
+							#shop li .img img{height:100%; transition:transform 0.5s linear; }
+
+						/*######## p.text ########*/
+						#shop li .text{width:100%; height:70px; padding-top:20px; text-align:center; line-height:16px;}
+							#shop li .text .name{width:100%; height:50px;  font-size:14px;}
+							#shop li .text .price{width:100%; height:20px; font-size:12px;}
+							#shop li .text strong{font-weight:400;}
+
+
+
+
+	/*###################### footerWrap #####################*/
+		#footerWrap{width:100%; height:330px; }
+			#footer1Wrap{width:100%; height:280px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+				
+
+
+	/*################## footer1 #################*/
+		#footer1{width:1250px; height:100%; margin:0 auto;}
+		#footer1:after{content:""; display:block; clear:both;}
+			#footer1 h3{width:100%; height:20px; font-size:15px; padding:40px 0 20px;}/* 40+20+20 ==80px*/
+
+
+		/* 공통스타일 footer1Left == about + support */
+		.footer1Left{width:250px; height:280px; float:left;}
+			.footer1Left ul{width:100%; height:200px;}
+				.footer1Left li{width:100%; height:18px; margin-bottom:10px; font-size:14px;}
+
+
+		.join{width:414px; height:280px; float:left;}
+			.join ul{width:100%; height:40px;}
+			.join ul:after{content:""; display:block; clear:both;}
+				.join li{width:40px; height:40px; float:left; margin-right:10px;}
+
+		.stay{width:320px; height:280px; float:left;}
+			.stay label{vertical-align:middle;}
+			.stay input#email{width:180px; height:30px; text-indent:4px; background-color:#fff; border:1px solid #ccc; color:#777; vertical-align:middle;}
+			.stay input#emailBtn{width:80px; height:30px; box-shadow:1px 1px 6px #ccc; border:none; color:#313131; background-color:#fff;
+				vertical-align:middle;
+				transition:all 0.3s ease-out;}
+			.stay legend{display:none;}
+			.stay fieldset{border:none;}
+
+		/*기*/
+		/*능*/
+		input#emailBtn:hover, input#emailBtn:focus{
+			background-image:-webkit-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-ms-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-moz-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-o-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%); color:#fff;}
+
+
+
+
+	/*################## footer2 #################*/
+		#footer2wrap{width:100%; height:50px;}
+
+			#footer2{width:1250px; height:50px; margin:0 auto;}
+			#footer2:after{content:""; display:block; clear:both;}
+				.footerLogo{width:100px; height:42px; float:left; padding-top:8px;}
+					.footerLogo a img{width:100%;}
+
+				 .footerLink{width:390px; height:42px; float:right; padding-top:8px;}
+					.footerLink ul{width:100%; height:42px; text-align:right; line-height:42px;}
+
+						.footerLink li{display:inline; margin-left:14px;}
+							.footerLink li a{font-size:12px; padding:2px 4px;}
+							.footerLink li .bar{padding-left:12px; color:#ccc;}
+		
+
+
+	/*-------------------------- responsive web ------------------------------*/
+
+	/* pc */
+	@media all and (min-width:1025px) and (max-width:1920px){
+		#header{background-color:violet;}
+	}
+
+	/* 작업순서3: 태블릿PC 버전  == 스마트폰 가로버전 */
+	@media all and (min-width:768px) and (max-width:1024px){
+		#header{background-color:gold;}
+		#headerWrap{height:84px;}
+			#header{width:100%; height:100%;}
+				h1{width:130px;/*100px*/top:10px;}
+
+			.gotoTop{width:30px; height:30px; transform:rotate(-90deg); position:fixed; right:30px; bottom:50px; display:block;}
+
+		/*###################### gnb #################*/
+		#gnb{width:48%; margin-left:130px;}
+			#gnb li{width:27%; margin-left:1%;}
+			#gnb li:first-child{margin-left:17%;}
+					#gnb li a{height:60px; padding-top:20px; font-size:14px;}
+
+		/*###################### infoMenu #################*/
+		#infoMenu{width:20%; margin-right:100px; float:left;}
+			#infoMenu li a{font-size:13px;}
+
+		/*###################### joinBtn #################*/
+		#joinBtn{width:100px; height:100px;}
+			#joinBtn p{border-radius:50px;}
+				#joinBtn a{width:100px; height:70px; border-radius:50px; 
+				padding-top:30px; font-size:15px;}
+				#joinBtn .pass{top:-120px;}
+		
+		/*########### header of section #######*/
+			#container .head{height:125px;}
+			#container h3{height:40px; font-size:40px; padding:50px 0 35px; letter-spacing:2px;}
+			#container .arrowR{height:40px; padding:55px 0 30px; font-size:14px;}
+				#container .arrowR img{vertical-align:middle;}
+
+
+		/*############ gallery ##########*/
+			#gallery{width:100%; height:700px;}
+			#gallery ul{width:95%; height:500px; margin:0 auto; }
+				#gallery li{float:left; width:23%; height:490px;margin:0 1%;}
+				#gallery li:last-child{margin:0 1%;}
+				#gallery li .img a strong{font-size:18px;}
+				#gallery li .desc{width:96%; height:210px; background-color:#f4f4f4; line-height:20px; font-size:14px; padding:10px 2%;}
+
+
+		/*############## container : EXHIBITIONS &amp; EVENTS #############*/
+		#exhWrap{width:100%; height:900px; background-color:#f4f4f4;}
+			#exh{width:95%; height:900px; margin:0 auto;}
+				#exh h3{width:67%; padding-left:15%;}
+				#exh .arrowR{width:18%;}
+
+
+				/*EXHIBITIONS &amp; EVENTS 공통 스타일*/
+				#exh li{width:100%;}
+					#exh li p{float:left;}
+					#exh .text{position:relative;}
+						#exh .text .infoDesc{font-size:11px;}
+						#exh .text .border{display:block; width:0px; height:2px; background-color:#803279; position:absolute; transition:width 0.5s ease-out;}
+						#exh .text strong{font-weight:400;}
+					#exh .img{overflow:hidden; box-shadow:3px 3px 20px rgba(96,96,96,0.6);}
+						#exh .img a{display:block;width:100%; height:100%;}
+							#exh .img a img{height:100%;  transition:transform 0.5s linear;}
+
+				/*#######왼쪽#########*/
+				.exhLeft{width:50%; height:700px; float:left; margin-right:0;}
+				.exhLeft:after{content:""; display:block; clear:both;}
+					.exh0{width:100%; height:412px; margin-bottom:40px;}
+					.exh0 .img{width:230px; height:411px;}
+						.exh0 .text{width:30%; height:58%; padding:10% 2% 2%;}
+							.exh0 .text .border{left:0; bottom:0;}
+
+					.exh1{width:100%; height:230px;}
+						.exh1 .img{width:210px; height:229px;}
+						.exh1 .text{width:30%; height:52%; text-align:right; padding:0 2% 0;}
+							.exh1 .text .border{right:0; bottom:0;}
+
+				/*#######오른쪽#######*/
+				.exhRight{width:50%;  height:700px; float:right; }
+				.exhRight:after{content:""; display:block; clear:both;}
+						.exh2{width:100%; height:269px; float:right; margin-bottom:40px;}
+						.exh2 .img{width:200px; height:269px;}
+							.exh2 .text{width:28%; height:65%; padding:0 8% 0;text-align:right;}
+								.exh2 .text .border{right:0; bottom:0;}
+
+						.exh3{width:100%; height:310px; float:right;}
+							.exh3 .img{width:230px; height:310px;}
+							.exh3 .text{width:30%; height:36%; padding:8% 2% 2%;}
+								.exh3 .text .border{left:0; bottom:0;}
+
+		/*기*/
+		/*능*/
+		#exh li .text a:hover .border, #exh li .text a:focus .border{width:120px;}
+			
+	}
+
+
+	/* 작업순서2: 스마트폰 가로버전 */
+	@media all and (min-width:481px) and (max-width:767px){
+		#header{background-color:pink;}
+		#headerWrap{height:70px; background-color:green;}
+			#header{width:100%; height:100%;}
+				h1{width:18%;/*100px*/top:10px;}
+			#gnb, #infoMenu, #joinBtn{display:none;}
+			.gotoTop{width:30px; height:30px; transform:rotate(-90deg); position:fixed; right:30px; bottom:50px; display:block;}
+			#sideMenu{display:block;}
+
+		/*################ sideMenu ##############*/
+			#sideMenu{position:absolute; top:0; right:0; z-index:1; overflow:hidden;}
+		
+			#sideMenuBtn{width:100%; height:70px;}
+				#sideMenuBtn a{display:block; width:50px; height:45px; padding-top:25px; font-size:36px; line-height:12px; float:right;}
+					#sideMenuBtn a span{display:block; height:2px; width:30px; background-color:#333; margin-bottom:-4px; transition:all 0.7 ease-out; }
+		
+			#sideMenu nav{width:300px; height:600px; background-color:rgba(20,20,20,0.9); color:#fff; padding-left:10px; padding-right:10px;}
+
+				
+				#sideSearch{width:320px; height:30px;}
+				#sideSearch{padding:10px 0;}
+				#sideSearch fieldset{border:none;}
+				#sideSearch legend{display:none;}
+				#sideSearch #search{width:260px; height:30px; border:none; text-indent:10px;}
+				#sideSearch .searchBtn{display:inline-block; width:16px; height:16px; vertical-align:middle; margin-left:4px;}
+					#sideSearch .searchBtn a{display:inline-block; width:100%; height:100%;}
+						#sideSearch .searchBtn a img{width:100%; border:none;}
+
+				#sideGnb{width:100%; height:150px;  border-bottom:1px solid #f4f4f4;}
+					#sideGnb li{width:300px; height:50px; line-height:50px; text-align:right; padding-right:20px; }
+						#sideGnb li a{font-size:18px; color:#fff;}
+
+				#sideInfomenu{width:100%; height:150px; border:1px}
+					#sideInfomenu li{width:300px; height:50px; line-height:50px; text-align:right; padding-right:20px;}
+						#sideInfomenu li a{font-size:18px; color:#fff;}
+			/*기*/
+			/*능*/
+			#sideMenu:hover #sideMenuBtn{background-color:rgba(20,20,20,0.9);}
+			#sideMenu:hover #sideMenuBtn span{background-color:#fff;}
+			#sideMenu:hover nav{display:block;}
+			#sideMenu:hover .middleBar{transform:rotate(45deg);}
+			#sideMenu:hover .topBar{transform:rotate(-45deg) translate(-7px,7px);}
+			#sideMenu:hover .bottomBar{transform:rotate(-45deg) translate(7px,-7px);}
+	
+		
+		/*############ visual #########*/
+			/* 스크롤 유도 마우스 없애기 */
+			#container .mouse{display:none;}
+
+
+		/*########### header of section #######*/
+			#container .head{height:125px;}
+			#container h3{height:40px; font-size:23px; padding:50px 0 35px; letter-spacing:2px;}
+			#container .arrowR{height:40px; padding:55px 0 30px; font-size:9px;}
+				#container .arrowR img{vertical-align:middle;}
+
+		/*############ gallery ##########*/
+			#gallery{width:100%; height:1100px;}
+			#gallery ul{width:90%; height:960px; margin:0 auto;}
+				#gallery li{float:left; width:46%; margin:0 2% 20px;}
+				#gallery li:last-child{margin:0 1% 20px;}
+				#gallery li .img a strong{font-size:18px;}
+				#gallery li .desc{width:96%; height:180px; background-color:#f4f4f4; line-height:20px; font-size:14px; padding:10px 2%;}
+
+
+		/*########### EXHIBITIONS & EVENTS ##########*/
+			#exhWrap{height:1200px;}
+				#exh{width:100%; height:1200px;}
+					#exh h3{width:58%; padding-left:20%;}
+					#exh .arrowR{width:22%;}
+					#exh ul{width:86%; margin:0 auto;}
+					#exh li .text{padding:2%; font-size:13px;}
+					/*#######왼쪽#########*/
+					.exhLeft{width:100%; height:550px; float:none; margin-right:0;}
+						.exh0{height:300px; margin-bottom:20px;}
+							.exh0 .img{width:190px; height:100%;}
+							.exh0 .text{height:40%;}
+
+						.exh1{height:200px;}
+							.exh1 .img{width:180px; height:100%;}
+							.exh1 .text{height:45%;}
+					/*#######오른쪽#######*/
+					.exhRight{width:100%; height:540px; float:none;}
+						.exh2{height:180px; margin-bottom:20px;}
+						.exh2 .img{width:180px; height:100%;}
+							.exh2 .text{height:65%;}
+						.exh3{height:190px;}
+							.exh3 .img{width:190px; height:100%;}
+							.exh3 .text{height:50%;}
+
+		
+		/*########### ART IN THE COLLECTION##########*/
+			#collectWrap{height:800px; }
+				#collect{width:90%; height:730px; margin:0 auto;}
+					#collect h3{width:52%; padding-left:24%;}
+					#collect .arrowR{width:24%;}
+
+					/*######## text ######## */
+					#collect li .text{width:92%; height:200px; line-height:22px; padding:3%; left:0px; top:340px;}
+					#collect li .text .title{font-size:11px;}
+					#collect li .text .title a .large{font-size:14px;}
+					#collect li .text .desc{font-size:11px;}
+					/*######## img ######## */
+					#collect li .img{width:100%; height:294px; left:0; top:10px;}
+
+					/*######## slide ######## */
+					.slideDot{display:none;}
+					/*######## slideArrow ######## */
+					.slideArrow{display:block; color:orange; font-size:60px;}
+						.slideArrow span{position:absolute; color:#803279;}
+							.slideArrow span a{color:#803279}
+							.slideArrow .leftArrow{left:0; top:25%;}
+							.slideArrow .rightArrow{right:0; top:25%;}
+
+		/*############## container : SUPPORT TATE #############*/
+			#support{height:400px; background-attachment:scroll;}
+			#support h3{padding:50px 0 0;}
+				.supportText{width:100%; height:300px;}
+				/*scroll|fixed|local|initial|inherit;*/
+				.supportText .desc{width:80%; height:230px; padding:0 10%;}
+					.supportText .desc .text{margin:0 0 40px;  font-size:14px;}
+
+
+		/*############## container : SHOP #############*/
+			#shop{width:100%; height:800px;}
+				#shop h3{width:56%; padding-left:20%;}
+				#shop .arrowR{width:24%; }
+
+				#shop ul{width:90%; height:630px; margin:0 auto;}
+					#shop li{width:46%; height:300px; float:left; margin:10px 2% 0; }
+					#shop li:last-child{margin:10px 2% 0;}
+					#shop li .img{width:100%; height:200px;}
+	
+	
+		/*################## footer #################*/
+			#footerWrap{height:640px;}
+				#footer1Wrap{height:580px;}
+					#footer1{width:76%; height:100%;}
+				/* 공통스타일 footer1Left == about + support */
+				.footer1Left{width:45%; height:260px; float:left; padding-left:5%;}
+				.join{width:90%; height:160px; padding:0 5%;}
+				.stay{width:90%; height:160px; padding:0 5%;}
+
+				#footer2{width:70%; padding:0 5%;}
+					.footerLogo{width:10%;}
+					.footerLink{width:90%;}
+						.footerLink ul{line-height:22px;}
+							.footerLink li{margin-left:0;}
+								.footerLink li a{font-size:9px;}
+								.footerLink li .bar{padding-left:0px;}
+	}
+
+
+
+	/* 작업순서1: 스마트폰 세로버전 */
+	@media all and (min-width:320px) and (max-width:480px){
+		/*################ header of section ##############*/
+		#headerWrap{height:70px; position:static; background-color:green;}
+			#header{width:100%; height:100%;}
+				h1{width:30%;/*100px*/top:10px;}
+			#gnb, #infoMenu, #joinBtn{display:none;}
+			.gotoTop{width:30px; height:30px; transform:rotate(-90deg); position:fixed; right:30px; bottom:50px; display:block;}
+			#sideMenu{display:block;}
+
+		/*################ sideMenu ##############*/
+		#sideMenu{position:absolute; top:0; right:0; z-index:1; overflow:hidden;}
+		
+			#sideMenuBtn{width:100%; height:70px;}
+				#sideMenuBtn a{display:block; width:50px; height:45px; padding-top:25px; font-size:36px; line-height:12px; float:right;}
+					#sideMenuBtn a span{display:block; height:2px; width:30px; background-color:#333; margin-bottom:-4px; transition:all 0.7s ease-out; }
+		
+			#sideMenu nav{width:300px; height:600px; background-color:rgba(20,20,20,0.9); color:#fff; padding-left:10px; padding-right:10px;}
+
+				
+				#sideSearch{width:320px; height:30px;}
+				#sideSearch{padding:10px 0;}
+				#sideSearch fieldset{border:none;}
+				#sideSearch legend{display:none;}
+				#sideSearch #search{width:260px; height:30px; border:none; text-indent:10px;}
+				#sideSearch .searchBtn{display:inline-block; width:16px; height:16px; vertical-align:middle; margin-left:4px;}
+					#sideSearch .searchBtn a{display:inline-block; width:100%; height:100%;}
+						#sideSearch .searchBtn a img{width:100%; border:none;}
+
+				#sideGnb{width:100%; height:150px;  border-bottom:1px solid #f4f4f4;}
+					#sideGnb li{width:300px; height:50px; line-height:50px; text-align:right; padding-right:20px; }
+						#sideGnb li a{font-size:18px; color:#fff;}
+
+				#sideInfomenu{width:100%; height:150px; border:1px}
+					#sideInfomenu li{width:300px; height:50px; line-height:50px; text-align:right; padding-right:20px;}
+						#sideInfomenu li a{font-size:18px; color:#fff;}
+			/*기*/
+			/*능*/
+			#sideMenu:hover #sideMenuBtn{background-color:rgba(20,20,20,0.9);}
+			#sideMenu:hover #sideMenuBtn span{background-color:#fff;}
+			#sideMenu:hover nav{display:block;}
+			#sideMenu:hover .middleBar{transform:rotate(45deg);}
+			#sideMenu:hover .topBar{transform:rotate(-45deg) translate(-7px,7px);}
+			#sideMenu:hover .bottomBar{transform:rotate(-45deg) translate(7px,-7px);}
+		
+
+		
+		/*############ visual #########*/
+			/* 스크롤 유도 마우스 없애기 */
+			#container .mouse{display:none;}
+
+		
+
+		
+		/*########### header of section #######*/
+			#container .head{height:125px;}
+			#container h3{height:40px; font-size:22px; padding:50px 0 35px; letter-spacing:2px;}
+			#container .arrowR{height:40px; padding:55px 0 30px; font-size:9px;}
+				#container .arrowR img{vertical-align:middle;}
+		
+		
+		/*############ gallery ##########*/
+			#gallery{width:100%; height:2100px;}
+			#gallery ul{height:1920px;}
+				#gallery li{float:none; margin:0 auto 30px;}
+				#gallery li:last-child{margin:0 auto;}
+				#gallery li .img a strong{font-size:18px;}
+				#gallery li .desc{font-size:14px;}
+
+		
+		/*########### EXHIBITIONS & EVENTS ##########*/
+			#exhWrap{height:900px;}
+				#exh{width:95%; height:900px;}
+					#exh h3{width:58%; padding-left:20%;}
+					#exh .arrowR{width:22%;}
+					
+					#exh .img a img{height:100%;}
+					#exh li .text{padding:2%; font-size:13px;}
+					/*#######왼쪽#########*/
+					.exhLeft{width:100%; height:370px; float:none; margin-right:0;}
+						.exh0{height:212px; margin-bottom:20px;}
+							.exh0 .img{width:160px; height:100%; }
+							.exh0 .text{height:65%;}
+
+						.exh1{height:118px;}
+							.exh1 .img{width:118px; height:100%;}
+							.exh1 .text{height:80%;}
+					/*#######오른쪽#######*/
+					.exhRight{width:100%; height:370px; float:none;}
+						.exh2{height:138px; margin-bottom:20px;}
+						.exh2 .img{width:159px; height:100%;}
+							.exh2 .text{height:86%;}
+						.exh3{height:160px;}
+							.exh3 .img{width:160px; height:100%;}
+							.exh3 .text{height:60%;}
+	
+
+		/*########### ART IN THE COLLECTION##########*/
+			#collectWrap{height:700px;}
+				#collect{width:95%; height:680px; margin:0 auto;}
+					#collect h3{width:52%; padding-left:24%;}
+					#collect .arrowR{width:24%;}
+
+					/*######## text ######## */
+					#collect li .text{width:92%; height:200px; line-height:22px; padding:3%; left:0px; top:280px;}
+					#collect li .text .title{font-size:11px;}
+					#collect li .text .title a .large{font-size:14px;}
+					#collect li .text .desc{font-size:11px;}
+					/*######## img ######## */
+					#collect li .img{width:100%; height:238px; left:0; top:10px;}
+
+					/*######## slide ######## */
+					.slideDot{display:none;}
+					/*######## slideArrow ######## */
+					.slideArrow{display:block; color:orange; font-size:60px;}
+						.slideArrow span{position:absolute; color:#803279;}
+							.slideArrow span a{color:#803279}
+							.slideArrow .leftArrow{left:0; top:18%;}
+							.slideArrow .rightArrow{right:0; top:18%;}
+
+
+		/*############## container : SUPPORT TATE #############*/
+			#support{height:400px; background-attachment:scroll;}
+				.supportText{width:100%; height:300px;}
+				/*scroll|fixed|local|initial|inherit;*/
+				.supportText .desc{width:80%; height:230px; padding:0 10%;}
+					.supportText .desc .text{margin:0 0 40px;  font-size:14px;}
+
+				
+		
+		/*############## container : SHOP #############*/
+			#shop{width:100%; height:1700px; }
+				#shop h3{width:56%; padding-left:20%;}
+				#shop .arrowR{width:24%; }
+
+				#shop ul{width:280px; height:100%; margin:0 auto;}
+					#shop li{height:380px; float:none; margin:0 auto 10px;}
+					#shop li:last-child{margin:0 auto;}
+
+
+
+		/*################## footer #################*/
+			#footerWrap{height:640px;}
+				#footer1Wrap{height:580px;}
+					#footer1{width:100%; height:100%;}
+				/* 공통스타일 footer1Left == about + support */
+				.footer1Left{width:45%; height:260px; float:left; padding-left:5%;}
+				.join{width:90%; height:160px; padding:0 5%;}
+				.stay{width:90%; height:160px; padding:0 5%;}
+
+				#footer2{width:90%; padding:0 5%;}
+					.footerLogo{width:15%;}
+					.footerLink{width:85%;}
+						.footerLink ul{line-height:22px;}
+							.footerLink li{margin-left:0;}
+								.footerLink li a{font-size:9px;}
+								.footerLink li .bar{padding-left:0px;}
+	}
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<header id="headerWrap">
+			
+			<div id="header">
+				<!-----------------   h1    --------------->
+				<h1>
+					<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+						<img src="img/header/logo.png" alt="Tate logo"/>
+					</a>
+				</h1>
+
+				<!----------------   gnb    ---------------->
+				<h2 class="outline">Main menu</h2>
+				<nav id="gnb">
+					<ul>		
+						<li class="art">					
+							<h3 class="outline">ART&amp;ARTISTS</h3>
+							<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+						</li>
+						<li class="exh">
+							
+							<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+							<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+						</li>
+						<li class="plan">
+						
+							<h3 class="outline">PLAN YOUR VISIT</h3>
+							<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+						</li>
+					</ul>
+				</nav>
+
+				<!------------   infoMenu    --------------->
+				<h2 class="outline">Personal &amp; Search menu</h2>
+				<nav id="infoMenu">
+					<ul>
+						<li>
+							<h3 class="outline">Login</h3>
+							<a href="login.html" title="Login">
+								<img src="img/header/login.png" alt="login icon"/> Login
+							</a>
+						</li>
+						<li>
+							<h3 class="outline">Search</h3>
+							<a href="#" title="Search">
+								<img src="img/header/search.png" alt="search icon"/> Search
+							</a>
+						</li>
+					</ul>
+				</nav>
+				
+				<!---------------  joinBtn    --------------->
+				<h3 class="outline">Become a memeber</h3>				
+				<div id="joinBtn">
+					<p>
+						<a href="signup.html" title="become a member">
+							BECOME A MEMBER
+							<span class="pass"></span>
+						</a>
+					</p>
+				</div>
+
+				<!---------------  sideBtn    --------------->
+				<div id="sideMenu">
+					<div id="sideMenuBtn">
+						<a href="#none" title="sideMenu">
+							<span class="topBar"></span><br/>
+							<span class="middleBar"></span><br/>
+							<span class="bottomBar"></span>
+						</a>
+					</div>
+					<nav>			
+						<form id="sideSearch"action="#none" method="post">
+							<fieldset>
+								<legend>Search</legend>
+								<input id="search" type="text" name="search" title="search" placeholder="search" autocomplete="off"/>
+								<p class="searchBtn">
+									<a href="#none" title="Search">
+										<img src="img/header/search_white.png" alt="search icon"/>
+									</a>
+								</p>
+							</fieldset>
+						</form>
+						<ul id="sideGnb">		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<ul id="sideInfomenu">
+							<li class="Login">					
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="login">Login</a>
+							</li>
+							<li class="become a member">					
+								<h3 class="outline">Become a member</h3>
+								<a href="signup.html" title="become a member">Become a member</a>
+							</li>
+						</ul>
+					</nav>
+
+			</div>
+		</header>
+
+		<div id="container">
+
+			<!--------------    visual    -------------------->
+			<section id="visual">
+				<h3 class="outline">Visual video</h3>
+				<p class="intro">
+					<video autoplay poster="img/index/poster.png">
+						<source src="img/index/visual.mp4" type="video/mp4"/>
+					</video>
+				</p>
+				<span class="mouse">
+					<img src="img/index/mouse.png" alt="mouse icon"/>
+					scroll down
+				</span>
+			</section>
+
+
+			<!-----------------    gallery    ----------------->
+			<section id="gallery">
+				<div class="head">
+					<h3>THE GALLERIES</h3>
+				</div>
+				<ul>
+					<li class="g0">
+						<p class="img">
+							<a href="#" title="go to tate britain">
+								<img src="img/index/tb.jpg" alt="tate britain image"/>									
+								<strong>TATE BRITAIN</strong>
+							</a>
+						</p>
+						<p class="desc">
+							The home of British art from 1500<br/>to the present day<br/><br/><br/><br/><br/>
+							Free entry<br/>
+							Open today 10:00–18:00
+						</p>
+					</li>
+					<li class="g1">
+						<p class="img">								
+							<a href="#" title="go to tate modern">
+								<img src="img/index/tm.jpg" alt="tate modern image"/>
+								<strong>TATE MODERN</strong>
+							</a>
+						</p>
+						<p class="desc">
+							International modern and<br/>contemporary art<br/><br/>
+							Finalist for Art Fund Museum of the<br/>Year 2017<br/><br/>
+							Free entry<br/>
+							Open today 10:00–18:00
+						</p>
+					</li>
+					<li class="g2">
+						<p class="img">								
+							<a href="#" title="go to tate liverpool">
+								<img src="img/index/tl.jpg" alt="tate liverpool image"/>
+								<strong>TATE RIVERPOOL</strong>
+							</a>
+						</p>
+						<p class="desc">
+							British and international modern and contemporary art<br/><br/><br/><br/><br/>
+							Free entry<br/>
+							Open today 10:00–17:00
+						</p>
+					</li>
+					<li class="g3">
+						<p class="img">								
+							<a href="#" title="go to tate liverpool">
+								<img src="img/index/tsi.jpg" alt="tate ist ives image"/>
+								<strong>TATE RIVERPOOL</strong>
+							</a>
+						</p>
+						<p class="desc">
+							Visit the iconic Tate St Ives gallery, situated overlooking the Atlantic<br/>Ocean<br/><br/><br/><br/><br/>
+							Open today 10:00–16:20
+						</p>
+					</li>
+				</ul>
+			</section>
+
+
+
+			<!-------------------    exh    ------------------->
+			<section id="exhWrap">
+				<div id="exh">
+					<div class="head">
+						<h3>EXHIBITIONS &amp; EVENTS</h3>
+						<p class="arrowR">
+							<a href="#" title="find out what's on">
+								Find out<br/>what's on
+								<img src="img/index/arrow_right.png" alt="arrow right"/>
+							</a>
+						</p>
+					</div>
+					<ul class="exhLeft">
+						<li class="exh0">
+							<p class="img">
+								<a href="#" title="go to description about this exhibition">
+									<img src="img/index/exh0.jpg" alt="EXHIBITIONS n EVENTS image1"/>
+								</a>
+							</p>
+							<p class="text">
+								<span class="infoDesc">
+									TATE MODERN<br/>
+									EXHIBITION<br/><br/>
+									Until 28 Jan 2018<br/><br/>
+								</span>
+								<a href="#" title="go to description about this exhibition">
+									<strong>ILYA AND EMILIA KABAKOV
+									NOT EVERYONE WILL BE TAKEN INTO THE FUTURE</strong>
+									<span class="border"></span>
+								</a>
+								
+							</p>
+						</li>
+						<li class="exh1">
+							<p class="text">
+								<span class="infoDesc">
+									TATE LIVERPOOL<br/>
+									EXHIBITION<br/><br/>
+									Until 18 Jan 2018<br/><br/>
+								</span>
+								<a href="#" title="go to description about this exhibition">
+									<strong>JOHN PIPER</strong>
+									<span class="border"></span>
+								</a>				
+							</p>
+							<p class="img">
+								<a href="#" title="go to description about this exhibition">
+									<img src="img/index/exh1.jpg" alt="EXHIBITIONS n EVENTS image2"/>
+								</a>
+							</p>
+						</li>
+					</ul>
+					<ul class="exhRight">
+						<li class="exh2">	
+							<p class="text">
+								<span class="infoDesc">
+									TATE BRITAIN<br/>
+									EXHIBITION<br/><br/>
+									Until 7 MAY 2018<br/><br/>
+								</span>
+								<a href="#" title="go to description about this exhibition">
+									<strong>THE EY EXHIBITION<br/>IMPRESSIONISTS<br/>IN LONDON</strong>
+									<span class="border"></span>
+								</a>						
+							</p>
+							<p class="img">
+								<a href="#" title="go to description about this exhibition">
+									<img src="img/index/exh2.jpg" alt="EXHIBITIONS n EVENTS image3"/>
+								</a>
+							</p>
+						</li>
+						<li class="exh3">
+							<p class="img">
+								<a href="#" title="go to description about this exhibition">
+									<img src="img/index/exh3.jpg" alt="EXHIBITIONS n EVENTS image3"/>
+								</a>
+							</p>
+							<p class="text">
+								<span class="infoDesc">
+									TATE MODERN<br/>
+									EXHIBITION<br/><br/>
+									Until 2 April 2018<br/><br/>
+								</span>
+								<a href="#" title="go to description about this exhibition">
+									<strong>MODIGLIANI</strong>
+									<span class="border"></span>
+								</a>								
+							</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+
+			<!----------------    collect    ------------------>
+			<section id="collectWrap">
+				<div id="collect">
+					<div class="head">
+						<h3>ART IN THE COLLECTION</h3>
+						<p class="arrowR">
+							<a href="#" title="Enjoy more art in Tate's collection">
+								Enjoy more art<br/>in Tate's collection
+								<img src="img/index/arrow_right.png" alt="arrow_right"/>
+							</a>
+						</p>
+					</div>
+					<ul>
+						<li>
+							<div class="text">
+								<p class="title">								
+									<a href="#" title="see about DAVID HOCKNEY ">David Hockney ▷</a><br/>
+									<a href="#" title="see about this artwork"><span class="large">Christopher Isherwood and Don Bachardy</span>▷</a><br/>
+									Private Collection &copy; David Hockney<br/><br/><br/>
+								</p>
+								<p class="desc">
+									One of the most popular and influential<br/>British artists of the twentieth century<br/>returns to Tate Britain for his most<br/>comprehensive exhibition yet
+								</p>
+							</div>
+							<div class="img">
+								<a href="#" title="see about this artwork">
+									<img src="img/index/david_hockey.jpg" alt="david hockney artwork"/>
+								</a>
+							</div>
+							<p class="slideDot">
+								<span>●</span><br/>
+								<span>●</span><br/>
+								<span>●</span><br/>
+								<span>●</span><br/>
+								<span>●</span>
+							</p>
+							<p class="slideArrow">
+								<span class="leftArrow"><a href="#none" title="before">&lt;</a></span>
+								<span class="rightArrow"><a href="#none" title="next">&gt;</a></span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+
+			<!-----------------    support    ----------------->
+			<section id="support">
+				<div class="supportText">
+					<div class="head">
+						<h3>SUPPORT TATE</h3>
+					</div>
+					<div class="desc">
+						<p class="text">
+							Help us keep our permanent collections free for everyone to enjoy
+						</p>
+						<div class="supportBtn">
+							<a href="#none" title="Support Tate">
+								Support Tate
+								<span class="pass"></span>
+							</a>									
+						</div>
+					</div>
+				</div>
+			</section>
+
+			
+			<!-----------------    shop    -------------------->
+			<section id="shop">
+				<div class="head">
+					<h3>SHOP</h3>
+					<p class="arrowR">
+						<a href="#" title="shop now">
+							Shop now
+							<img src="img/index/arrow_right.png" alt="arrow_right"/>
+						</a>
+					</p>
+				</div>
+				<ul>
+					<li>
+						<a href="#none" title="Impressionists in London (paperback)">
+							<div class="img">		
+								<img src="img/index/shop0.jpg" alt="shop item1"/>
+							</div>
+							<div class="text">
+								<p class="name">
+									<strong>Impressionists in London <br/>(paperback)</strong>
+								</p>
+								<p  class="price">
+									<strong>£25</strong>
+								</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#none" title="Tate RCA Christmas Card Yiyu Lam – A Very Spoiled Christmas (Pack of 6)">
+							<div class="img">
+								<img src="img/index/shop1.jpg" alt="shop item2"/>
+							</div>
+							<div class="text">
+								<p class="name">									
+									<strong>Tate RCA Christmas Card Yiyu Lam – A Very Spoiled Christmas (Pack of 6)</strong>
+								</p>
+								<p class="price">
+									<strong>£5</strong>
+								</p>									
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#none" title="Ally Capellino Navy Apron">
+							<div class="img">
+								<img src="img/index/shop2.jpg" alt="shop item3"/>
+							</div>
+							<div class="text">
+								<p class="name">
+									<strong>Ally Capellino Navy Apron</strong>
+								</p>
+								<p class="price">
+									<strong>£7.5</strong>
+								</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#none" title="Kusama Lucie Kaas Doll">
+							<div class="img">									
+								<img src="img/index/shop3.jpg" alt="shop item3"/>
+							</div>
+							<div class="text">
+								<p class="name">
+									<strong>Kusama Lucie Kaas Doll</strong>
+								</p>
+								<p class="price">
+									<strong>£35</strong>
+								</p>									
+							</div>
+						</a>
+					</li>
+				</ul>
+			</section>
+
+			
+
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+				<h2 class="outline">Footer</h2>
+				<div id="footer1Wrap">
+					<div id="footer1">
+						<div class="about footer1Left">
+							<h3>ABOUT</h3>
+							<ul>
+								<li><a href="#" title="About us">About us</a></li>
+								<li><a href="#" title="Our collection">Our collection</a></li>
+								<li><a href="#" title="Terms and copyright">Terms and copyright</a></li>
+								<li><a href="#" title="Governance">Governance</a></li>
+								<li><a href="#" title="Picture library">Picture library</a></li>
+								<li><a href="#" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+							</ul>
+						</div>
+						<div class="support footer1Left">
+							<h3>SUPPORT</h3>
+							<ul>
+								<li><a href="#" title="Members">Members</a></li>
+								<li><a href="#" title="Patrons">Patronsn</a></li>
+								<li><a href="#" title="Donate">Donate</a></li>
+								<li><a href="#" title="Corporate">Corporate</a></li>
+							</ul>
+						</div>
+						<div class="join">
+							<h3>JOIN IN</h3>
+							<ul>
+								<li>
+									<a href="https://twitter.com/tate" title="twitter for Tate">
+										<img src="img/footer/twt.png" alt="twitter_icon"/>
+									</a>
+								</li>
+								<li>
+									<a href="#" title="facebook for Tate">
+										<img src="img/footer/facebook.png" alt="facebook icon"/>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.facebook.com/tategallery" title="youbute for Tate">
+										<img src="img/footer/youtube.png" alt="youbute icon"/>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.youtube.com/user/tate" title="instatram for Tate">
+										<img src="img/footer/instagram.png" alt="instagram icon"/>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.instagram.com/tate/" title="pinterest for Tate">
+										<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+									</a>
+								</li>
+								<li>
+									<a href="http://tatecollectives.tumblr.com/" title="instatram for Tate">
+										<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="stay">
+							<h3>STAY IN THE KNOW</h3>
+							<div class="emailBox">
+								<form action="#none" method="post">
+									<fieldset>
+										<legend>submit your email address for subscribe</legend>
+										<label for="email">Email</label>
+										<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+										<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="footer2Wrap">
+					<div id="footer2">
+						<div class="footerLogo">
+							<p>
+								<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+									<img src="img/header/logo.png" alt="tate logo"/>
+								</a>
+							</p>
+						</div>
+						<div class="footerLink">
+							<h3 class="outline">contact</h3>
+							<ul>							
+								<li><a href="#" title="Press">Press </a><span class="bar">|</span></li>				
+								<li><a href="#" title="Jobs">Jobs</a><span class="bar">|</span></li>
+								<li><a href="#" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li>
+								<li><a href="#" title="Contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		
+	</div>
+ </body>
+</html>

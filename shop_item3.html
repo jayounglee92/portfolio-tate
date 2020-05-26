@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title> Kusama Lucie Kaas Doll | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+
+   <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+   <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*######################## container + shopHeader ####################*/
+		#container{width:100%;}
+			#shopHeaderWrap{width:100%; padding:120px 0 40px; background-color:#f4f4f4;}
+			#shopHeader{width:1280px; margin:0 auto; text-align:center; padding:50px 0;  background-color:#fff;}
+			#shopHeader:after{content:""; display:block; clear:both;}
+				.itemPics{width:600px; margin-right:80px; float:left;}
+					.mainPic{height:400px;}
+						.mainPic img{height:100%;}
+				.itemPics ul{width:300px; margin:0 auto;}
+					.itemPics ul:after{content:""; display:block; clear:both;}
+						.itemPics ul li{width:100px; height:100px; float:left; position:relative;}
+							.itemPics ul li img{height:100%;}
+							.itemPics ul li a{display:block; width:100%; height:100%; position:absolute; left:0; top:0; background-color:rgba(20,20,20,0.2); transition:all 0.3s;}
+							.itemPics ul li a.covered{background-color:rgba(20,20,20,0);}
+
+				.itemDetail{width:600px; float:left; text-align:left; } 
+					.itemDetail h2{font-size:30px; padding:30px 0 20px;}
+					.itemDetail p{font-size:15px; padding-bottom:20px;}
+					.itemDetail #price{font-size:22px; font-weight:bold; border:none; width:30px;}
+					.itemDetail label[for="quantity"]{font-size:15px; display:block; margin-bottom:10px;}
+					.itemDetail .qtyBtn{display:inline-block; width:40px; height:40px; font-size:30px; outline:1px solid #ccc; vertical-align:bottom; text-align:center;}
+					.itemDetail #quantity{width:40px; height:37px; font-size:20px; text-align:center;}
+					.itemDetail #basket{width:135px; height:40px; font-size:15px; border:none; background-color:rgba(20,20,20,0.1);}
+					input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance: none; margin:0;}
+					.itemDetail label[for="total"]{font-size:20px; display:block; font-weight:bold; margin-bottom:10px;	}
+					.itemDetail #total{width:104px; height:36px; font-size:17px; text-indent:10px; margin-left:10px; vertical-align:middle;}
+					.itemDetail p .pound{font-size:26px;}
+
+				.itemPics ul li a:hover, .itemPics ul li a:focus{background-color:rgba(20,20,20,0);}
+				.itemDetail #basket:hover, .itemDetail #basket:focus{background-color:rgba(20,20,20,0.2);}
+				.itemDetail .qtyBtn:hover, .itemDetail .qtyBtn:focus{background-color:rgba(20,20,20,0.1); text-decoration:none;}
+	
+	
+	/*######################## shopInfo ####################*/
+		#shopInfoWrap{width:100%;  border-top:1px dotted #ccc;  border-bottom:1px dotted #ccc; padding:5px 0;}
+			#shopInfo{width:1025px; margin:0 auto;}
+			#shopInfo:after{content:""; display:block; clear:both;}
+				#shopInfo div{width:346px; float:left;}
+				#shopInfo div:after{content:""; display:block; clear:both;}
+				#shopInfo div:first-child{float:left;}
+				#shopInfo div:last-child{float:right;}
+					.infoIcon{width:46px; height:46px; float:left;}
+						.infoIcon img{width:100%;}
+					.infoText{width:300px; height:46px; float:left; line-height:46px; text-indent:10px;}
+	
+	
+	/*######################## tabArea ####################*/	
+		#shopContent{width:1025px; margin:0 auto;}
+			.tabArea{width:100%; overflow:hidden;}
+				.tab{width:100%; height:50px; border-bottom:1px solid #ccc;}
+				.tab:after{content:""; display:block; clear:both;}
+					.tab li{width:140px; height:50px; float:left; border-left:1px solid #ccc;}
+						.tab li a{display:block; width:100%; height:50px; font-size:20px; text-align:center; border-top:6px solid rgba(97,46,110,0); line-height:45px;}
+						.tab li:last-child{border-right:1px solid #ccc;}
+						.tab li a.selected{border-top:6px solid rgba(97,46,110,1);}
+
+			.panel{width:100%; overflow:hidden; line-height:25px; font-size:15px;}
+				.panel li{width:100%; overflow:hidden;}
+					#panel0{padding:40px 0;}
+						#panel0 p{margin-bottom:20px;}
+					#panel1{padding:60px 0;}
+						#panel1 dl{width:600px; height:40px; overflow:hidden; border-bottom:1px solid #ccc; line-height:40px; margin:0 auto;}
+						#panel1 dl:after{content:""; display:block; clear:both;}
+						#panel1 dl:first-child{border-top:1px solid #ccc;}
+							#panel1 dl dt{width:30%; float:left; background-color:#f4f4f4; text-indent:10px;}
+							#panel1 dl dd{width:70%; float:left; text-indent:10px;}
+					
+
+		/*기*/
+		/*능*/
+		.tab li a:hover, .tab li a:focus{text-decoration:none;}
+
+
+	/*######################## deliveryWrap ####################*/	
+		#deliveryWrap{width:100%; padding:80px 0 120px;   border-top:1px dotted #ccc;}
+			.deliveryArea{width:1025px; margin:0 auto; font-size:15px;}
+				.deliveryArea h3{font-size:32px; text-align:center; padding-bottom:20px; letter-spacing:4px;}
+					.deliveryArea ul{width:100%;}
+						.deliveryArea ul li{width:100%;}
+							.deliveryArea ul li h4{font-size:18px; font-weight:bold; padding:40px 0 10px;}
+
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+			
+			/*######################## container + shopHeader ####################*/
+				#shopHeader{width:90%;}
+					.itemPics{width:55%; margin-right:0;}
+						.mainPic{height:300px;}
+					.itemDetail{width:45%;} 
+
+
+			/*######################## shopInfo ####################*/
+					#shopInfo{width:700px;}
+
+
+			/*######################## tabArea ####################*/	
+				#shopContent{width:100%;}
+					.tabArea{width:100%;}
+						.panel li{width:90%; margin:0 auto;}
+
+
+			/*######################## deliveryWrap ####################*/	
+				.deliveryArea{width:90%;}
+
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			
+			/*######################## container + shopHeader ####################*/
+				#shopHeaderWrap{padding:30px 0 40px;}
+				#shopHeader{width:90%; padding:30px 0;}
+					.itemPics{width:55%; margin-right:0; float:left;}
+						.mainPic{height:220px;}
+					.itemPics ul{width:180px; margin:0 auto;}
+						.itemPics ul li{width:60px; height:60px;}
+
+					.itemDetail{width:45%;} 
+						.itemDetail h2{font-size:24px; padding:0 10px 10px 0;}
+						.itemDetail p{font-size:13px; padding-bottom:10px;}
+						.itemDetail #price{font-size:20px;}
+						.itemDetail label[for="quantity"]{font-size:14px;}
+						.itemDetail label[for="total"]{font-size:20px;}
+						.itemDetail p .pound{font-size:20px;}
+
+								
+
+			/*######################## shopInfo ####################*/
+				#shopInfo{width:100%;}
+					#shopInfo div{width:286px; margin:0 auto; float:none; font-size:12px;}
+					#shopInfo div:first-child{float:none;}
+					#shopInfo div:last-child{float:none;}
+						.infoText{width:240px;}
+
+			
+		
+			/*######################## tabArea ####################*/	
+				#shopContent{width:100%;}
+					.tabArea{width:100%;}
+						.tab li{width:120px;}
+							.tab li a{font-size:16px;}
+								
+					.panel{line-height:17px; font-size:11px;}
+						.panel li{width:90%; margin:0 auto;}
+							#panel0{padding:20px 0;}
+							#panel1{padding:40px 0;}
+								#panel1 dl{width:400px; height:30px; line-height:30px;}
+
+
+
+			/*######################## deliveryWrap ####################*/	
+				#deliveryWrap{padding:40px 0 60px;}
+					.deliveryArea{width:90%; font-size:11px;}
+						.deliveryArea h3{font-size:20px; padding-bottom:10px; letter-spacing:3px;}
+							.deliveryArea ul li{width:100%;}
+								.deliveryArea ul li h4{font-size:14px; padding:30px 0 10px;}
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*######################## container + shopHeader ####################*/
+				#shopHeaderWrap{padding:30px 0 40px;}
+					#shopHeader{width:90%; text-align:center; padding:20px 0;}
+						.itemPics{width:100%;}
+							.mainPic{height:240px;}
+						.itemPics ul{width:150px; margin:0 auto;}
+								.itemPics ul li{width:50px; height:50px;}
+									.itemPics ul li img{height:100%;}
+
+						.itemDetail{width:100%; text-align:center; } 
+							.itemDetail h2{font-size:22px; padding:20px 0 10px;}
+							.itemDetail p{font-size:12px; padding-bottom:10px;}
+							.itemDetail #price{font-size:18px;}
+							.itemDetail label[for="quantity"]{font-size:13px;}
+							.itemDetail label[for="total"]{font-size:18px;}
+							.itemDetail #total{font-size:16px; margin-left:4px;}
+							.itemDetail p .pound{font-size:20px;}
+
+								
+
+			/*######################## shopInfo ####################*/
+				#shopInfo{width:90%;}
+					#shopInfo div{width:300px; margin:0 auto; font-size:13px;}
+					#shopInfo div:first-child{float:none;}
+					#shopInfo div:last-child{float:none;}
+						.infoText{width:254px;}
+
+
+			/*######################## tabArea ####################*/	
+				#shopContent{width:100%;}
+					.tab li{width:130px;}
+						.tab li a{font-size:17px;}
+					.panel{width:90%; margin:0 auto; line-height:17px; font-size:13px;}
+						#panel0{padding:20px 0;}
+						#panel1{padding:60px 0;}
+							#panel1 dl{width:300px; font-size:12px;}
+								#panel1 dl dt{ text-indent:5px;}
+									
+		
+			/*######################## deliveryWrap ####################*/	
+				#deliveryWrap{padding:60px 0 80px;}
+					.deliveryArea{width:90%; font-size:12px;}
+						.deliveryArea h3{font-size:22px; letter-spacing:3px;}
+							.deliveryArea ul li h4{font-size:15px; padding:30px 0 10px;}
+
+		}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+		
+		/*################### shopContent Tap #####################*/
+			$(".panel li:not(:first)").hide();
+					
+				$(".tab li a").on("click focusin",function(){
+					$(".panel li").hide();
+					
+					$($(this).attr("href")).show();
+					$(".tab li a").removeClass();
+					$(this).addClass("selected");
+					
+				});
+		
+	
+	
+		/*################### shop image change #####################*/
+			$(".itemPics ul li:eq(0) a").click(function(){
+				$(".mainPic").children("img").attr({"src":"img/sub_shop/item30.jpg"});
+			});
+			$(".itemPics ul li:eq(1) a").click(function(){
+				$(".mainPic").children("img").attr({"src":"img/sub_shop/item31.jpg"});
+			});
+			$(".itemPics ul li:eq(2) a").click(function(){
+				$(".mainPic").children("img").attr({"src":"img/sub_shop/item32.jpg"});
+			});
+
+
+			$(".itemPics ul li a").click(function(){	
+				$(".itemPics ul li a").removeClass("covered");
+				$(this).addClass("covered");
+			});
+
+
+		/*####################  out of servive #################*/
+		$("#basket").click(function(){
+			alert("Sorry, this service is being prepared");
+		});
+	});
+	/*################### calculate #####################*/	
+		function qtyPlus(){
+			var qty = document.getElementById("quantity");
+			var price = document.getElementById("price");
+			var total = document.getElementById("total");
+
+			if(qty.value < 20){
+				qty.value = parseFloat(qty.value) + 1;
+				
+			}else{
+				alert("This item is not enough in stock");
+			}
+			
+			total.value = qty.value * price.value;
+
+		}
+
+		function qtyMinus(){
+			var qty = document.getElementById("quantity");
+			var price = document.getElementById("price");
+			var total = document.getElementById("total");
+
+			if(qty.value < 2){
+				qty.value = 1;
+			}else{
+				qty.value = parseFloat(qty.value) - 1;
+			}
+			total.value = qty.value * price.value;
+		}
+
+  </script>
+
+
+ </head>
+
+ <body>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)"  autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<form id="sideSearchForm" action="#none" method="post">
+								<fieldset>
+									<legend>Search</legend>
+									<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+									<p class="searchBtn" onclick="sideSearching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search_white.png" alt="search icon"/>
+										</a>
+									</p>
+								</fieldset>
+							</form>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<section id="shopHeaderWrap">
+				<div id="shopHeader">
+					<div class="itemPics">
+						<p class="mainPic"><img src="img/sub_shop/item30.jpg" alt="Kusama Lucie Kaas Doll"/></p>
+						<ul>
+							<li>						
+								<img src="img/sub_shop/item30.jpg" alt="Kusama Lucie Kaas Doll image1"/>
+								<a class="covered" href="#none" title="item sample image0"></a>
+							</li>
+							<li>
+								<img src="img/sub_shop/item31.jpg" alt="Kusama Lucie Kaas Doll image2"/>
+								<a href="#none" title="item sample image1"></a>
+							</li>
+							<li>
+								<img src="img/sub_shop/item32.jpg" alt="Kusama Lucie Kaas Doll image3"/>
+								<a href="#none" title="item sample image1"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="itemDetail">
+						<h2>Kusama Lucie Kaas Doll</h2>
+						<p class="bysomeone">By Sketch.inc for Lucie Kaas</p>
+						<p><span class="pound">£</span><input id="price" type="text" name="price" value="35" title="price" readonly/></p>
+						<form action="#none" method="get">
+							<label for="quantity">Quantity</label>
+							<p>
+							<a class="qtyBtn minus" href="#none" title="minus" onclick="qtyMinus();">-</a>
+							<input id="quantity" type="number" name="quantity" value="1" min="1"/>
+							<a class="qtyBtn plus" href="#none" title="plus" onclick="qtyPlus();">+</a>	
+							</p>
+							<p>
+								<input id="basket" type="button" name="add" value="Add to basket" title="Add to basket button"/>
+							</p>
+							<p>
+								<label for="total">Total</label>
+								<span class="pound">£</span><input id="total" type="text" name="total" placeholder="total price" readonly/>
+							</p>
+						</form>
+					</div>
+				</div>
+			</section>
+	
+			<div id="shopInfoWrap">
+				<div id="shopInfo">
+					<div>
+						<p class="infoIcon"><img src="img/sub_shop/delivery.svg" alt="delivery image"/></p>
+						<p class="infoText">Free UK delivery on orders over £50</p>
+					</div>
+					<div>
+						<p class="infoIcon"><img src="img/sub_shop/open-book.svg" alt="open-book image"/></p>
+						<p class="infoText"> Sign up &amp; get 10% off shop products</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="shopContent">
+				<div class="tabArea">
+					<ul class="tab">
+						<li>
+							<a class="selected" href="#panel0" title="Description"><strong>Description</strong></a>
+						</li>
+						<li>
+							<a href="#panel1" title="Item details"><strong>Item details</strong></a>
+						</li>
+					</ul>
+					<ul class="panel">
+						<li id="panel0">
+							<p>A modern take on traditional wooden Japanese Kokeshi dolls, reimagined as famous artists. Customarily given as symbols of friendship these playful Kokeshi dolls are the ideal gift for any art lover, ensuring they are always in prestigious artistic company! </p>
+							<p>The range includes Frida Kahlo, Salvador Dalí and Yayoi Kusama.</p>
+
+						</li>
+						<li id="panel1">
+							<dl>
+								<dt>DIMENSIONS</dt>
+								<dd>14.5 cm</dd>
+							</dl>
+							<dl>
+								<dt>MATERIAL</dt>
+								<dd>Schima superba wood</dd>
+							</dl>
+							<dl>
+								<dt>DESIGNER</dt>
+								<dd>Becky Kemp</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<section id="deliveryWrap">
+				<div class="deliveryArea">
+					<h3>DELIVERY & RETURNS</h3>
+					<ul>
+						<li>
+							<h4>Delivery times</h4>
+							<p>We aim to deliver shop products within:</p>
+							<p>UK – 3-5 working days</p>
+							<p>Europe – 5-7 working days</p>
+							<p>Rest of world – 7-10 working days</p>
+						</li>
+						<li>
+							<h4>Delivery costs</h4>
+							<p>We currently offer free standard delivery on <b>UK orders over £50</b>. Please note that this is offer is valid only online. Our other delivery costs are as follows.</p>
+							<p>For orders under £50:</p>
+							<p>UK – £3.60 per order</p>
+							<p>Europe – £12 per order</p>
+							<p>Rest of world – £28 per order</p>
+							<p>Here’s more information <a href="preparing.html" title="on delivery">on delivery.</a></p>
+						</li>
+						<li>
+							<h4>Refunds & returns</h4>
+							<p>Please contact our customer service team within 30 days if you need to return anything from your order. We will be happy to offer you a full refund, replacement or exchange on any items excluding custom prints and pierced earrings.</p><br/>
+							<p>Unfortunately, after 14 working days we cannot refund any delivery charges or cover the cost of returning the item. You can contact our customer service team by email at: shop.online@tate.org.uk or by phone on +44 (0)20 7887 8888 (Monday – Friday, 9.00–17.30).</p><br/>
+							<p>Here’s more information on <a href="preparing.html" title="refunds &amp; returns">refunds &amp; returns.</a></p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+  <title> Plan your visit | Tate</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="http://maps.google.com/maps/api/js"></script>
+  <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW8FqY08cNtGnfEpZEsLEp0HG3cvGZNmw&callback=initMap"
+  type="text/javascript"></script>-->
+  <script src="js/gmaps.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+
+   <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+
+  <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*###################### container + gallerySum #####################*/
+	#container{width:100%;}
+		#gallerySum{width:100%; height:570px; margin:0 auto; padding-top:60px;}
+			#gallerySum h2{height:50px; text-align:center; font-size:40px; font-weight:400; letter-spacing:4px; padding:110px 0 80px;}
+			#gallerySum ul{width:1280px; height:280px; overflow:hidden; margin:0 auto;}
+					#gallerySum li{width:300px; height:260px; float:left; border-right:1px solid #ccc; padding:10px 0 10px 19px;}
+					#gallerySum .last{border:none;}
+						#gallerySum li h3{width:280px; height:60px; border-bottom:1px solid #ccc; margin-right:20px;}
+						#gallerySum li .desc{width:260px; height:140px; padding-top:20px; font-size:15px; padding-right:20px;}
+
+						#gallerySum li .btnArea{width:100%; height:160px;}
+							#gallerySum li .btnArea a{display:block; width:160px; height:40px; line-height:40px; text-align:center; box-shadow:2px 2px 20px rgba(96,96,96,0.1); position:relative;}
+								#gallerySum li .btnArea a span{display:block; width:1px; height:1px; background-color:#fff; position:absolute; }
+				/*####기능*/
+					#gallerySum li .btnArea a:hover, #gallerySum li .btnArea a:focus{text-decoration:none;}
+
+					.leftTopH{left:0; top:0; transition:all 0.2s linear;}
+					.leftBottomW{left:0; bottom:0; transition:all 0.2s linear 0.2s;}
+					.rightBottomH{right:0; bottom:0; transition:all 0.2s linear 0.4s;}
+					.rightTopW{right:0; top:0; transition:all 0.2s linear 0.6s;}
+
+					#gallerySum li .btnArea a:hover .leftTopH, #gallerySum li .btnArea a:focus .leftTopH{height:100%; background-color:#803279;}
+					#gallerySum li .btnArea a:hover .leftBottomW, #gallerySum li .btnArea a:focus .leftBottomW{width:100%; background-color:#803279;}
+					#gallerySum li .btnArea a:hover .rightBottomH, #gallerySum li .btnArea a:focus .rightBottomH{height:100%; background-color:#803279;}
+					#gallerySum li .btnArea a:hover .rightTopW, #gallerySum li .btnArea a:focus .rightTopW{width:100%; background-color:#803279;}
+
+	/*###################### container + mapArea #####################*/
+		#mapArea{width:100%; height:600px; overflow:hidden;}
+			#mapArea .exec{width:1px; height:1px; font-size:1px; line-height:0; overflow:hidden; position:absolute; left:-9999px;background-color:pink;}
+			#mapArea .example{width:100%; height:600px;}
+				#mapArea .example #map{width:100%; height:480px;}
+
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){			
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+			
+			/*###################### container + gallerySum #####################*/
+				#container{width:100%;}
+				#gallerySum{width:96%; height:430px;}
+					#gallerySum h2{height:30px; font-size:34px; padding:60px 0 30px;}
+					#gallerySum ul{width:100%; height:250px; margin:0 auto; padding-left:2%;}
+					#gallerySum ul:after{content:""; display:none; clear:both;}
+							#gallerySum li{width:20%; height:250px; padding:0 2%;}
+							#gallerySum .last{border:none; padding-right:0;}
+								#gallerySum li h3{width:100%; height:40px; font-size:15px;  margin-right:0; }
+								#gallerySum li .desc{width:100%; height:160px; padding-top:10px; font-size:13px; padding-right:0;}
+
+								#gallerySum li .btnArea{width:120px; height:30px;}
+									#gallerySum li .btnArea a{width:100%; height:30px; line-height:30px; font-size:12px;}
+										
+
+			/*###################### container + mapArea #####################*/
+				#mapArea{width:100%; height:400px; overflow:hidden; margin-bottom:50px;}
+					#mapArea h2{width:100%;}
+
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			
+			/*###################### container + gallerySum #####################*/
+				#container{width:100%;}
+				#gallerySum{width:96%; height:440px; padding-top:20px;}
+					#gallerySum h2{height:30px; font-size:22px; padding:40px 0;}
+					#gallerySum ul{width:100%; height:300px; margin:0 auto;}
+					#gallerySum ul:after{content:""; display:none; clear:both;}
+							#gallerySum li{width:20%; height:260px; padding:0 2%;}
+							#gallerySum .last{border:none;}
+								#gallerySum li h3{width:100%; height:40px; font-size:13px;  margin-right:0; }
+								#gallerySum li .desc{width:100%; height:180px; padding-top:10px; font-size:11px; padding-right:0;}
+
+								#gallerySum li .btnArea{width:100px; height:26px;}
+									#gallerySum li .btnArea a{width:100%; height:26px; line-height:26px; font-size:11px; letter-spacing:0.5px;}
+										
+
+			/*###################### container + mapArea #####################*/
+				#mapArea{width:100%; height:300px; overflow:hidden; margin-bottom:50px;}
+					#mapArea h2{width:100%;}
+				
+
+		}
+
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*###################### container + gallerySum #####################*/
+				#container{width:100%;}
+				#gallerySum{width:90%; height:700px; padding-top:20px; }
+					#gallerySum h2{height:30px; font-size:24px; padding:40px 0;}
+					#gallerySum ul{width:100%; height:580px; margin:0 auto;}
+					#gallerySum ul:after{content:""; display:none; clear:both;}
+							#gallerySum li{width:45%; height:250px; padding:2%; margin-bottom:20px;}
+							#gallerySum .noBorder{border:none;}
+								#gallerySum li h3{width:100%; height:40px; font-size:14px;  margin-right:0; }
+								#gallerySum li .desc{width:100%; height:178px; padding-top:10px; font-size:12px; padding-right:0;}
+
+								#gallerySum li .btnArea{width:120px; height:26px;}
+									#gallerySum li .btnArea a{width:100%; height:26px; line-height:26px; font-size:11px;}
+										
+
+			/*###################### container + mapArea #####################*/
+				#mapArea{width:100%; height:300px; overflow:hidden; margin-bottom:50px;}
+					#mapArea h2{width:100%;}
+
+		}		
+  </style>
+
+  <script>
+
+
+	/* 기본이 되는 위치값: 위도와 경도 가져오기 */
+	var map = null;
+	var lat = 51.491554;
+	var lng = -0.127644;
+
+
+	
+	$(function(){
+			// 새로운 map 설정하기
+		    map = new GMaps({"el":"#map","lat":lat,"lng":lng});
+			var address = $("#address").val();
+
+				$(".tbMap").click(function(){
+					address = "tate britain";
+					//alert(address);	
+					$("#geocodingForm").submit();
+				});
+
+				$(".tmMap").click(function(){
+					address = "tate modern";
+					//alert(address);
+					$("#geocodingForm").submit();
+				});
+
+				$(".tlMap").click(function(){
+					address = "tate liverpool";
+					//alert(address);
+					$("#geocodingForm").submit();
+				});
+
+				$(".tsiMap").click(function(){
+					address = "tate st ives";
+					//alert(address);
+					$("#geocodingForm").submit();
+				});
+
+
+		    // 검색이 가능하도록 넣어주기
+		    $("#geocodingForm").submit(function(e){
+		    // 브라우저의 이벤트 기능들 막을때 사용
+				e.preventDefault();
+		
+				//address = $("#address").val();
+				
+
+				 if(address==""){
+					alert("주소를 입력하세요");
+					$("#address").focus();
+					return false;
+				 }
+			 
+			 
+				 GMaps.geocode({
+				   address: address,
+				   callback: function(results, status) {
+					if (status == 'OK') {
+					  var latlng = results[0].geometry.location;
+					  map.setCenter(latlng.lat(), latlng.lng());
+					  map.addMarker({
+					   lat: latlng.lat(),
+					   lng: latlng.lng()
+					  });
+					}
+				   }
+				 });
+
+		  });
+
+   });
+  </script>
+
+
+ </head>
+
+ <body>
+	<div id="wrap">
+		
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)"  autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<form id="sideSearchForm" action="#none" method="post">
+								<fieldset>
+									<legend>Search</legend>
+									<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+									<p class="searchBtn" onclick="sideSearching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search_white.png" alt="search icon"/>
+										</a>
+									</p>
+								</fieldset>
+							</form>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">		
+			<section id="gallerySum">	
+				<h2>PLAN YOUR VISIT</h2>
+				<ul>
+					<li>
+						<h3>TATE<br/>BRITAIN</h3>
+						<div class="desc">
+							The home of British art from 1500 to the present day<br/><br/>
+							Monday to Sunday 10.00–18.00<br/><br/>
+							Millbank, London SW1P 4RG<br/>
+						</div>
+						<div class="btnArea">
+							<a class="tbMap" href="#none" title="get directios">
+								GET DIRECTIONS &gt;
+								<span class="leftTopH"></span>
+								<span class="leftBottomW"></span>
+								<span class="rightBottomH"></span>
+								<span class="rightTopW"></span>
+							</a>
+						</div>
+					</li>
+					<li class="noBorder">
+						<h3>TATE<br/>MODERN</h3>
+						<div class="desc">
+							International modern and contemporary art<br/><br/>
+							Sunday to Thursday 10.00–18.00<br/>
+							Friday to Saturday 10.00–22.00<br/><br/>
+							Bankside, London SE1 9TG<br/>
+						</div>
+						<div class="btnArea">
+							<a class="tmMap" href="#none" title="get directios">
+								GET DIRECTIONS &gt;
+								<span class="leftTopH"></span>
+								<span class="leftBottomW"></span>
+								<span class="rightBottomH"></span>
+								<span class="rightTopW"></span>
+							</a>
+						</div>
+					</li>
+					<li>
+						<h3>TATE<br/>LIVERPOOL</h3>
+						<div class="desc">
+							British and international modern and contemporary art<br/><br/>
+							Monday to Sunday 10.00–17.00<br/><br/>
+							Albert Dock, Liverpool Waterfront, Liverpool L3 4BB
+						</div>
+						<div class="btnArea">
+							<a class="tlMap" href="#none" title="get directios">
+								GET DIRECTIONS &gt;
+								<span class="leftTopH"></span>
+								<span class="leftBottomW"></span>
+								<span class="rightBottomH"></span>
+								<span class="rightTopW"></span>
+							</a>
+						</div>
+					</li>
+					<li class="last noBorder">
+						<h3>TATE<br/>ST IVES</h3>
+						<div class="desc">
+							Visit the iconic Tate St Ives gallery, overlooking the Atlantic Ocean<br/><br/>
+							Tuesday to Sunday 10.00–16.20<br/><br/>
+							Porthmeor Beach, St Ives, Cornwall TR26 1TG<br/>
+						</div>
+						<div class="btnArea">
+							<a class="tsiMap" href="#none" title="get directios">
+								GET DIRECTIONS &gt;
+								<span class="leftTopH"></span>
+								<span class="leftBottomW"></span>
+								<span class="rightBottomH"></span>
+								<span class="rightTopW"></span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</section>
+
+			<div id="mapArea">
+				<div class="exec">
+					<form id="geocodingForm" method="get">
+						<div>
+							<input type="text" id="address" name="address"/>
+							<input type="submit" id="mapSearch" name="btn"/>
+						</div>
+					</form>
+				</div>
+				<div class="example">
+					<div id="map"></div>
+				</div>
+			</div>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

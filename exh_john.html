@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title> John Piper - Exhibitions &amp; Events | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+ <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+
+  <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*######################## container + exhHeader ####################*/
+		#container{width:100%; overflow:hidden;}
+			#exhHeader{width:1280px; margin:100px auto 0; outline:2px solid #ccc;}
+			#exhHeader:after{content:""; display:block; clear:both;}
+				.textArea{width:30%; height:600px; float:left; font-size:18px; text-align:right;}
+					.textArea h2{width:100%; height:80px; margin:80px 0 60px; line-height:40px; font-size:30px; text-transform:uppercase;}
+						.subtitle{font-size:25px;}
+						.exhVenue{line-height:20px;}
+						.exhType{line-height:20px;}
+						.exhDate{margin-top:20px;}
+						.socialShare{margin-top:20px; float:right;}
+						.socialShare:after{content:""; display:block; clear:both;}
+							.socialShare li{float:left; margin-right:10px;}
+
+				.imgArea{width:70%; height:600px; float:left; margin-top:30px;}
+					.imgArea p{width:100%; height:500px; text-align:center;}
+						.imgArea p img{height:100%;}
+							.imgCopy{display:block; font-size:13px; color:#666; padding:0 12%; margin-top:5px;}
+				
+					
+
+	/*######################## exhContent + tab ####################*/
+		#exhContent{width:1280px; margin:0 auto;}
+			.tab{width:100%;}
+			.tab:after{ content:""; display:block; clear:both; }
+				.tab li{width:424px; height:40px; float:left; margin-right:3px;}
+				.tab li:last-child{margin-right:0;}
+					.tab li a{display:block; width:100%; height:100%; text-decoration:none; line-height:40px; text-align:center; background-color:#f4f4f4; box-shadow:2px 2px 10px rgba(90,90,90,0.2);}
+
+				.tab li a.selected{font-weight:700; color:#fff;
+				background-image:-webkit-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-ms-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-moz-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-o-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);}
+			
+			
+
+	/*######################## exhContent + panel ####################*/
+		.panel{width:100%;}
+			 .panel li{width:100%; overflow:hidden; padding-bottom:50px;}
+			 #panel0{width:94%; padding:0 3%; padding-bottom:50px;}
+			 #panel0 h3{width:90%; font-size:30px; line-height:40px; font-weight:400; padding:40px 0; margin:0 auto;  text-align:center;}
+				.videoContent{width:726px; height:455px; margin:0 auto;}
+					.videoContent iframe{width:100%; height:100%;}
+					#panel0 p{margin-top:30px; line-height:24px;}
+						.middlePoint{width:700px; margin:0 auto; font-size:20px;}
+
+			#panel1:after{content:""; display:block; clear:both;}
+			#panel1 h4{font-size:30px; line-height:30px; font-weight:400; padding:40px 0;}
+			#panel1 div{width:28%; float:left; line-height:26px; margin-left:5%;}
+				#panel1 div a{text-decoration:underline;}
+				
+
+
+			#panel2 h4{font-size:30px; line-height:30px; font-weight:400; padding:40px 0;}
+			#panel2 div{width:45%; float:left; margin-left:5%;}
+				#panel2 div p{font-size:18px; margin-bottom:20px;}
+					#panel2 div p img{width:40%; border:none;}
+					
+
+				#panel1 div a:hover, #panel1 div a:focus{color:#603280;}
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+
+			/*######################## container + exhHeader ####################*/
+				#exhHeader{width:95%; outline:2px solid #ccc;}
+				#exhHeader:after{content:""; display:block; clear:both;}
+					.textArea{width:35%; height:400px; float:left; font-size:18px; text-align:right;}
+						.textArea h2{width:100%; height:60px; margin:40px 0 30px; line-height:28px; font-size:22px;}
+						.textArea p{width:100%; height:16px; font-size:16px;}
+							.exhVenue{line-height:20px;}
+							.exhType{line-height:20px;}
+							.exhDate{margin-top:20px;}
+							.socialShare{width:100%; float:none; margin-top:10px;}
+							.socialShare ul{width:100px; float:right;}
+								.socialShare li{width:40px;}
+									.socialShare li img{width:100%;}
+
+					.imgArea{width:57%; height:370px; float:left; margin-top:30px; margin-left:3%}
+						.imgArea p{width:100%; height:300px; text-align:center;}
+							.imgArea p img{height:100%;}
+								.imgCopy{display:block; font-size:11px; color:#666; padding:0 5%; margin-top:5px;}
+					
+					
+
+			/*######################## exhContent + tab ####################*/
+				#exhContent{width:95%;}
+						.tab li{width:33%; height:40px; float:left; margin-right:1px;}
+							.tab li a{font-size:15px;}
+
+
+			/*######################## exhContent + panel ####################*/
+				 #panel0{width:100%; padding-bottom:50px;}
+				 #panel0 h3{width:90%; font-size:22px; line-height:24px; padding:30px 5%;}
+					
+						#panel0 p{margin-top:30px; line-height:18px; font-size:15px;}
+							.middlePoint{width:600px; font-size:20px;}
+
+				#panel1 h4{font-size:16px; line-height:30px; padding:20px 0;}
+				#panel1 div{width:33%; margin-left:0; line-height:20px; padding-top:10px; margin-right:5%;}
+				#panel1 div:last-child{width:22%; margin-right:0;}
+					#panel1 div h4{font-size:22px;}
+					#panel1 div p{font-size:16px;}
+					
+
+				#panel2 h4{font-size:18px; line-height:30px; padding:20px 0;} 
+				#panel2 div{width:45%; margin-left:0; padding-top:10px;}
+				#panel2 div:first-child{width:45%; margin-right:10%;}
+					#panel2 div h4{font-size:22px;}
+					#panel2 div p{font-size:16px;}
+						#panel2 div p img{width:70%;}
+				
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			
+			/*######################## container + exhHeader ####################*/
+				#exhHeader{width:95%; margin:40px auto 0; outline:2px solid #ccc;}
+				#exhHeader:after{content:""; display:block; clear:both;}
+					.textArea{width:35%; height:320px; float:left; font-size:18px; text-align:right;}
+						.textArea h2{width:100%; height:50px; margin:40px 0 30px; line-height:28px; font-size:18px;}
+						.textArea p{width:100%; height:16px; font-size:14px;}
+							.exhVenue{line-height:20px;}
+							.exhType{line-height:20px;}
+							.exhDate{margin-top:20px;}
+							.socialShare{width:100%; float:none; margin-top:10px;}
+							.socialShare ul{width:80px; float:right;}
+								.socialShare li{width:30px;}
+									.socialShare li img{width:100%;}
+
+					.imgArea{width:57%; height:290px; float:left; margin-top:30px; margin-left:3%}
+						.imgArea p{width:100%; height:210px; text-align:center;}
+							.imgArea p img{height:100%;}
+								.imgCopy{display:block; font-size:10px; color:#666; padding:0 5%; margin-top:5px;}
+					
+					
+
+			/*######################## exhContent + tab ####################*/
+			#exhContent{width:95%;}
+					.tab li{width:33%; height:40px; float:left; margin-right:1px;}
+						.tab li a{font-size:14px; letter-spacing:0.5px;}
+
+
+			/*######################## exhContent + panel ####################*/
+			 #panel0{width:100%; padding-bottom:50px;}
+			 #panel0 h3{width:100%; font-size:16px; line-height:24px; padding:20px 0;}
+				.videoContent{width:400px; height:251px;}
+					#panel0 p{margin-top:20px; line-height:15px; font-size:12px;}
+						.middlePoint{width:300px; font-size:14px;}
+
+			#panel1 h4{font-size:16px; line-height:30px; padding:20px 0;}
+			#panel1 div{width:33%; margin-left:0; line-height:14px; margin-right:5%;}
+			#panel1 div:last-child{width:24%; margin-right:0;}
+				#panel1 div p{font-size:12px;}
+				
+
+			#panel2 h4{font-size:16px; line-height:20px; padding:20px 0;} 
+			#panel2 div{width:45%; margin-left:0; margin-right:5%;}
+				#panel2 div p{width:100%; font-size:12px;}
+					#panel2 div p img{width:70%;}
+
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*######################## container + exhHeader ####################*/
+			#container{width:100%;}
+				#exhHeader{width:90%; margin:40px auto 0;}
+					.textArea{width:100%; height:200px; float:none; font-size:13px; text-align:center; line-height:14px;}
+						.textArea h2{width:90%; height:50px; margin:0 auto; padding:30px 0 0; line-height:20px; font-size:18px;}
+						.textArea p{width:100%; height:16px;}
+						.exhVenue{line-height:14px;}
+						.exhType{line-height:14px;}
+						.exhDate{margin-top:10px;}
+						.socialShare{width:100%; float:none; margin-top:10px;}
+							.socialShare ul{width:80px; margin:0 auto;}
+								.socialShare li{width:30px;}
+									.socialShare li img{width:100%;}
+							
+					.imgArea{width:100%; height:300px; float:none; margin-top:20px;}
+						.imgArea p{height:220px;}
+								.imgCopy{font-size:9px; padding:0 15%;}
+					
+					
+
+			/*######################## exhContent + tab ####################*/
+			#exhContent{width:90%;}
+					.tab li{width:33%; height:40px; float:left; margin-right:1px;}
+						.tab li a{font-size:14px; letter-spacing:0.5px;}
+
+
+			/*######################## exhContent + panel ####################*/
+			 #panel0{padding-bottom:50px;}
+			 #panel0 h3{font-size:16px; line-height:24px; padding:20px 0;}
+				.videoContent{width:280px; height:160px;}
+					#panel0 p{margin-top:20px; line-height:15px; font-size:12px;}
+						.middlePoint{width:240px; font-size:14px;}
+
+			#panel1 h4{font-size:16px; line-height:20px; padding:20px 0;}
+			#panel1 div{width:32%; margin-left:0; margin-right:2%; line-height:14px;}
+			#panel1 div:last-child{margin:0;}
+				#panel1 div p{font-size:12px;}
+				
+
+			#panel2 h4{font-size:16px; line-height:20px; padding:20px 0;} 
+			#panel2 div{width:45%; margin-left:0; margin-right:5%;}
+			#panel2 div p{font-size:12px;}
+				#panel2 div p.supImg img{width:90%;}
+
+		}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+		
+	/*################### exhContent Tap #####################*/
+		$(".panel li:not(:first)").hide();
+				
+			$(".tab li a").on("click focusin",function(){
+				$(".panel li").hide();
+				
+				$($(this).attr("href")).show();
+				$(".tab li a").removeClass();
+				$(this).addClass("selected");
+				
+			});
+
+	/*################### exhContent panel2 #####################*/
+
+		
+	});
+  </script>
+
+
+ </head>
+
+ <body>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)"  autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<form id="sideSearchForm" action="#none" method="post">
+								<fieldset>
+									<legend>Search</legend>
+									<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+									<p class="searchBtn" onclick="sideSearching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search_white.png" alt="search icon"/>
+										</a>
+									</p>
+								</fieldset>
+							</form>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<section id="exhHeader">
+				<div class="textArea">
+					<h2 class="fulltitle">
+						John Piper
+					</h2>
+					<p class="exhVenue">Tate Liverpool</p>
+					<p class="exhType">Exhibition</p>
+					<p class="exhDate">until 18 March 2018</p>
+					<div class="socialShare">
+						<ul>
+							<li>
+								<a href="preparing.html" title="share via Twitter">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="preparing.html" title="share via Facebook">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>			
+						</ul>
+					</div>
+				</div>
+				<div class="imgArea">
+					<p><img src="img/index/exh1.jpg" alt="EXHIBITIONS n EVENTS image1"/></p>
+					<span class="imgCopy">John Piper, Harbour Scene, Newhaven 1936-1937 &copy; The Piper Estate / DACS 2017. Image courtesy: Private Collection. </span>
+				</div>
+				
+			</section>
+			<section id="exhContent">
+				<ul class="tab">
+					<li>
+						<strong><a href="#panel0" title="about">about</a></strong>
+					</li>
+					<li>
+						<strong><a href="#panel1" title="plan to visit">plan to visit</a></strong>
+					</li>
+					<li>
+						<strong><a href="#panel2" title="supported by">supported by</a></strong>
+					</li>
+				</ul>
+				<ul class="panel">
+					<li id="panel0">
+						<h3 class="standfirst">Discover Piper’s contribution to modern art in Britain</h3>
+						<div class="videoContent">
+							<iframe src="https://www.youtube.com/embed/00jwN0L6HEs"></iframe>
+						</div>
+						<p>John Piper (1903–1992) is one of the most significant British artists of the twentieth-century. Renowned for his powerful and romantic paintings of his native landscape, he worked across an extraordinary range of disciplines (including designs for stained glass and theatre) influencing the cultural landscape of modern Britain. Piper’s inspiration was drawn from a love and profound knowledge of the British landscape, its buildings, monuments and their heritage.</p>
+						<p>This exhibition illuminates the artist’s pivotal role in the development of abstract art in Britain, by placing his work alongside the likes of Alexander Calder and Pablo Picasso, among others. His coastal collages such as Beach with Starfish c.1933–4 harness the influence of cubism while capturing the atmosphere of the English coastline.</p>
+						<p>Visitors can also expect to see early, native art forms including medieval stained glass windows and Anglo-Saxon and Romanesque stone carvings admired by Piper.</p>
+						<p>Piper had a significant connection to the North West, and Liverpool in particular, designing the magnificent stained glass windows in Liverpool’s Metropolitan Cathedral.</p>
+						<p>This exhibition will be paired with <em>Surrealism in Egypt: Art Et Liberté 1938–1948</em></p>
+					</li>
+					<li id="panel1">
+						<div class="venue">
+							<h4>TATE LIVERPOOL</h4>
+							<p>
+								Albert Dock<br/>
+								Liverpool Waterfront<br/>
+								Liverpool L3 4BB<br/>
+								<a href="plan_your_visit.html" title="Plan your visit">Plan your visit</a>
+							</p>
+						</div>
+						<div class="date">
+							<h4>DATE</h4>
+							<p>17 November 2017 – 18 March 2018</p>
+						</div>
+						<div class="price">
+							<h4>PRICE</h4>
+							<p>
+								FREE for Members<br/><br/>
+
+								Adult £10<br/>
+								Concession £8<br/>
+								Student £6
+							</p>
+						</div>
+					</li>
+					<li id="panel2">
+						<div>
+							<h4>SUPPORTED BY</h4>
+							<p>The John Piper Exhibition Supporters Group</p>
+							<p>and Tate Liverpool Members</p>
+							<p class="supImg"><a href="https://www.liverpool.gov.uk/" title="liverpool city council"><img src="img/sub_exhibition/exh_john_sup0.jpg" alt="liverpool city council logo"/></a></p>
+						</div>
+						<div>
+							<h4>MEDIA PARTNERS</h4>
+							<p class="supImg"><a href="https://www.thetimes.co.uk/" title="the times the sunday times"><img src="img/sub_exhibition/exh_john_part0.jpg" alt="the times the sunday times logo"/></a></p>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

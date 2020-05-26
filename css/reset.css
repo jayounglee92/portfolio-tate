@@ -1,0 +1,24 @@
+﻿	/*############## 초기화 #############*/
+	*{margin:0; padding:0;}
+	li{list-style-type:none;}
+	a:link, a:visited{text-decoration:none; color:#333;}
+	a:hover, a:focus{text-decoration:underline;}
+	img{border:none;}
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+
+	body{font-family:"Tate"; letter-spacing:1px;}
+
+	/* 인풋태그에 글씨체 직접주기 */
+	input{font-family:"Tate"; letter-spacing:1px;}
+
+	/* 아웃라인 날려버리기 */
+	.outline{width:1px; height:1px; font-size:1px; line-height:0px; overflow:hidden; position:absolute; left:-9999px;}
+
+	/*손가락 포인터 만들기*/
+	input[type="submit"], input[type="reset"], input[type="button"]{cursor:pointer;}
+
+	/* 블럭성질에 모두 공통적으로 주기 */
+	body,header,nav,section,article,footer,div,aside,div,ul,li,ol,dl,p{margin:0; padding:0;}
+
+	/* 시멘틱태그에 블럭성질 확실히 인식시키기 */
+	header,nav,section,article,footer,aside{display:block;}

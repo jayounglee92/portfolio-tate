@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title> 'Fountain', Marcel Duchamp, 1917, replica 1964 | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+  <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+   <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*######################## container + artHeader + imgArea ####################*/
+		#container{width:100%;}
+			#artHeader{width:1280px; margin:0 auto; text-align:center;}
+				#artHeader h3{width:100%; font-size:34px; font-weight:400; padding-top:100px;}
+				#artHeader h2{width:100%; font-size:40px; padding-top:20px;}
+				.date{width:100%; font-size:20px; padding-top:20px;}
+
+			#artworkArea{width:100%; background-color:#f4f4f4; text-align:center; margin-top:50px;}
+				#artworkArea .imgArea{height:470px; margin:0 auto;}
+					#artworkArea p img{height:100%;}
+					.license{width:537px; margin:0 auto; padding:10px 0; font-size:14px; text-align:left; line-height:20px;}
+		
+	/*######################## artContent + tabArea ####################*/	
+		#artContent{width:1280px; margin:50px auto 0; padding-bottom:50px;}
+		#artContent:after{content:""; display:block; clear:both;}
+			.tabArea{width:740px; overflow:hidden; float:left; margin-right:50px; margin-left:10px;}
+				.tab{width:100%; height:50px; border-bottom:1px solid #ccc;}
+				.tab:after{content:""; display:block; clear:both;}
+					.tab li{width:245px; height:50px; float:left; border-left:1px solid #ccc;}
+						.tab li a{display:block; width:100%; height:50px; font-size:20px; text-align:center; border-top:6px solid rgba(97,46,110,0); line-height:45px;}
+						.tab li:last-child{border-right:1px solid #ccc;}
+						.tab li a.selected{border-top:6px solid rgba(97,46,110,1);}
+
+			.panel{width:100%; line-height:25px; font-size:15px;}
+				.panel li{width:100%; padding-top:20px;}
+					.panel li p{margin-bottom:30px;}
+					.panel li .showPart{width:100%; overflow:hidden; position: relative;}
+					.panel li .showPart:after{position:absolute; left:0; bottom:0; height:20%; width:100%; content:"";
+					background-image:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-ms-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-moz-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-o-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);}
+					.panel li .showPart.hidden:after{display:none;}/* 문단아래 그라데이션 없애기 */
+					.panel li p.middlePoint{width:600px; margin:0 auto; font-size:20px; margin-bottom:30px; line-height:30px;}
+					
+					.readMore, .hide{display:block; width:120px; height:40px; background-color:rgba(20,20,20,0.1); font-size:18px; line-height:40px; text-align:center; margin-top:20px; margin-bottom:20px;}
+		/*기*/
+		/*능*/
+		.tab li a:hover, .tab li a:focus{text-decoration:none;}
+		.readMore:hover, .readMore:focus, .hide:hover, .hide:focus{text-decoration:none; background-color:rgba(20,20,20,0.3); }
+
+	/*######################## artContent + descArea ####################*/
+		.descArea{width:480px; float:left;}
+			.descArea ul{width:99%; border:1px dotted #ccc;}
+				.descArea ul li{width:100%; border-bottom:1px dotted #ccc; line-height:40px; font-size:18px; padding:5px 0;}
+				.descArea ul li:last-child{border-bottom:none;}
+				.descArea ul li:after{content:""; display:block; clear:both;}
+					.descArea ul li p{width:100%; float:left;}
+					.descArea ul li p.descDt{width:30%; text-indent:10px; text-transform:uppercase;}
+					.descArea ul li p.descDd{width:70%;}
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+			
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{font-size:30px;}
+						#artHeader h2{font-size:36px; padding-top:10px;}
+						.date{padding-top:10px;}
+
+						#artworkArea .imgArea{height:400px;}
+							
+							.license{width:460px; font-size:12px; line-height:17px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:90%;}
+					.tabArea{width:60%; margin-right:5%; margin-left:0;}
+						.tab li{width:133px;}
+							.tab li a{height:40px; padding-top:10px; font-size:16px; line-height:20px;}
+								.tab li:last-child a{height:48px; padding-top:2px;}
+
+					.panel{line-height:20px; font-size:13px;}
+						.panel li p.middlePoint{width:380px; font-size:15px; margin-bottom:30px; line-height:20px;}
+						.hide{margin-bottom:20px;}
+
+				
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:35%; float:left;}
+					.descArea ul{width:100%;}
+						.descArea ul li{line-height:24px; font-size:14px;}
+							.descArea ul li p.descDt{width:45%;}	
+							.descArea ul li p.descDd{width:55%;}
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{width:100%; font-size:20px; padding-top:30px;}
+						#artHeader h2{width:100%; font-size:24px; padding-top:10px;}
+						.date{font-size:14px; padding-top:10px;}
+
+					#artworkArea{margin-top:20px;}
+						#artworkArea .imgArea{height:220px;}
+							.license{width:240px; padding:10px 40px; font-size:9px;  line-height:12px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:100%; margin:0 auto;}
+					.tabArea{width:100%; margin-right:0; margin-left:0;}
+							.tab li{width:130px;}
+								.tab li a{font-size:12px;}
+								.tab li:last-child{width:200px;}
+
+					.panel{width:100%; line-height:16px;}
+						.panel li{width:90%; margin:0 auto; font-size:10px;}
+							.panel li p{margin-bottom:20px;}	
+							.panel li p.middlePoint{width:320px; font-size:14px; line-height:20px;}
+								.readMore{margin-top:0; margin-bottom:20px;}
+
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:100%;}
+					.descArea ul{width:270px; margin:0 auto;}
+						.descArea ul li{line-height:20px; font-size:11px;}
+							.descArea ul li p.descDt{width:35%; text-indent:5px;}
+					.descArea ul li p.descDd{width:65%;}
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{width:100%; font-size:20px; padding-top:20px;}
+						#artHeader h2{width:100%; font-size:24px; padding-top:10px;}
+						.date{font-size:14px; padding-top:10px;}
+
+					#artworkArea{margin-top:20px;}
+						#artworkArea .imgArea{height:200px;}
+							.license{width:230px; padding:10px 40px; font-size:10px;  line-height:12px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:100%; margin:0 auto;}
+					.tabArea{width:100%; margin-right:0; margin-left:0;}
+							.tab li{width:32%;}
+								.tab li a{height:25px; padding-top:15px; font-size:12px; line-height:14px;}
+								.tab li:last-child{width:32%; padding:0 1%;}
+								.tab li:last-child a{height:40px; padding-top:10px;}		
+
+					.panel{width:100%; line-height:17px; font-size:11px;}
+						.panel li{width:90%; margin:0 auto;}
+							.panel li p{margin-bottom:20px;}
+							.panel li p.middlePoint{width:260px; font-size:13px; line-height:18px;}
+								.readMore{margin-top:0; margin-bottom:20px;}
+
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:100%;}
+					.descArea ul{width:270px; margin:0 auto;}
+						.descArea ul li{line-height:20px; font-size:12px;}
+							.descArea ul li p.descDt{width:35%; text-indent:5px;}
+					.descArea ul li p.descDd{width:65%;}
+			
+		}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+
+		/*################### artContent Tap #####################*/
+			$(".panel li:not(:first)").hide();
+					
+				$(".tab li a").on("click focusin",function(){
+					$(".panel li").hide();
+					
+					$($(this).attr("href")).show();
+					$(".tab li a").removeClass();
+					$(this).addClass("selected");
+					
+				});
+		
+		/*################### artContent panel0 #####################*/
+			$(".hidePart").hide();
+			$(".hide").hide();
+			$(".readMore").click(function(){
+				$(".readMore").toggle();
+				$(".hide").toggle();
+				$(".hidePart").slideToggle(1500);
+				$(".showPart").addClass("hidden");
+			
+			});
+			$(".hide").click(function(){
+				$(".readMore").toggle();
+				$(".hide").toggle();
+				$(".hidePart").slideToggle(1500);
+				$(".showPart").removeClass("hidden");
+			});
+	});
+  </script>
+
+
+ </head>
+
+ <body>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)" autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search" >
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<div id="sideSearchForm">
+								<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+								<p class="searchBtn" onclick="sideSearching();">
+									<a href="#none" title="Search">
+										<img src="img/header/search_white.png" alt="search icon"/>
+									</a>
+								</p>
+							</div>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<section id="artHeader">
+				<h3>Marcel Duchamp</h3>
+				<h2>Fountain</h2>
+				<p class="date">1917, replica 1964</p>
+			</section>
+			<div id="artworkArea">
+				<p class="imgArea">
+					<img src="img/index/artincoll3.jpg" alt="Fountain-Marcel Duchamp"/>
+				</p>
+				<p class="license">&copy; Succession Marcel Duchamp/ADAGP, Paris and DACS, London 2018<br/><a href="https://www.tate-images.com/results.asp?image=T07573" title="License this image">License this image</a></p>
+			</div>
+			<div id="artContent">
+				<div class="tabArea">
+					<ul class="tab">
+						<li>
+							<a class="selected" href="#panel0" title="Summary"><strong>Summary</strong></a>
+						</li>
+						<li>
+							<a href="#panel1" title="Display caption"><strong>Display caption</strong></a>
+						</li>
+						<li>
+							<a href="#panel2" title="Technique and condition"><strong>Technique and condition</strong></a>
+						</li>
+					</ul>
+					<ul class="panel">
+						<li id="panel0">
+							<div class="showPart">
+								<p>
+									<i>Fountain</i> is one of Duchamp’s most famous works and is widely seen as an icon of twentieth-century art. The original, which is lost, consisted of a standard urinal, usually presented on its back for exhibition purposes rather than upright, and was signed and dated ‘R. Mutt 1917’. Tate’s work is a 1964 replica and is made from glazed earthenware painted to resemble the original porcelain. The signature is reproduced in black paint. <i>Fountain</i> has been seen as a quintessential example, along with Duchamp’s <i>Bottle Rack</i> 1914, of what he called a ‘readymade’, an ordinary manufactured object designated by the artist as a work of art (and, in Duchamp’s case, interpreted in some way)
+								</p>
+								<p>
+									Duchamp later recalled that the idea for <i>Fountain</i> arose from a discussion with the collector Walter Arensberg (1878–1954) and the artist Joseph Stella (1877–1946) in New York. He purchased a urinal from a sanitary ware supplier and submitted it – or arranged for it to be submitted – as an artwork by ‘R. Mutt’ to the newly established Society of Independent Artists that Duchamp himself had helped found and promote on the lines of the Parisian Salon des Indépendants (Duchamp had moved from Paris to New York in 1915). The society’s board of directors, who were bound by the Society’s constitution to accept all members’ submissions, took exception to <i>Fountain</i>, believing that a piece of sanitary ware – and one associated with bodily waste – could not be considered a work of art and furthermore was indecent (presumably, although this was not said, if displayed to women). Following a discussion and a vote, the directors present during the installation of the show at the Grand Central Palace (about ten of them according to a report in the <i>New York Herald</i>) narrowly decided on behalf of the board to exclude the submission from the Society’s inaugural exhibition that opened to the public on 10 April 1917. Arensberg and Duchamp resigned in protest against the board taking it upon itself to veto and effectively censor an artist’s work.
+								</p>
+							</div>
+							<a class="readMore" href="#none" title="Read more">Read more</a>
+							<div class="hidePart">
+								<p>
+									This was no small matter. The idea of having a jury-free exhibition of contemporary art had become invested with the aspirations of many in the art world for New York to become a dynamic artistic centre that would rival and even outstrip Paris. Duchamp, as head of the hanging committee, had already signaled the democratic ethos of the new Society by proposing that works should be hung by the artists’ last names (in alphabetical order) rather than according to the subjective views and preferences of one or more individuals. With the support of some backers, he and his close friends Henri-Pierre Roché (1879–1959) and Beatrice Wood (1892–1998) produced the first dada periodical in New York, titled pointedly the <i>Blindman</i>, on the first day of the show in part to celebrate (and in part to observe and comment upon) ‘the birth of the Independence of Art in America’ (Henri-Pierre Roché, ‘The Blind Man’, <i>Blindman</i>, no.1, 10 April 1917, p.3). There was therefore a good deal at stake in the decision of the board to defend a particular conception of art at the expense of departing from its own much advertised policy of ‘no jury – no prizes’. Responding to press interest in the affair, the board issued a statement defending its position: ‘The <i>Fountain</i> may be a very useful object in its place, but its place is not in an art exhibition and it is, by no definition, a work of art.’ (Naumann 2012, p.72.)
+								</p>
+								<p>
+									Duchamp never explicitly commented on why he wanted to test the principles of his fellow board members but it may well have sprung from his own experience at the Salon des Indépendants in Paris. In 1912 he had submitted his important painting <i>Nude Descending a Staircase, No.2</i> to the Salon, and, even though the work was listed in the catalogue, the organisers, increasingly unhappy at the subject and title of the painting and how this reflected upon them, asked Duchamp’s brothers, who were also artists, to ask him to withdraw it a few days before the show opened. He quietly did so, but he experienced this as an extraordinary betrayal and later described it as a turning-point in his life. The creation and submission of <i>Fountain</i> can thus be seen as in part as an experiment by Duchamp to replay this event, testing the commitment of the new American Society to freedom of expression and its tolerance of new conceptions of art.
+								</p>
+								<p>
+									Within a day or so of the exhibition opening, Duchamp located the work, which had been stored in the exhibition space behind a partition, and took it to be photographed by the leading photographer and gallery owner Alfred Stieglitz (1877–1946). (A diary entry of Beatrice Wood for 13 April 1917 recorded that she went with Duchamp to ‘see Stieglitz about “Fountain”’, while a letter written by Stieglitz dated 19 April 1917 noted that he had been asked to take the photograph ‘at the request of Roché, Covert, Miss Wood, Duchamp & Co’. See Naumann 2012, p.72.) As the work of art was lost thereafter (and had been seen by very few people), Stieglitz’s photograph, which according to a letter had been taken by 19 April 1917, became a key document in recording the work’s existence. Stieglitz was proud of the image, writing in a letter dated 23 April 1917, ‘The “Urinal” photograph is really quite a wonder – Everyone who has seen it thinks it beautiful – And it’s true – it is. It has an oriental look about it – a cross between a Buddha and a Veiled Woman’ (Naumann 2012, p.74).
+								</p>
+								<p>
+									A slightly cropped version of the photograph was published in the <i>Blind Man</i> to illustrate an anonymous editorial that defended the urinal in clear – and, in their implications, revolutionary – terms: ‘Mr Mutt’s fountain is not immoral, that is absurd, no more than a bathtub is immoral. It is a fixture that you see every day in plumbers’ shop windows. Whether Mr Mutt with his own hands made the fountain has no importance. He CHOSE it. He took an ordinary article of life, placed it so that its useful significance disappeared under the new title and point of view – created a new thought for that object.’ (Anon., ‘The Richard Mutt Case’, <i>Blind Man</i>, New York, no.2, May 1917, p.5; note that the second issue formulated the journal’s title as separate words.) Duchamp later said that he shared and approved of the views expressed in the article, which Beatrice Wood claimed in her 1992 autobiography to have written.
+								</p>
+								<p>
+									Importantly, Duchamp was not publicly known as the creator of <i>Fountain</i> at the time, although some of his closest friends (such as Walter Arensberg) must have known of, and many others suspected, his involvement. Stieglitz, for example, wrote on 19 April 1917, ‘a young Woman (probably at Duchamp’s instigation) sent a large porcelain Urinal on a pedestal to the Independent[s]’ (Naumann 2012, p.74.) Duchamp later explained that he had not made his identity known because of his position on the Society’s board: if his fellow board members had known he had submitted <i>Fountain</i>, their response might well have been different, and he would have been shown to have put friends and colleagues in a potentially difficult position (which, indeed, was the case). The fact that ‘R. Mutt’ was an unknown artist meant that Duchamp could test the openness of the society to artworks that did not conform to conventional aesthetic and moral standards without compromising the outcome or his relationships with board members, though at the expense of being able to avow that the work was his own.
+								</p>
+								<p>
+									‘R. Mutt’, however, was an unusual name, with comic overtones, and this might have given people a clue as to its falseness. Later in life, when asked whether ‘R. Mutt’ was a pun on the German word <i>Armut</i> meaning poverty, Duchamp was quoted as explaining:
+								</p>
+								<p class="middlePoint">
+									Mutt comes from Mott Works, the name of a large sanitary equipment manufacturer. But Mott was too close so I altered it to Mutt, after the daily cartoon strip “Mutt and Jeff” which appeared at the time, and with which everyone was familiar. Thus, from the start, there was an interplay of Mutt: a fat little funny man, and Jeff: a tall thin man ... I wanted any old name. And I added Richard [French slang for money-bags]. That’s not a bad name for a <i>pissotière</i>. Get it? The opposite of poverty. But not even that much, just R. MUTT.(Camfield 1989, p.23.)
+								</p>
+								<p>
+									In fact, Mutt was the tall thin man in the cartoon duo but Duchamp’s point about having wanted essentially ‘any old name’ remains. On other occasions Duchamp recalled that he bought the urinal at J.L. Mott Iron Works Company. Surviving records for the sanitary ware firm are incomplete but show models similar, if not entirely identical, to <i>Fountain</i> (see Camfield 1989, p.24, note 23).
+								</p>
+								<p>
+									<b>Further reading </b><br/>
+									William Camfield, <i>Marcel Duchamp: Fountain</i>, Houston 1989.<br/>
+									Arturo Schwarz, <i>The Complete Works of Marcel Duchamp</i>, revised and expanded edition, New York 1997, pp.648–50.<br/>
+									Francis M. Naumann, <i>The Recurrent, Haunting Ghost: Essays on the Art, Life and Legacy of Marcel Duchamp</i>, New York 2012, pp.70–81.
+								</p>
+								<p>
+									Sophie Howarth<br/>
+									April 2000<br/>
+									Revised Jennifer Mundy<br/>
+									August 2015
+								</p>
+							</div>
+							<a class="hide" href="#none" title="hide">hide</a>
+						</li>
+						<li id="panel1">
+							<p>
+								Fountain is the most famous of Duchamp’s so-called ready-made sculptures: ordinary manufactured objects designated by the artist as works of art. It epitomises the assault on convention and accepted notions of art for which Duchamp became known. The original, which is now lost, consisted of a standard urinal, laid flat on its back and signed with a pseudonym, ‘R. Mutt 1917’. This work is one of a small number of replicas which Duchamp authorised in 1964, based on a photograph of the original by Alfred Stieglitz.
+							</p>
+							<p>
+								<i>Gallery label, January 2016</i>
+							</p>
+						</li>
+						<li id="panel2">
+							<p>
+								This replica is one of at least ten made in 1963/64 by the artist’s dealer, Arturo Schwartz. The prototype for the replica was developed from technical drawings and modelled in clay (drawings and model are owned by the Philadelphia Museum of Art). The replicas were probably manufactured in Europe by a sanitary ware manufacturer using a conventional slip-cast technique. The sculpture appears to be a hollow fired clay construction with a bluish white glaze typical of mass produced urinals. However the glaze does not appear to have been satisfactory and all the replicas were painted a dense white. The ‘R. Mutt, 1917’ inscription was reproduced in gloss black paint. 
+							</p>
+							<p>
+								Prior to acquisition the sculpture was found to have been further over painted to disguise damage to one ‘wing’. Subsequent investigation showed that original paint layers, including a grey alkyd primer and titanium white alkyd top coat, were still present under several alternating layers of nitrocellulose paints and varnishes. These layers were identified by conservation scientist, Tom Learner, using PyGCMS and FTIR as part of the restoration treatment completed by Flavia Perugini in January 2000. 
+							</p>
+							<p>
+								The underside of the sculpture is signed by the artist across the broken wing. A lacquered copper plate with engraved edition details is adhered to the centre of the underside. A similar plate was fixed to all replicas editioned at this time. 
+							</p>
+							<p>
+								Flavia Perugini / Derek Pullen <br/>
+								April 2000 / October 2004 
+							</p>
+						</li>
+					</ul>
+				</div>
+				<div class="descArea">
+					<ul>
+						<li>
+							<p class="descDt">artist</p>
+							<p class="descDd">Marcel Duchamp 1887–1968</p>
+						</li>
+						<li>
+							<p class="descDt">medium</p>
+							<p class="descDd">	Porcelain</p>
+						</li>
+						<li>
+							<p class="descDt">dimensions</p>
+							<p class="descDd">Unconfirmed: 360 x 480 x 610 mm</p>
+						</li>
+						<li>
+							<p class="descDt">collection</p>
+							<p class="descDd">Tate</p>
+						</li>
+						<li>
+							<p class="descDt">acquisition</p>
+							<p class="descDd">	Purchased with assistance from the Friends of the Tate Gallery 1999</p>
+						</li>
+						<li>
+							<p class="descDt">reference</p>
+							<p class="descDd">T07573</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title> Art &amp; Artists | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+  <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+
+   <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*################### skipNav #####################*/
+		#skipNav{ width:100%; height:30px; position:absolute; left:0; top:-30px; z-index:2;}
+			#skipNav p a{display:block; width:100%; background-color:#603280; text-align:center; position:absolute; line-height:30px; color:#fff;}
+			#skipNav p a:focus{top:30px;}
+	/*#####################################################*/
+	
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*######################### container + art_artists ####################*/
+	#container{width:100%;}
+		#art_artists{width:100%; overflow:hidden ;margin:0 auto;}
+			#art_artists h2{height:50px; text-align:center; font-size:46px; font-weight:400; letter-spacing:4px; padding:80px 0 40px;}
+
+
+	/*######################### ARTIST IN THE COLLECTION ####################*/
+		#m_artist{display:none;}
+		#artist{width:1920px; height:562px; margin:84px auto 0;}
+			#artist ul{width:1920px; height:100%; overflow:hidden;margin:0 auto;}
+				#artist li{float:left; transition:all 2s;}
+					#artist li a{display:block; width:100%; height:100%; position:relative;}
+						#artist li a span{display:block;}
+						
+						#artist li a .img{width:100%;height:100%;}
+							#artist li a .img img{transition:all 2s;}
+
+						#artist li a .text{display:block; position:absolute; color:#fff; font-size:36px; font-weight:400;}
+						
+						#artist li a .btn{width:160px; height:40px; position:absolute;color:#fff; font-size:16px; border:1px solid #fff; line-height:40px; text-align:center;}
+
+				.left{width:40%; height:100%;}
+						.left a .img img{height:100%;}
+					.left a .text{left:400px; top:60px;}
+					.left a .btn{left:400px; top:120px;}
+
+				.middle{width:27%; height:100%;}					
+						.middle a .img img{height:100%;}
+					.middle a .text{left:110px; top:400px;}
+					.middle a .btn{left:110px; top:460px;}
+
+				.right{width:29%; height:100%;}					
+						.right a .img img{width:113%;}
+					.right a .text{left:200px; top:230px;}
+					.right a .btn{left:200px; top:290px;}
+		/*#####기능*/
+			#artist .left:hover{width:44%;}		
+			#artist .middle:hover{width:30%;}
+			#artist .right:hover{width:30%;}
+
+			#artist li:hover img{transform:scale(1.05);}
+			#artist a .btn:hover{background-color:#fff; color:#000;}
+			#artist a:focus .btn{background-color:#fff; color:#000;}
+			#artist a:focus img{transform:scale(1.05);}
+			
+
+	/*######################### ART TERMS ####################*/
+		#artTerms{width:1280px; height:600px; margin:0 auto;}
+			.termsLeft{width:50%; height:430px; float:left;}
+				.termsLeft p{width:80%; height:80px; font-size:18px; padding-right:20%}
+				.termsLeft ul{width:100%; height:100%;}
+					.termsLeft li{display:inline-block; margin:0 10px 40px 0; font-size:15px;}
+						.termsLeft li a{border:1px solid #f4f4f4; padding:10px; box-shadow:1px 1px 6px #ccc; color:#313131;}
+				
+			.termsRight{width:638px; height:428px; float:left; border:1px solid #ccc;}
+				.termsRight ul{width:100%; height:100%; position:relative;}
+					.termsRight ul li{width:100%; height:100%; position:absolute;}
+						.termsImg{width:100%; height:58%; text-align:center; padding-top:4%;}
+							.termsImg img{height:100%;}
+						.termsText{width:90%; height:36%; line-height:24px; padding:0 5%; color:#313131; font-size:15px;}
+							.termsText h3{width:100%; height:50px; line-height:60px; text-transform:uppercase;}
+		/*######기능*/
+		.termsLeft li a:hover, .termsLeft li a:focus{background-color:#f4f4f4;}
+
+	/*######################### ART IN THE COLLECTION ####################*/
+		#art{width:1280px; height:670px; margin:0 auto;}
+			#art ul{width:100%; height:500px;}
+				#art li{width:305px; height:100%; float:left; margin-right:20px;}
+				#art li:last-child{margin:0;}
+					#art li .img{width:100%; height:342px; overflow:hidden;}
+						#art li .img img{width:100%;}
+					#art li .text{width:100%; height:158px; line-height:30px; text-align:center; font-size:14px;}
+						#art li .text strong{font-size:16px;}
+						#art li .text span{font-weight:400;}
+
+	/*######################### VIDEOS ####################*/
+		#videos{width:1280px; height:700px; margin:0 auto;}
+			#videos ul{width:100%;}
+			#videos ul:after{content:""; display:block; clear:both;}
+				#videos ul li{width:618px; height:180px; float:left; margin-bottom:20px; margin-right:20px; }
+				#videos ul li.v1, li.v3{margin-right:0;}
+					#videos ul li a{display:block; width:100%; height:100%; transition:all 0.5s ease-out; position:relative; overflow:hidden; box-shadow:2px 2px 14px rgba(96,96,96,0.1);}
+					.videoCut{display:block; width:320px; height:100%; float:left;overflow:hidden;}
+						.videoCut img{height:100%;}
+					.desc{display:block; width:258px; float:left; font-size:13px; line-height:20px; padding:10px 10px 0;}
+						.desc strong{line-height:20px; font-size:16px;}
+					.playBtn{position:absolute; left:150px; top:80px; opacity:0.7;}
+
+		/*######## 기능*/
+			#videos ul li a:hover, #videos ul li a:focus{background-color:#f4f4f4; opacity:1;}
+			#videos ul li a:hover, #videos ul li a:focus{transform:translatey(-7px);}
+			#videos ul li a:hover .playBtn, #videos ul li a:focus .playBtn{opacity:1;}
+
+				
+		/*######################### VIDEOS modal popup ####################*/
+			#view{width:900px; height:520px; background-color:#f4f4f4; box-shadow:2px 2px 20px rgba(20,20,20,0.3); position:fixed; left:50%; top:50%; margin-left:-450px; margin-top:-260px; z-index:7; border-radius:10px;}
+				#view ul{width:100%; height:100%;}
+					#view ul li{width:100%; height:100%; position:relative;}
+						h4{width:860px; font-size:23px; padding:20px 0; line-height:26px; text-align:center; float:left;}
+						#view .xBtn{display:block; width:32px; height:32px; position:absolute; right:20px; top:20px; box-shadow:none;}
+							#view .xBtn img{width:32px;}
+						.subtitle{font-size:14px; text-align:center; clear:both;}
+						.video{width:480px; height:270px; margin:20px auto;}
+						iframe{width:100%; height:100%;}
+						.modalDesc{margin:0 auto; font-size:12px; padding:0 50px;}
+				
+
+			#full{width:100%; height:100%; background-color:rgba(0,0,0,0.7); position:fixed; left:0; top:0;}
+
+		
+			
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+	
+			/*######################### container + art_artists ####################*/
+				#container{width:100%; overflow:hidden;}
+					#art_artists{width:100%; overflow:hidden;margin:0 auto;}
+						#art_artists h2{height:40px; text-align:center; font-size:34px; font-weight:400; letter-spacing:4px; padding:80px 0 40px;}
+
+
+			/*######################### ARTIST IN THE COLLECTION ####################*/
+				#artist{display:none;}
+				#m_artist{display:block; width:100%; height:240px; margin:84px auto 0;}
+					#m_artist ul{width:100%; height:240px; overflow:hidden;}
+						#m_artist li{float:left; overflow:hidden;}
+							#m_artist li a{display:block; width:100%; height:100%; position:relative; overflow:hidden;}
+
+								#m_artist li a .img{display:block; width:100%;}
+									#m_artist li a .img img{width:100%; transition:all 1s;}
+
+								#m_artist li a .text{display:block; position:absolute; left:0; top:0; color:#fff; font-size:15px; font-weight:400;}
+
+								#m_artist li a .btn{display:block; width:100px; height:18px; position:absolute; left:0; top:0; color:#fff; font-size:12px; border:1px solid #fff; line-height:18px; text-align:center;}
+
+									#m_artist .left{width:45%; height:240px;}
+										#m_artist .left a .img img{height:100%;}
+											#m_artist .left a .text{left:38%; top:3%;}
+											#m_artist .left a .btn{left:38%; top:13%;}
+
+									#m_artist .middle{width:30%; height:240px;}					
+										#m_artist .middle a .img img{height:100%;}
+											#m_artist .middle a .text{left:30%; top:74%;}
+											#m_artist .middle a .btn{left:30%; top:84%;}
+
+									#m_artist .right{width:25%; height:240px;}					
+										#m_artist .right a .img img{width:100%;}
+											#m_artist .right a .text{left:30%; top:55%;}
+											#m_artist .right a .btn{left:30%; top:64%;}
+
+					/*#####기능*/
+
+					#m_artist li:hover img{transform:scale(1.1);}
+					#m_artist a .btn:hover{background-color:#fff; color:#000;}
+					#m_artist a:focus .btn{background-color:#fff; color:#000;}
+					#m_artist a:focus img{transform:scale(1.05);}
+
+			
+
+			/*######################### ART TERMS ####################*/
+				#artTerms{width:90%; height:400px; margin:0 auto;}
+					#artTerms h2{width:100%; padding:50px 0 30px;}
+					.termsLeft{width:50%; height:290px; float:left;}
+						.termsLeft p{width:100%; height:50px; font-size:14px; padding-right:0;}
+						.termsLeft ul{width:100%; height:200px;  margin-top:40px;}
+							.termsLeft li{margin:0 2px 15px 0;}
+								.termsLeft li a{padding:4px; font-size:12px;}
+						
+					.termsRight{width:49%; height:300px; float:left;}
+						.termsImg{width:90%; height:140px; margin:10px auto 0; padding-top:0;}
+							.termsImg img{height:100%;}
+						.termsText{width:90%; height:130px; line-height:15px; padding:0; font-size:13px; margin:0 auto;}
+							.termsText h3{width:100%; height:50px; line-height:60px; font-size:15px;}
+				/*######기능*/
+				.termsLeft li a:hover, .termsLeft li a:focus{background-color:#f4f4f4;}
+
+
+
+			
+
+
+			/*######################### ART IN THE COLLECTION ####################*/
+			 #art{width:100%; height:370px; margin:0 auto;}
+				#art h2{width:100%; padding:60px 0 40px; letter-spacing:1px;}
+				#art ul{width:90%; height:260px; margin:0 auto;}
+					#art li{width:23%; height:300px; float:left; margin:0 1%; margin-bottom:0;}
+					#art li:last-child{margin:0 1%;}
+						#art li .img{width:100%; height:180px; overflow:hidden;}
+							#art li .img img{width:100%;}
+						#art li .text{height:70px; line-height:20px; font-size:12px; padding-top:10px; letter-spacing:0.5px;}
+							#art li .text strong{font-size:15px;}
+
+
+			/*######################### VIDEOS ####################*/
+				#videos{width:100%; height:400px;}
+				#videos h2{width:100%; padding:50px 0 30px;}
+					#videos ul{width:90%; height:240px; margin:0 auto;}
+						#videos ul li{width:49%; height:100px; float:left; margin-right:1%;}
+							.videoCut{width:45%; height:100px; overflow:hidden;}
+							.desc{width:52%; height:100px; font-size:13px; line-height:15px; padding:0 1%;}
+								.desc strong{line-height:16px; font-size:14px; letter-spacing:0.5px;}
+							.playBtn{left:15%; top:35%; opacity:0.5;}
+				/*######## 기능*/
+					#videos ul li a:hover .playBtn, #videos ul li a:focus .playBtn{opacity:1;}
+		
+			
+			/*######################### VIDEOS modal popup ####################*/
+				#view{width:700px; height:560px; margin-left:-350px; margin-top:-280px;}				
+						#view ul li{width:100%; height:100%; position:relative;}
+							h4{width:100%; font-size:23px; padding:20px 0;}
+							#view .xBtn{right:0;}
+
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+
+			/*######################### container + art_artists ####################*/
+				#container{width:100%; overflow:hidden;}
+					#art_artists{width:100%; overflow:hidden;margin:0 auto;}
+						#art_artists h2{height:50px; text-align:center; font-size:46px; font-weight:400; letter-spacing:4px; padding:80px 0 40px;}
+
+
+			/*######################### ARTIST IN THE COLLECTION ####################*/
+				#artist{display:none;}
+				#m_artist{display:block; width:100%; height:200px;}
+					#m_artist ul{width:100%; height:194px; overflow:hidden;}
+						#m_artist li{float:left; overflow:hidden;}
+							#m_artist li a{display:block; width:100%; height:100%; position:relative; overflow:hidden;}
+
+								#m_artist li a .img{display:block; width:100%;}
+									#m_artist li a .img img{width:100%; transition:all 1s;}
+
+								#m_artist li a .text{display:block; position:absolute; left:0; top:0; color:#fff; font-size:13px; font-weight:400;}
+
+								#m_artist li a .btn{display:block; width:90px; height:18px; position:absolute; left:0; top:0; color:#fff; font-size:9px; border:1px solid #fff; line-height:18px; text-align:center;}
+
+									#m_artist .left{width:45%; height:200px;}
+										#m_artist .left a .img img{height:100%;}
+											#m_artist .left a .text{left:27%; top:3%;}
+											#m_artist .left a .btn{left:28%; top:13%;}
+
+									#m_artist .middle{width:30%; height:200px;}					
+										#m_artist .middle a .img img{height:100%;}
+											#m_artist .middle a .text{left:20%; top:65%;}
+											#m_artist .middle a .btn{left:20%; top:77%;}
+
+									#m_artist .right{width:25%; height:200px;}					
+										#m_artist .right a .img img{width:100%;}
+											#m_artist .right a .text{left:20%; top:50%;}
+											#m_artist .right a .btn{left:20%; top:64%;}
+
+					/*#####기능*/
+
+					#m_artist li:hover img{transform:scale(1.1);}
+					#m_artist a .btn:hover{background-color:#fff; color:#000;}
+					#m_artist a:focus .btn{background-color:#fff; color:#000;}
+					#m_artist a:focus img{transform:scale(1.05);}
+
+			
+
+			/*######################### ART TERMS ####################*/
+				#artTerms{width:90%; height:400px; margin:0 auto;}
+					#artTerms h2{width:100%; height:20px; font-size:20px; padding:50px 0 30px;}
+					.termsLeft{width:50%; height:290px; float:left;}
+						.termsLeft p{width:100%; height:50px; font-size:13px; padding-right:0;}
+						.termsLeft ul{width:100%; height:200px;  margin-top:40px;}
+							.termsLeft li{margin:0 2px 15px 0;}
+								.termsLeft li a{padding:4px; font-size:11px;}
+						
+					.termsRight{width:49%; height:290px; float:left;}
+						.termsImg{width:90%; height:130px; margin:10px auto 0; padding-top:0; overflow:hidden;}
+							.termsImg img{height:100%;}
+						.termsText{width:90%; height:140px; line-height:13px; padding:0; font-size:10px; margin:0 auto;}
+							.termsText h3{width:100%; height:50px; line-height:60px; font-size:12px;}
+				/*######기능*/
+				.termsLeft li a:hover, .termsLeft li a:focus{background-color:#f4f4f4;}
+
+
+			/*######################### ART IN THE COLLECTION ####################*/
+				#art{width:100%; height:330px; margin:0 auto;}
+					#art h2{width:100%; height:20px; font-size:20px; padding:50px 0 30px; letter-spacing:1px;}
+					#art ul{width:90%; height:230px; margin:0 auto;}
+						#art li{width:23%; height:230px; float:left; margin:0 1%; margin-bottom:0;}
+						#art li:last-child{margin:0 1%;}
+							#art li .img{width:100%; height:150px; overflow:hidden;}
+								#art li .img img{width:100%;}
+							#art li .text{height:70px; line-height:20px; font-size:11px; padding-top:10px; letter-spacing:0.5px;}
+								#art li .text strong{font-size:14px;}
+
+
+			/*######################### VIDEOS ####################*/
+				#videos{width:100%; height:400px;}
+				#videos h2{width:100%; height:20px; font-size:20px; padding:50px 0 30px;}
+					#videos ul{width:90%; height:240px; margin:0 auto;}
+						#videos ul li{width:49%; height:100px; float:left; margin-right:1%;}
+							.videoCut{width:50%; height:100px; overflow:hidden;}
+							.desc{width:46%; height:100px; font-size:10px; line-height:11px; padding:0 2%;}
+								.desc strong{line-height:14px; font-size:11px; letter-spacing:0.5px;}
+							.playBtn{left:15%; top:35%; opacity:0.5;}
+				/*######## 기능*/
+					#videos ul li a:hover .playBtn, #videos ul li a:focus .playBtn{opacity:1;}
+							
+
+			/*######################### VIDEOS modal popup ####################*/
+				#view{width:420px; height:480px; margin-left:-210px; margin-top:-240px;}
+					#view ul{width:100%; height:100%;}
+						#view ul li{width:100%; height:100%; position:relative;}
+							h4{width:90%; font-size:20px; padding:20px 5%;}
+							#view .xBtn{ width:20px; height:20px; right:15px; top:15px;}
+								#view .xBtn img{width:20px;}
+							.subtitle{font-size:13px; padding:0 20px;}
+							.video{width:360px; height:202px; margin:10px auto;}
+							.modalDesc{font-size:10px; padding:0 20px;}
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*######################### container + art_artists ####################*/
+				#container{width:100%; overflow:hidden;}
+					#art_artists{width:100%; overflow:hidden;margin:0 auto;}
+						#art_artists h2{height:50px; text-align:center; font-size:46px; font-weight:400; letter-spacing:4px; padding:80px 0 40px;}
+
+
+			/*######################### ARTIST IN THE COLLECTION ####################*/
+				#artist{display:none;}
+				#m_artist{display:block; width:100%; height:400px;}
+					#m_artist ul{width:100%; height:387px; overflow:hidden;}
+						#m_artist li{float:left; overflow:hidden;}
+							#m_artist li a{display:block; width:100%; height:100%; position:relative; overflow:hidden;}
+
+								#m_artist li a .img{display:block; width:100%;}
+									#m_artist li a .img img{width:100%; transition:all 1s;}
+
+								#m_artist li a .text{display:block; position:absolute; left:0; top:0; color:#fff; font-size:16px; font-weight:400;}
+
+								#m_artist li a .btn{display:block; width:100px; height:20px; position:absolute; left:0; top:0; color:#fff; font-size:10px; border:1px solid #fff; line-height:20px; text-align:center;}
+
+									#m_artist .left{width:100%; height:210px;}
+										#m_artist .left a .img img{height:100%;}
+											#m_artist .left a .text{left:37%; top:7%;}
+											#m_artist .left a .btn{left:38%; top:17%;}
+
+									#m_artist .middle{width:50%; height:177px;}					
+										#m_artist .middle a .img img{height:100%;}
+											#m_artist .middle a .text{left:23%; top:65%;}
+											#m_artist .middle a .btn{left:23%; top:77%;}
+
+									#m_artist .right{width:50%; height:177px;}					
+										#m_artist .right a .img img{width:100%;}
+											#m_artist .right a .text{left:24%; top:50%;}
+											#m_artist .right a .btn{left:25%; top:64%;}
+
+					/*#####기능*/
+
+					#m_artist li:hover img{transform:scale(1.1);}
+					#m_artist a .btn:hover{background-color:#fff; color:#000;}
+					#m_artist a:focus .btn{background-color:#fff; color:#000;}
+					#m_artist a:focus img{transform:scale(1.05);}
+
+			
+
+			/*######################### ART TERMS ####################*/
+				#artTerms{width:90%; height:650px; margin:0 auto;}
+					#artTerms h2{width:100%; height:20px; font-size:20px; padding:50px 0 30px;}
+					.termsLeft{width:100%; height:185px; float:none;}
+						.termsLeft p{width:100%; height:45px; font-size:13px; padding-right:0;}
+						.termsLeft ul{width:100%; height:120px;}
+							.termsLeft li{margin:0 2px 15px 0;}
+								.termsLeft li a{padding:4px; font-size:11px;}
+						
+					.termsRight{width:99%; height:310px; float:none;}
+						.termsImg{width:90%; height:150px; margin:20px auto 0; padding-top:0; overflow:hidden;}
+							.termsImg img{height:90%;}
+						.termsText{width:90%; height:140px; line-height:14px; padding:0; font-size:11px; margin:0 auto;}
+							.termsText h3{width:100%; height:40px; line-height:40px;}
+				/*######기능*/
+				.termsLeft li a:hover, .termsLeft li a:focus{background-color:#f4f4f4;}
+
+
+
+			
+
+
+			/*######################### ART IN THE COLLECTION ####################*/
+				#art{width:100%; height:650px; margin:0 auto;}
+					#art h2{width:100%; height:20px; font-size:20px; padding:50px 0 30px; letter-spacing:1px;}
+					#art ul{width:90%; height:540px; margin:0 auto;}
+						#art li{width:46%; height:260px; float:left; margin:0 2%; margin-bottom:10px;}
+						#art li:last-child{margin:0 2%;}
+							#art li .img{width:100%; height:164px; overflow:hidden;}
+								#art li .img img{width:100%;}
+							#art li .text{height:70px; line-height:20px; font-size:11px; padding-top:10px; letter-spacing:0.5px;}
+								#art li .text strong{font-size:14px;}
+
+
+			/*######################### VIDEOS ####################*/
+				#videos{width:100%; height:600px;}
+				#videos h2{width:100%; height:20px; font-size:20px; padding:50px 0 30px;}
+					#videos ul{width:90%; height:460px; margin:0 auto;}
+						#videos ul li{width:100%; height:100px; float:none; margin-right:0;}
+							.videoCut{width:50%; height:100px; overflow:hidden;}
+								.videoCut img{height:100%;}
+							.desc{width:46%; height:100px; font-size:10px; line-height:11px; padding:0 2%;}
+								.desc strong{line-height:13px; font-size:11px;}
+							.playBtn{left:20%; top:35%; opacity:0.5;}
+				/*######## 기능*/
+					#videos ul li a:hover .playBtn, #videos ul li a:focus .playBtn{opacity:1;}
+
+
+			/*######################### VIDEOS modal popup ####################*/
+				#view{width:300px; height:500px; margin-left:-150px; margin-top:-250px;}
+					h4{width:100%; font-size:20px; padding:40px 0 20px; line-height:24px;}
+						#view .xBtn{width:20px; height:20px; right:10px; top:15px;}
+							#view .xBtn img{width:20px;}
+						.subtitle{font-size:12px; padding:0 20px;}
+						.video{width:240px; height:135px; margin:10px auto;}
+						.modalDesc{font-size:10px; padding:0 10px; line-height:12px;}
+	
+		}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+
+		/*###############      ART TERMS       ###############*/
+			$(".termsRight li:not(:first)").hide();
+
+			$(".termsLeft li:eq(0) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(0)").show();
+			});
+			$(".termsLeft li:eq(1) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(1)").show();
+			});
+			$(".termsLeft li:eq(2) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(2)").show();
+			});
+			$(".termsLeft li:eq(3) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(3)").show();
+			});
+			$(".termsLeft li:eq(4) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(4)").show();
+			});
+			$(".termsLeft li:eq(5) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(5)").show();
+			});
+			$(".termsLeft li:eq(6) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(6)").show();
+			});
+			$(".termsLeft li:eq(7) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(7)").show();
+			});
+			$(".termsLeft li:eq(8) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(8)").show();
+			});
+			$(".termsLeft li:eq(9) a").on("click mouseover focusin",function(){
+				$(".termsRight li").hide();
+				$(".termsRight li:eq(9)").show();
+			});
+
+
+		
+		/*############  모달팝업 비디오  ##############*/
+			$("#view ul li").hide();
+			$("#full,#view").hide();
+
+			$("#videos ul li:eq(0) a").click(function(){
+				$("#full,#view").show();
+				$("#view ul li").hide();
+				$("#view ul li:eq(0)").show();
+				
+			});
+			$("#videos ul li:eq(1) a").click(function(){
+				$("#full,#view").show();
+				$("#view ul li").hide();
+				$("#view ul li:eq(1)").show();
+				
+			});
+			$("#videos ul li:eq(2) a").click(function(){
+				$("#full,#view").show();
+				$("#view ul li").hide();
+				$("#view ul li:eq(2)").show();
+			});
+			$("#videos ul li:eq(3) a").click(function(){
+				$("#full,#view").show();
+				$("#view ul li").hide();
+				$("#view ul li:eq(3)").show();
+				
+			});
+
+			$("#full, .xBtn").click(function(){
+				$("#full,#view").hide();
+			});
+	
+	
+			
+	});
+
+  </script>
+
+ </head>
+
+ <body>
+	<div id="skipNav">
+		<p class="artTerms"><a href="#artTerms" title="Art Terms Area">Art Terms</a></p>
+		<p class="art"><a href="#art" title="Art in Collection">Art in Collection</a></p>
+		<p class="videos"><a href="#videos" title="Videos Area">Videos</a></p>
+		<p class="footerWrap"><a href="#footerWrap" title="Footer 
+		Area">Footer</a></p>
+	</div>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)"  autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<form id="sideSearchForm" action="#none" method="post">
+								<fieldset>
+									<legend>Search</legend>
+									<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+									<p class="searchBtn" onclick="sideSearching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search_white.png" alt="search icon"/>
+										</a>
+									</p>
+								</fieldset>
+							</form>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<div id="art_artists">
+				<section id="artist">
+					<h2 class="outline">ARTIST IN THE COLLECTION</h2>
+					<ul>
+						<li class="left">
+							<a href="artists_david_hockney.html" title="David Hockney">
+								<span class="img"><img src="img/art_artists/artist0.jpg" alt="David Hockney image"/></span>
+								<strong class="text">David Hockney</strong>
+								<span class="btn">View the artist</span>
+							</a>
+						</li>
+						<li class="middle">
+							<a href="artists_rene_magritte.html" title="René Magritte">
+								<span class="img"><img src="img/art_artists/artist1.jpg" alt="René Magritte image"/></span>
+								<strong class="text">René Magritte</strong>
+								<span class="btn">View the artist</span>
+							</a>
+						</li>
+						<li class="right">
+							<a href="artists_mark_rothko.html" title="Mark Rothko">
+								<span class="img"><img src="img/art_artists/artist2.jpg" alt="Mark Rothko image"/></span>
+								<strong class="text">Mark Rothko</strong>
+								<span class="btn">View the artist</span>
+							</a>
+						</li>
+					</ul>
+				</section>
+				
+				<section id="m_artist">
+					<h2 class="outline">ARTIST IN THE COLLECTION</h2>
+					<ul>
+						<li class="left">
+							<a href="artists_david_hockney.html" title="David Hockney">
+								<span class="img"><img src="img/art_artists/artist0.jpg" alt="David Hockney image"/></span>
+								<strong class="text">David Hockney</strong>
+								<span class="btn">View the artist</span>
+							</a>
+						</li>
+						<li class="middle">
+							<a href="artists_rene_magritte.html" title="René Magritte">
+								<span class="img"><img src="img/art_artists/artist1.jpg" alt="René Magritte image"/></span>
+								<strong class="text">René Magritte</strong> 
+								<span class="btn">View the artist</span>
+							</a>
+						</li>
+						<li class="right">
+							<a href="artists_mark_rothko.html" title="Mark Rothko">
+								<span class="img"><img src="img/art_artists/artist2.jpg" alt="Mark Rothko image"/></span>
+								<strong class="text">Mark Rothko</strong>
+								<span class="btn">View the artist</span>
+							</a>
+						</li>
+					</ul>
+				</section>
+
+				<section id="artTerms">
+					<h2>ART TERMS</h2>
+					<div class="termsLeft">
+						<p class="headSub">Find definitions of over 400 terms, including art movements, styles and techniques</p>
+						<ul>
+							<li><a class="surrealisim" href="#none" title="Surrealisim">Surrealisim</a></li>
+							<li><a class="prePaphaelite" href="#none" title="Pre-Paphaelite">Pre-Paphaelite</a></li>
+							<li><a class="performanceArt" href="#none" title="Performance art">Performance art</a></li>
+							<li><a class="YBAs" href="#none" title="Young British Artists(YBAs)">Young British Artists(YBAs)</a></li>
+							<li><a class="abstractArt" href="#none" title="Abstract art">Abstract art</a></li>
+							<li><a class="landArt" href="#none" title="Land art">Land art</a></li>
+							<li><a class="impressionism" href="#none" title="Impressionism">Impressionism</a></li>
+							<li><a class="feministArt" href="#none" title="Feminist art">Feminist art</a></li>
+							<li><a class="installationArt" href="#none" title="Installation art">Installation art</a></li>
+							<li><a class="popArt" href="#none" title="Pop art">Pop art</a></li>
+						</ul>
+					</div>
+					<div class="termsRight">
+						<ul>
+							<li class="surrealisim">
+								<div class="termsImg">
+									<img src="img/art_artists/terms0.jpg" alt="Surrealism image"/>
+								</div>
+								<div class="termsText">
+								<h3>SURREALISM</h3>
+								A twentieth-century literary, philosophical and artistic movement that explored the workings of the mind, championing the irrational, the poetic and the revolutionary
+								</div>
+							</li>
+							<li class="prePaphaelite">
+								<div class="termsImg">
+									<img src="img/art_artists/terms1.jpg" alt="Pre-Paphaelite image"/>
+								</div>
+								<div class="termsText">
+								<h3>Pre-Raphaelite</h3>
+								The Pre-Raphaelites were a secret society of young artists (and one writer), founded in London in 1848. They were opposed to the Royal Academy’s promotion of the ideal as exemplified in the work of Raphael
+								</div>
+							</li>
+							<li class="performanceArt">
+								<div class="termsImg">
+									<img src="img/art_artists/terms2.jpg" alt="Performance art image"/>
+								</div>
+								<div class="termsText">
+								<h3>Performance art</h3>
+								Artworks that are created through actions performed by the artist or other participants, which may be live or recorded, spontaneous or scripted
+								</div>
+							</li>
+							<li class="YBAs">
+								<div class="termsImg">
+									<img src="img/art_artists/terms3.jpg" alt="Young British Artists(YBAs) image"/>
+								</div>
+								<div class="termsText">
+								<h3>Young British Artists(YBAs)</h3>
+								The label Young British Artists (YBAs) is applied to a loose group of British artists who began to exhibit together in 1988 and who became known for their openness to materials and processes, shock tactics and entrepreneurial attitude
+								</div>
+							</li>
+							<li class="abstractArt">
+								<div class="termsImg">
+									<img src="img/art_artists/terms4.jpg" alt="Abstract art image"/>
+								</div>
+								<div class="termsText">
+								<h3>Abstract art</h3>
+								Abstract art is art that does not attempt to represent an accurate depiction of a visual reality but instead use shapes, colours, forms and gestural marks to achieve its effect
+								</div>
+							</li>
+							<li class="landArt">
+								<div class="termsImg">
+									<img src="img/art_artists/terms5.jpg" alt="Land art image"/>
+								</div>
+								<div class="termsText">
+								<h3>Land art</h3>
+								Land art or earth art is art that is made directly in the landscape, sculpting the land itself into earthworks or making structures in the landscape using natural materials such as rocks or twigs
+								</div>
+							</li>
+							<li class="impressionism">
+								<div class="termsImg">
+									<img src="img/art_artists/terms6.jpg" alt="Impressionism image"/>
+								</div>
+								<div class="termsText">
+								<h3>Impressionism</h3>
+								Impressionism developed in France in the nineteenth century and is based on the practice of painting out of doors and spontaneously ‘on the spot’ rather than in a studio from sketches. Main impressionist subjects were landscapes and scenes of everyday life
+								</div>
+							</li>
+							<li class="feministArt">
+								<div class="termsImg">
+									<img src="img/art_artists/terms7.jpg" alt="Feminist art image"/>
+								</div>
+								<div class="termsText">
+								<h3>Feminist art</h3>
+								Feminist art is art by artists made consciously in the light of developments in feminist art theory in the early 1970s
+								</div>
+							</li>
+							<li class="installationArt">
+								<div class="termsImg">
+									<img src="img/art_artists/terms8.jpg" alt="Installation art image"/>
+								</div>
+								<div class="termsText">
+								<h3>Installation art</h3>
+								The term installation art is used to describe large-scale, mixed-media constructions, often designed for a specific place or for a temporary period of time
+								</div>
+							</li>
+							<li class="popArt">
+								<div class="termsImg">
+									<img src="img/art_artists/terms9.jpg" alt="Pop art image"/>
+								</div>
+								<div class="termsText">
+								<h3>Pop art</h3>
+								Pop art is an art movement that emerged in the 1950s and flourished in the 1960s in America and Britain, drawing inspiration from sources in popular and commercial culture. Different cultures and countries contributed to the movement during the 1960s and 70s
+								</div>
+							</li>
+						</ul>				
+					</div>
+				</section>
+
+				<section id="art">
+					<h2>ART IN THE COLLECTION</h2>
+					<ul>
+						<li>
+							<div class="img">
+								<a href="artincoll_Carnation.html" title="Sir Jhon Everett Millais, Bt - Ophelia">
+									<img src="img/art_artists/artwork0.jpg" alt="Sir Jhon Everett Millais, Bt - Ophelia image"/>
+								</a>
+							</div>
+							<div class="text">
+								<a href="artists_sir_john_everett_millais.html" title="Sir Jhon Everett Millais, Bt">Sir Jhon Everett Millais, Bt</a><br/>
+								<a href="artincoll_Carnation.html" title="Ophelia"><strong>Ophelia</strong></a><br/>
+								<span>1851-2</span>
+							</div>
+						</li>
+						<li>
+							<div class="img">
+								<a href="artincoll_TheArtCritic.html" title="Raoul Hausmann - The Art Critic">
+									<img src="img/art_artists/artwork1.jpg" alt="Raoul Hausmann - The Art Critic"/>
+								</a>
+							</div>
+							<div class="text">
+								<a href="artists_raoul_hausmann.html" title="Raoul Hausmann">Raoul Hausmann</a><br/>
+								<a href="artincoll_TheArtCritic.html" title="The Art Critic"><strong>The Art Critic</strong></a><br/>
+								<span>1919-20</span>
+							</div>
+						</li>
+						<li>
+							<div class="img">
+								<a href="artincoll_Babel.html" title="Cildo Meireles - Babel">
+									<img src="img/art_artists/artwork2.jpg" alt="Cildo Meireles - Babel"/>
+								</a>
+							</div>
+							<div class="text">
+								<a href="artists_cildo_meireles.html" title="Cildo Meirele">Cildo Meireles</a><br/>
+								<a href="artincoll_Babel.html" title="Babel"><strong>Babel</strong></a><br/>
+								<span>2001</span>
+							</div>
+						</li>
+						<li>
+							<div class="img">
+								<a href="artincoll_TheKiss.html" title="Auauste Robin - The Kiss">
+									<img src="img/art_artists/artwork3.jpg" alt="Auauste Robin - The Kiss"/>
+								</a>
+							</div>
+							<div class="text">
+								<a href="artists_auguste_rodin.html" title="Auauste Robin">Auauste Robin</a><br/>
+								<a href="artincoll_TheKiss.html" title="The Kiss"><strong>The Kiss</strong></a><br/>
+								<span>1901-4</span>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+				<section id="videos">
+					<h2>VIDEOS</h2>
+					<ul>
+						<li>
+							<a href="#none" title="Dayanita Singh video">
+								<span class="videoCut">
+									<img src="img/art_artists/videocut0.jpg" alt="Dayanita Singh videocut"/>
+								</span>
+								<span class="desc">
+									<strong>Dayanita Singh</strong><br/>				
+									Photographer Dayanita Singh explains how her photography books are like sculptures
+								</span>
+								<span class="playBtn"><img src="img/art_artists/play-button.png" alt="play icon"/></span>
+							</a>
+						</li>
+						<li class="v1">
+							<a href="#none" title="Emeka Ogboh video">
+								<span class="videoCut">
+									<img src="img/art_artists/videocut1.jpg" alt="Emeka Ogboh videocut"/>
+								</span>
+								
+								<span class="desc">
+									<strong>Emeka Ogboh: 'Lagos is a city that is never silent'</strong><br/>
+									When the Nigerian artist first moved to Berlin he couldn’t sleep because it was so quiet
+								</span>
+								<span class="playBtn"><img src="img/art_artists/play-button.png" alt="play icon"/></span>
+							</a>
+						</li>
+						<li>
+							<a href="#none" title="BMW Tate Live: Joan Jonas video">
+								<span class="videoCut">
+									<img src="img/art_artists/videocut2.jpg" alt="BMW Tate Live: Joan Jonas videocut"/>
+								</span>
+								
+								<span class="desc">
+									<strong>BMW Tate Live: Joan Jonas</strong><br/>
+									Watch the artist perform a new work created especially for an online audience and filmed at Tate Modern
+								</span>
+								<span class="playBtn"><img src="img/art_artists/play-button.png" alt="play icon"/></span>
+							</a>
+						</li>
+						<li class="v3">
+							<a href="#none" title="Unlock Art image">
+								<span class="videoCut">
+									<img src="img/art_artists/videocut3.png" alt="Unlock Art videocut"/>
+								</span>
+								
+								<span class="desc">
+									<strong>Unlock Art: A Brief History of Art Undressed</strong><br/>
+									Dawn O'Porter takes us on a tour of nudity in art, from its origins 25,000 years ago to the present
+								</span>
+								<span class="playBtn"><img src="img/art_artists/play-button.png" alt="play icon"/></span>
+							</a>
+						</li>
+					</ul>
+					<div id="view">
+						<ul>
+							<li>
+								<h4>Dayanita Singh</h4><a class="xBtn" href="#none" title="close"><img src="img/art_artists/close64.png" alt="close button"/></a>
+								<p class="subtitle">Photographer Dayanita Singh explains how her photography books are like sculptures</p>
+								<p class="video"><iframe src="https://www.youtube.com/embed/aTt7TL3h_bk"></iframe></p>
+								<p class="modalDesc">In this film Dayanita Singh tells us how the overpowering colour of India led her to work in black and white which she felt made the images ‘more elusive’. She also talks about how her frustrations with how she feels her images become ‘fossilized’ in museums and art galleries and how this prompted to develop her mobile ‘pocket museums’ – which are structures that allow Dayanita herself or invited participants to move and change displays of her work.</p>
+							</li>
+							<li>
+								<h4>Emeka Ogboh: 'Lagos is a city that is never silent'</h4><a class="xBtn" href="#none" title="close"><img src="img/art_artists/close64.png" alt="close button"/></a>
+								<p class="subtitle">When the Nigerian artist first moved to Berlin he couldn’t sleep because it was so quiet</p>
+								<p class="video"><iframe src="https://www.youtube.com/embed/DPTtWsAKVww"></iframe></p>
+								<p class="modalDesc">Growing up in Lagos, Emeka Ogboh was surrounded by the city’s constant and powerful soundscape.<br/><br/>On leaving the city he was struck by the ability of sound to immerse and transport the listener physically. In his installation piece, The Way Heavenly Things are Going, first exhibited at Documenta 14 in Athens and currently on display in Tate Modern’s East Tank, he brings together a traditional Greek song of lamentation with a real time report of the stock market indexes. The artwork takes its title from a Bob Marley song and references the ongoing global financial crisis as well as mass migration and displaced communities.</p>
+							</li>
+							<li>
+								<h4>BMW Tate Live: Joan Jonas</h4><a class="xBtn" href="#none" title="close"><img src="img/art_artists/close64.png" alt="close button"/></a>
+								<p class="subtitle">Watch the artist perform a new work created especially for an online audience and filmed at Tate Modern</p>
+								<p class="video"><iframe src="https://www.youtube.com/embed/exARgsB0pkM"></iframe></p>
+								<p class="modalDesc">Joan Jonas, one of the most significant artists in the history of video and performance, opened the BMW Tate Live Performance Room 2013 series with a new work Draw Without Looking created especially for an online audience.<br/><br/>Following the performance, Jonas spoke to curator Catherine Wood and answered questions from viewers posted on social media.<br/><br/>BMW Tate Live: Performance Room is a series of performances commissioned and conceived exclusively for the online space, and the first artistic programme created purely for live web broadcast.</p>
+							</li>
+							<li>
+								<h4>Unlock Art: A Brief History of Art Undressed</h4><a class="xBtn" href="#none" title="close"><img src="img/art_artists/close64.png" alt="close button"/></a>
+								<p class="subtitle">Dawn O'Porter takes us on a tour of nudity in art, from its origins 25,000 years ago to the present</p>
+								<p class="video"><iframe src="https://www.youtube.com/embed/WdQ_T0Ym0Ao"></iframe></p>
+								<p class="modalDesc">With an unflinching gaze, television presenter and writer Dawn O’Porter tackles the ever-changing rules of acceptability for representing and beholding flesh in art.</p>
+							</li>
+						</ul>
+					  </div>
+					  <div id="full">
+					  </div>
+				</section>
+			</div>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

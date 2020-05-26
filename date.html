@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> date </title>
+  <script>
+
+  
+	var today = new Date();
+	//var prev_3day = new Date();
+
+	var dateString = "26 Jan 2018";
+	var date = new Date(dateString);  
+	//var dateString = "2018-01-26"
+	//alert(date);
+	//var dateChange = dateString.toISOString();
+
+	//alert(dateChange);
+	var work = "";
+	//date.setDate(30);  
+	document.write(today);  
+	document.write(date);
+	document.write();
+
+	if(date< today){
+		work = "past";
+		document.write(work);
+	}else{
+		work = "future";
+		document.write(work);
+	}
+
+	var priceEls = document.getElementsByClassName("price");
+
+		for (var i = 0; i < priceEls.length; i++) {
+		  var price = priceEls[i].innerText;
+		  alert("Price: " + price);
+		}
+
+
+	/*
+	//document.write(today);
+	prev_3day.setDate(prev_3day.getDate() - 3);
+
+	//console.log(prev_3day);
+	//Tue Jan 10 2017 10:09:43 GMT+0900 (대한민국 표준시)
+	
+	var after_3day = new Date();
+	//after_3day.setDate(after_3day.getDate() + 3);
+	console.log(after_3day);
+	//Mon Jan 16 2017 10:08:53 GMT+0900 (대한민국 표준시)
+	
+	var convert_date = new Date(2017, 1, 13);
+	//console.log(convert_date);
+	//Mon Feb 13 2017 00:00:00 GMT+0900 (대한민국 표준시)
+*/
+  </script>
+ </head>
+ <body>
+	<span class="price">26 Jan 2018</span>
+	<span class="price">29 Jan 2018</span>
+	<span class="price">26 Aug 2018</span>
+ </body>
+</html>

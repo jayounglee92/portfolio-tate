@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title> The Art Critic, Raoul Hausmann, 1919–20 | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+  <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+   <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+		
+	/*######################## container + artHeader + imgArea ####################*/
+		#container{width:100%;}
+			#artHeader{width:1280px; margin:0 auto; text-align:center;}
+				#artHeader h3{width:100%; font-size:34px; font-weight:400; padding-top:100px;}
+				#artHeader h2{width:100%; font-size:40px; padding-top:20px;}
+				.date{width:100%; font-size:20px; padding-top:20px;}
+
+			#artworkArea{width:100%; background-color:#f4f4f4; text-align:center; margin-top:50px;}
+				#artworkArea .imgArea{height:470px; margin:0 auto;}
+					#artworkArea p img{height:100%;}
+					.license{width:380px; margin:0 auto; padding:10px 0; font-size:14px; text-align:left; line-height:20px;}
+		
+	/*######################## artContent + tabArea ####################*/	
+		#artContent{width:1280px; margin:50px auto 0; padding-bottom:50px;}
+		#artContent:after{content:""; display:block; clear:both;}
+			.tabArea{width:740px; overflow:hidden; float:left; margin-right:50px; margin-left:10px;}
+				.tab{width:100%; height:50px; border-bottom:1px solid #ccc;}
+				.tab:after{content:""; display:block; clear:both;}
+					.tab li{width:180px; height:50px; float:left; border-left:1px solid #ccc;}
+						.tab li a{display:block; width:100%; height:50px; font-size:20px; text-align:center; border-top:6px solid rgba(97,46,110,0); line-height:45px;}
+						.tab li:last-child{border-right:1px solid #ccc;}
+						.tab li a.selected{border-top:6px solid rgba(97,46,110,1);}
+
+			.panel{width:100%; line-height:25px; font-size:15px;}
+				.panel li{width:100%; padding-top:20px;}
+					.panel li p{margin-bottom:30px;}
+					.panel li .showPart{width:100%; overflow:hidden; position: relative;}
+					.panel li .showPart:after{position:absolute; left:0; bottom:0; height:20%; width:100%; content:"";
+					background-image:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-ms-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-moz-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-o-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);}
+					.panel li .showPart.hidden:after{display:none;}/* 문단아래 그라데이션 없애기 */
+					.panel li p.middlePoint{width:600px; margin:0 auto; font-size:20px; margin-bottom:30px; line-height:30px;}
+					
+					.readMore, .hide{display:block; width:120px; height:40px; background-color:rgba(20,20,20,0.1); font-size:18px; line-height:40px; text-align:center; margin-top:20px; margin-bottom:20px;}
+		/*기*/
+		/*능*/
+		.tab li a:hover, .tab li a:focus{text-decoration:none;}
+		.readMore:hover, .readMore:focus, .hide:hover, .hide:focus{text-decoration:none; background-color:rgba(20,20,20,0.3); }
+
+	/*######################## artContent + descArea ####################*/
+		.descArea{width:480px; float:left;}
+			.descArea ul{width:99%; border:1px dotted #ccc;}
+				.descArea ul li{width:100%; border-bottom:1px dotted #ccc; line-height:40px; font-size:18px; padding:5px 0;}
+				.descArea ul li:last-child{border-bottom:none;}
+				.descArea ul li:after{content:""; display:block; clear:both;}
+					.descArea ul li p{width:100%; float:left;}
+					.descArea ul li p.descDt{width:30%; text-indent:10px; text-transform:uppercase;}
+					.descArea ul li p.descDd{width:70%;}
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+			
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{font-size:30px;}
+						#artHeader h2{font-size:36px; padding-top:10px;}
+						.date{padding-top:10px;}
+
+						#artworkArea .imgArea{height:400px;}
+							
+							.license{width:460px; font-size:12px; line-height:17px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:90%;}
+					.tabArea{width:60%; margin-right:5%; margin-left:0;}
+						.tab li{width:140px;}
+							.tab li a{height:40px; padding-top:10px; font-size:16px; line-height:20px;}
+
+					.panel{line-height:20px; font-size:13px;}
+						.panel li p.middlePoint{width:380px; font-size:15px; margin-bottom:30px; line-height:20px;}
+						.hide{margin-bottom:20px;}
+
+				
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:35%; float:left;}
+					.descArea ul{width:100%;}
+						.descArea ul li{line-height:24px; font-size:14px;}
+							.descArea ul li p.descDt{width:45%;}	
+							.descArea ul li p.descDd{width:55%;}
+				
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+	
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{width:100%; font-size:20px; padding-top:30px;}
+						#artHeader h2{width:100%; font-size:24px; padding-top:10px;}
+						.date{font-size:14px; padding-top:10px;}
+
+					#artworkArea{margin-top:20px;}
+						#artworkArea .imgArea{height:220px;}
+							.license{width:240px; padding:10px 40px; font-size:9px;  line-height:12px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:100%; margin:0 auto;}
+					.tabArea{width:100%; margin-right:0; margin-left:0;}
+							.tab li{width:130px;}
+								.tab li a{font-size:12px;}
+
+					.panel{width:100%; line-height:16px;}
+						.panel li{width:90%; margin:0 auto; font-size:10px;}
+							.panel li p{margin-bottom:20px;}	
+							.panel li p.middlePoint{width:320px; font-size:14px; line-height:20px;}
+								.readMore{margin-top:0; margin-bottom:20px;}
+
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:100%;}
+					.descArea ul{width:270px; margin:0 auto;}
+						.descArea ul li{line-height:20px; font-size:11px;}
+							.descArea ul li p.descDt{width:35%; text-indent:5px;}
+					.descArea ul li p.descDd{width:65%;}
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{width:100%; font-size:20px; padding-top:20px;}
+						#artHeader h2{width:100%; font-size:24px; padding-top:10px;}
+						.date{font-size:14px; padding-top:10px;}
+
+					#artworkArea{margin-top:20px;}
+						#artworkArea .imgArea{height:200px;}
+							.license{width:230px; padding:10px 40px; font-size:10px;  line-height:12px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:100%; margin:0 auto;}
+					.tabArea{width:100%; margin-right:0; margin-left:0;}
+							.tab li{width:130px;}
+								.tab li a{font-size:12px; line-height:45px;}		
+
+					.panel{width:100%; line-height:17px; font-size:11px;}
+						.panel li{width:90%; margin:0 auto;}
+							.panel li p{margin-bottom:20px;}
+							.panel li p.middlePoint{width:260px; font-size:13px; line-height:18px;}
+								.readMore{margin-top:0; margin-bottom:20px;}
+
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:100%;}
+					.descArea ul{width:270px; margin:0 auto;}
+						.descArea ul li{line-height:20px; font-size:12px;}
+							.descArea ul li p.descDt{width:35%; text-indent:5px;}
+					.descArea ul li p.descDd{width:65%;}
+
+		}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+		
+		/*################### artContent Tap #####################*/
+			$(".panel li:not(:first)").hide();
+					
+				$(".tab li a").on("click focusin",function(){
+					$(".panel li").hide();
+					
+					$($(this).attr("href")).show();
+					$(".tab li a").removeClass();
+					$(this).addClass("selected");
+					
+				});
+		
+		/*################### artContent panel0 #####################*/
+			$(".hidePart").hide();
+			$(".hide").hide();
+			$(".readMore").click(function(){
+				$(".readMore").toggle();
+				$(".hide").toggle();
+				$(".hidePart").slideToggle(1500);
+				$(".showPart").addClass("hidden");
+			
+			});
+			$(".hide").click(function(){
+				$(".readMore").toggle();
+				$(".hide").toggle();
+				$(".hidePart").slideToggle(1500);
+				$(".showPart").removeClass("hidden");
+			});
+	});
+  </script>
+
+
+ </head>
+
+ <body>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)" autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search" >
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<div id="sideSearchForm">
+								<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+								<p class="searchBtn" onclick="sideSearching();">
+									<a href="#none" title="Search">
+										<img src="img/header/search_white.png" alt="search icon"/>
+									</a>
+								</p>
+							</div>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<section id="artHeader">
+				<h3>Raoul Hausmann</h3>
+				<h2>The Art Critic</h2>
+				<p class="date">1919–20</p>
+			</section>
+			<div id="artworkArea">
+				<p class="imgArea">
+					<img src="img/art_artists/artwork1.jpg" alt="The Art Critic-Raoul Hausmann"/>
+				</p>
+				<p class="license">&copy; ADAGP, Paris and DACS, London 2018<br/><a href="https://www.tate-images.com/results.asp?image=T01918" title="License this image">License this image</a></p>
+			</div>
+			<div id="artContent">
+				<div class="tabArea">
+					<ul class="tab">
+						<li>
+							<a class="selected" href="#panel0" title="Display caption"><strong>Display caption</strong></a>
+						</li>
+						<li>
+							<a href="#panel1" title="Catalogue entry"><strong>Catalogue entry</strong></a>
+						</li>
+					</ul>
+					<ul class="panel">
+						<li id="panel0">
+							<p>
+								Hausmann, a founder member of the Berlin Dada group, developed photomontage as a tool of satire and political protest. Although the 'art critic' is identified by a stamp as George Grosz, another member of the group, the image was probably an anonymous figure cut from a magazine. The fragment of a German banknote behind the critic’s neck suggests that he is controlled by capitalist forces. The words in the background are part of a poem poster made by Hausmann to be pasted on the walls of Berlin. <br/><br/><i>Gallery label</i>, September 2006
+						</p>
+						</li>
+						<li id="panel1">
+							<div class="showPart">
+								<p>
+									<b>Raoul Hausmann</b> 1886-1971 <br/>
+
+									T01918 <b>The Art Critic</b> 1919-20 <br/>
+
+									Inscribed on the back 'No.16' and 'Der Kunstkritiker'<br/>
+									Photomontage, 12 1/2 x 10 (31.7 x 25.4) <br/>
+									Purchased from Frau Ilse Vordemberge-Leda through Annely Juda Fine Art (Grant-in-Aid) 1974 <br/>
+									Prov: Friedrich Vordemberge-Gildewart, Hanover (by 1925); Frau Ilse Vordemberge-Leda, Rapperswil <br/>
+									Exh: Erste internationale Dada-Messe, Kunsthandlung Dr. Otto Burchard, Berlin, June 1920 (37) as 'Der Kunstreporter'; Dada, Kunsthaus, Zurich, October-November 1966 (112); Musée National d'Art Moderne, Paris, November 1966-January 1967 (112); Raoul Hausmann, Moderna Museet, Stockholm, October-November 1967 (16, repr.); Combattimento per un'Immagine: Fotografi e Pittori, Galleria Civica d'Arte Moderna, Turin, March-April 1973 (works not listed, repr.); Dada and Surrealism Reviewed, Hayward Gallery, London, January-March 1978 (4.42, repr. in colour); Paris-Berlin 1900-1933, Centre National d'Art et de Culture Georges Pompidou, Musée National d'Art Moderne, Paris, July-November 1978 (works not numbered, repr.) 
+									Lit: Michel Giroud (ed.), Raoul Hausmann 'Je ne suis pas un Photographe' (Paris 1975), p.48, repr. p.49 in colour <br/>
+									Repr: Jean-François Bory, Prolégomènes à une Monographie de Raoul Hausmann (Paris 1972), n.p. (dated 1919); Raoul Hausmann, Am Anfang war Dada (Steinbach-Giessen 1972), p.94 (dated 1919)
+								</p>
+							</div>
+							<a class="readMore" href="#none" title="Read more">Read more</a>
+							<div class="hidePart">
+								<p>
+									According to Michel Giroud, loc. cit., this is an 'ironic photomontage depicting the critic as exclusively preoccupied with fashion and women and whose analyses are no more than successions of words without meaning ... His portrait is stuck onto the background of a poem-poster whose huge letters speak the new language, which is beyond the understanding of the blinded critic.' 
+								</p>
+								<p>
+									The main figure is stamped 'Porträt | CONSTRUIERT | George Grosz 1920' (portrait - constructed - of George Grosz 1920) and its head looks to the compiler as though it may have been a magazine photograph of Grosz himself. Prof. Dr. Walter Huder of the George-Grosz-Archiv in Berlin writes that he has compared it with a number of photographs of Grosz of the same period and that the hair, nose and chin appear identical. On the other hand Grosz's son Peter Grosz considers that it does not look like him as he was in 1920 but has a vague resemblance to Richard Huelsenbeck, though the newspaper silhouette of the man on the right in the rather dandified posture could be Grosz. The substitution of new eyes and a new mouth to suggest prejudice, lack of understanding and venom (an impression of corruption which is reinforced by the fragment of a German banknote which appears to penetrate the critic's neck from the back like a dagger) makes the head, no doubt deliberately, somewhat difficult to identify. To the compiler, a comparison with the photograph of Grosz (which is like) and of Richard Huelsenbeck (which is unlike) reproduced in <i>Der Dada</i> No.3 published in 1920 makes a connection with Grosz much the more likely, though one would expect a magazine photograph of Grosz to have been recorded. 
+								</p>
+								<p>
+									The two artists were very close at this period and made several works in collaboration. Moreover Grosz stamped a number of his own works of 1920 with various rubber stamps of a similar kind bearing inscriptions such as 'GEORGE GROSZ | 1920 | CONSTRUIERT' and 'CONSTRUIERT | George Grosz 1920' (though never, as far as the compiler is aware, one inscribed 'Porträt | CONSTRUIERT | George Grosz 1920'). It may be that the photograph was not of Grosz himself but was chosen because of its resemblance to him, and that either Grosz or Hausmann afterwards inscribed it, perhaps ironically, with one of Grosz's stamps, suitably adapted. 
+								</p>
+								<p>
+									Mrs Vera Cohn, who knew Hausmann from 1928 to about 1934-5, has suggested that the woman, whose photograph was also cut out of some magazine, was possibly an actress or film star of the period - by her type of hair style and make-up certainly not a member of Hausmann's circle - and that the shadowy silhouette could have been intended to signify the shadow of the bourgeoisie. The background seems to be the right-hand half of one of Hausmann's phonetic poem-posters made to paste up on walls in Berlin, and the two rows of lettering on it (legible in their entirety from the back) read 'bcnokis | ethnolu'. The only two posters which are known to survive intact have very similar typography and are both printed on coloured paper, one like this on orange-brick paper and the other on green paper. Both measure 32.5 x 47.5cm, that is to say nearly twice the width of this work. <br/><br/>The printed caption on the right reads:
+								</p>
+								<p class="middlePoint">
+									RAOUL HAUSMANN <br/>
+									PRÄSIDENT DER SONNE, <br/>
+									DES MONDES UND DER KLEINEN ERDE (INNENFLÄCHE) <br/>
+									DADASOPH DADARAOUL, DIREKTOR DES CIRKUS DADA 
+								</p>
+								<p>
+									This can be translated as 'Raoul Hausmann president of the sun, the moon and the little earth (inner surface) Dadasoph Dadaraoul, director of the Dada circus'. Just as Hausmann called himself Dadasoph, so Johannes Baader was known as Oberdada, and the six artists Baader, Grosz, Hausmann, Heartfield, Huelsenbeck and Mehring collectively as the Urdadas. In an article in Der Dada No.2, Baader describes himself with a similar ironic extravagance as 'Oberdada, president of the globe of the earth and the world, head of world justice, acting confidential chairman of the intertellurian oberdadaistic League of Nations of DADACO.' 
+								</p>
+								<p>
+									Though this photomontage has usually been dated 1919, the date on the stamp 'Porträt CONSTRUIERT George Grosz' is 1920, and 1920 is mentioned again in the newspaper cutting collaged in on the right. 
+								</p>
+								<p>
+									<b>Published in: </b><br/>
+									Ronald Alley, <i>Catalogue of the Tate Gallery's Collection of Modern Art other than Works by British Artists</i>, Tate Gallery and Sotheby Parke-Bernet, London 1981, pp.355-6, reproduced p.355 
+								</p>
+							</div>
+							<a class="hide" href="#none" title="hide">hide</a>
+						</li>
+					</ul>
+				</div>
+				<div class="descArea">
+					<ul>
+						<li>
+							<p class="descDt">artist</p>
+							<p class="descDd">Raoul Hausmann 1886–1971</p>
+						</li>
+						<li>
+							<p class="descDt">ORIGINAL TITLE</p>
+							<p class="descDd">Der Kunstkritiker</p>
+						</li>
+						<li>
+							<p class="descDt">MEDIUM</p>
+							<p class="descDd">Lithograph and printed paper on paper</p>
+						</li>
+						<li>
+							<p class="descDt">DIMENSIONS</p>
+							<p class="descDd">Support: 318 x 254 mm</p>
+						</li>
+						<li>
+							<p class="descDt">COLLECTION</p>
+							<p class="descDd">Purchased 1974</p>
+						</li>
+						<li>
+							<p class="descDt">reference</p>
+							<p class="descDd">T01918</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

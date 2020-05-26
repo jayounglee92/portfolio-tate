@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+  <title> Join and Support Tate  </title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+
+   <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+
+
+   <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+	/*######################## container + supportHeader ####################*/
+		#container{width:100%;}
+			#supportHeader{width:100%; position:relative; overflow:hidden;}
+				#supportHeader img{width:100%; margin-top:-300px;}
+				#supportHeader div{width:600px; height:200px;background-color:rgba(20,20,20,0.5); color:#f4f4f4; position:absolute; left:10%; top:34%; padding:50px 30px;}
+					#supportHeader div h2{font-size:40px; letter-spacing:4px;margin-bottom:30px; font-weight:400;}
+					#supportHeader div p{font-size:22px; line-height:30px;font-weight:400;}
+
+
+	/*######################## content ####################*/
+		#content{width:100%; margin:0 auto;}
+			#content h3{font-size:40px; text-align:center; letter-spacing:4px; padding:80px 0 40px;font-weight:400;}
+			#content section{padding-bottom:100px;}
+
+			#members{width:1280px; margin:0 auto; border-bottom:1px dotted #ccc; }
+				#members ul{width:100%;}
+				#members ul:after{content:""; display:block; clear:both;}
+					#members ul li{width:600px; float:left;}
+					#members ul li:first-child{margin-right:80px;}
+						#members ul li .imgArea{width:100%; overflow:hidden;}
+							#members ul li .imgArea img{width:100%;}
+						
+
+			#patrons{width:1280px; margin:0 auto;border-bottom:1px dotted #ccc; }
+				#patrons ul{width:100%;}
+				#patrons ul:after{content:""; display:block; clear:both;}
+					#patrons ul li{width:600px; float:left;}
+					#patrons ul li:first-child{margin-right:80px;}
+						#patrons ul li .imgArea{width:100%; overflow:hidden;}
+							#patrons ul li .imgArea img{width:100%;}
+
+						.imgArea{width:100%; overflow:hidden; position:relative;}
+							.imgArea a{display:block; width:100%; height:100%; position:absolute; left:0; top:0; transition:all .5s;}
+						.textArea{width:90%; padding:20px 5%; background-color:#f4f4f4; color:#313131;}
+							.textArea h4{margin-bottom:20px;}
+							.textArea h4 a{color:#313131; font-size:20px;}
+
+			#donate{width:1280px; margin:0 auto;}
+				#donate{width:1280px; margin:0 auto;}
+				#donate ul{width:100%;}
+				#donate ul:after{content:""; display:block; clear:both;}
+					#donate ul li{width:420px; float:left; margin-right:10px;}
+					#donate ul li:last-child{margin-right:0;}
+						#donate .imgArea{width:100%; overflow:hidden;}
+							#donate .imgArea img{width:100%;}
+							#donate .imgArea a{display:block; width:100%; height:100%;}
+						#donate .textArea{height:100px;}
+
+			.imgArea a:hover, .imgArea a:focus{background-color:rgba(20,20,20,0.3);}
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+
+			/*######################## container + supportHeader ####################*/
+					
+						#supportHeader img{margin-top:0;margin-top:-80px;}
+						#supportHeader div{width:300px; height:140px; left:10%; top:40%; padding:30px 20px;}
+							#supportHeader div h2{font-size:22px; letter-spacing:2px; margin-bottom:20px;}
+							#supportHeader div p{font-size:16px; line-height:24px;}
+
+
+				/*######################## content ####################*/
+					#content{width:100%; margin:0 auto;}
+						#content h3{font-size:26px;letter-spacing:2px; padding:40px 20px;}
+						#content section{padding-bottom:60px;}
+
+						#members{width:90%;}
+								#members ul li{width:40%; margin:0 5%;}
+								#members ul li:first-child{margin-right:0;}
+										
+
+						#patrons{width:90%;}
+								#patrons ul li{width:40%; margin:0 5%;}
+								#patrons ul li:first-child{margin-right:0;}
+
+									.imgArea{width:100%;}
+									.textArea{padding:10px 5%; height:90px; font-size:12px;}
+										.textArea h4{margin-bottom:10px;}
+										.textArea h4 a{font-size:16px;}
+
+						#donate{width:90%;}
+								#donate ul li{width:30%; margin:0 1.5%;}		
+									#donate .textArea{height:90px;}
+
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			
+			/*######################## container + supportHeader ####################*/
+						#supportHeader img{width:100%; margin-top:-80px;}
+						#supportHeader div{width:180px; height:150px; left:10%; top:25%; padding:10px;}
+							#supportHeader div h2{font-size:17px; letter-spacing:2px;margin-bottom:20px; }
+							#supportHeader div p{font-size:12px; line-height:20px;}
+
+
+				/*######################## content ####################*/
+						#content h3{font-size:20px; letter-spacing:2px; padding:40px 20px;}
+						#content section{padding-bottom:60px;}
+
+						#members{width:90%;}
+								#members ul li{width:40%; margin:0 5%;}
+								#members ul li:first-child{margin-right:0;}
+										
+
+						#patrons{width:90%;}
+								#patrons ul li{width:40%; margin:0 5%;}
+								#patrons ul li:first-child{margin-right:0;}
+
+										
+									.textArea{padding:10px 5%; height:90px; font-size:11px;}
+										.textArea h4{margin-bottom:10px;}
+										.textArea h4 a{font-size:13px;}
+
+						#donate{width:90%;}
+								#donate ul li{width:30%; margin:0 1.5%;}
+									#donate .textArea{height:90px;}
+			
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*######################## container + supportHeader ####################*/
+						#supportHeader img{width:100%; margin-top:0;}
+						#supportHeader div{width:180px; height:150px;left:0; top:6%; padding:10px;}
+							#supportHeader div h2{font-size:17px; letter-spacing:2px;margin-bottom:20px;}
+							#supportHeader div p{font-size:12px; line-height:20px;}
+
+
+				/*######################## content ####################*/
+						#content h3{font-size:20px; letter-spacing:2px; padding:40px 20px;}
+						#content section{padding-bottom:70px;}
+
+						#members{width:90%;}
+								#members ul li{width:100%;}
+								#members ul li:first-child{margin-right:0; margin-bottom:30px;}
+										
+
+						#patrons{width:90%;}
+								#patrons ul li{width:100%;}
+								#patrons ul li:first-child{margin-right:0; margin-bottom:30px;}
+
+									.imgArea{width:100%;}
+									.textArea{width:90%; padding:10px 5%; font-size:13px;}
+										.textArea h4{margin-bottom:10px;}
+										.textArea h4 a{font-size:15px;}
+
+						#donate{width:90%;}
+								#donate ul li{width:100%;  margin-right:0; margin-bottom:30px;}	
+									#donate .textArea{height:70px;}
+		}
+  </style>
+
+   <script>
+	jQuery(document).ready(function(){
+		
+		
+	});
+  </script>
+ </head>
+ <body>
+	<div id="wrap">
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)"  autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<form id="sideSearchForm" action="#none" method="post">
+								<fieldset>
+									<legend>Search</legend>
+									<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+									<p class="searchBtn" onclick="sideSearching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search_white.png" alt="search icon"/>
+										</a>
+									</p>
+								</fieldset>
+							</form>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+
+		<div id="container">
+
+			<section id="supportHeader">
+				<img src="img/sub_support/support_main.jpg" alt="support_bg"/>
+				<div>
+					<h2>JOIN & SUPPORT</h2>
+					<p>Join as a Tate Member, Tate Patron, Corporate Member or Corporate Partner to enjoy exclusive benefits and support Tate</p>
+				</div>
+			</section>
+
+			<div id="content">
+				<section id="members">
+					<h3>TATE MEMBERS</h3>
+					<ul>
+						<li>
+							<div class="imgArea">
+								<img src="img/sub_support/support0.jpg" alt="Become a Member image"/>
+								<a href="preparing.html" title="Become a Member"></a>
+							</div>
+							<div class="textArea">
+								<h4>
+									<a href="preparing.html" title="Become a Member">Become a Member</a>
+								</h4>
+								<p>Choose your Membership type and support Tate from as little as £76 a year</p>
+							</div>
+						</li>
+						<li>
+							<div class="imgArea">
+								<img src="img/sub_support/support1.jpg" alt="Tate Members Benefits image"/>
+								<a href="preparing.html" title="Tate Members Benefits"></a>
+							</div>
+							<div class="textArea">
+								<h4><a href="preparing.html" title="Tate Members Benefits">Tate Members Benefits</a></h4>
+								<p>Free entry to exhibitions, stunning Members Rooms, invites to private views, special events and much more</p>
+							</div>
+						</li>
+					</ul>
+					
+				</section>
+
+				<section id="patrons">
+					<h3>TATE PATRONS</h3>
+					<ul>
+						<li>
+							<div class="imgArea">
+								<img src="img/sub_support/support2.jpg" alt="Become a Patron image"/>
+								<a href="preparing.html" title="Become a Patron"></a>
+							</div>
+							<div class="textArea">
+								<h4><a href="preparing.html" title="Become a Patron">Become a Patron</a></h4>
+								<p>Become a Tate Patron and enjoy bespoke access to everything Tate does</p>
+							</div>
+						</li>
+						<li>
+							<div class="imgArea">
+								<img src="img/sub_support/support3.jpg" alt="Tate Patron Benefits image"/>
+								<a href="preparing.html" title="Tate Patron Benefits"></a>
+							</div>
+							<div class="textArea">
+								<h4><a href="preparing.html" title="Tate Patron Benefits">Tate Patron Benefits</a></h4>
+								<p>Exhibition tours, visits to private collections and artist studios, invitations to receptions, art trips to Europe and more</p>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+				<section id="donate">
+					<h3>DONATE TO TATE</h3>
+					<ul>
+						<li>
+							<div class="imgArea">
+								<img src="img/sub_support/support4.jpg" alt="Donate today image"/>
+								<a href="preparing.html" title="Donate today"></a>
+							</div>
+							<div class="textArea">
+								<h4><a href="preparing.html" title="Donate today">Donate today</a></h4>
+								<p>Donations provide vital support for our galleries and enable us to keep the national collection free for everyone to discover</p>
+							</div>
+						</li>
+						<li>
+							<div class="imgArea">
+								<img src="img/sub_support/support5.jpg" alt="Leave a Legacy image"/>
+								<a href="preparing.html" title="Leave a Legacy"></a>
+							</div>
+							<div class="textArea">
+								<h4><a href="preparing.html" title="Leave a Legacy">Leave a Legacy</a></h4>
+								<p>Each and every gift helps secure and strengthen Tate’s long-term future</p>
+							</div>
+						</li>
+						<li>
+							<div class="imgArea">
+								<img src="img/sub_support/support6.jpg" alt="Corporate Support image"/>
+								<a href="preparing.html" title="Corporate Support"></a>
+							</div>
+							<div class="textArea">
+								<h4><a href="preparing.html" title="Corporate Support">Corporate Support</a></h4>
+								<p>Join Tate as a Corporate Member, become a Sponsor, or simply hire one of our spaces and enjoy numerous extra ...</p>
+							</div>
+						</li>
+					</ul>
+				</section>
+			</div>	
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

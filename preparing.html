@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+  <title> This page is being prepared. | Tate </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+  <style>
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px; background-color:#f4f4f4; color:#333;}
+
+	#wrap{width:100%; max-width:1920px;}
+		#wrap div{width:600px; height:300px; margin:0 auto; margin-top:300px; text-align:center; border:1px dotted #ccc; }
+
+			#wrap div .logo{width:100px; margin:30px auto 20px;}
+				#wrap div .logo img{width:100%;}
+
+			#wrap div span{font-size:24px; line-height:40px;}
+			
+			#wrap div a{display:inline-block; width:120px; height:40px; margin-top:20px; background-color:rgba(20,20,20,0.1); font-size:16px; line-height:40px;}
+
+			#wrap div a:hover, #wrap div a:focus{background-color:rgba(20,20,20,0.3); text-decoration:none;}
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+	
+
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+			
+
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+			
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			#wrap div{width:400px; margin-top:100px;}
+		
+		}
+
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			#wrap div{width:300px; margin-top:100px;}
+		}	
+  </style>
+  <script>
+
+  </script>
+ </head>
+ <body>
+	<div id="wrap">
+		<div>
+			<p class="logo"><img src="img/header/logo.png" alt="tate logo"/></p>
+			<span>Sorry ;(<br/>This page is being prepared.</span><br/>
+			<a class="home btn" href="index.html" title="go home">To Home</a>&nbsp;&nbsp;&nbsp;
+			<a class="goback btn" href="javascript:history.back()">Go Back</a>
+		</div>
+	</div>
+
+ </body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title> 'Carnation, Lily, Lily, Rose, John Singer Sargent, 1885–6 | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+  <!--[if lte IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/i9.css"/>
+  <![endif]-->
+  <!--i9이하에서 그라데이션이 작동하지 않아 #603280 로 지정함-->
+
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+   <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+		
+	/*######################## container + artHeader + imgArea ####################*/
+		#container{width:100%;}
+			#artHeader{width:1280px; margin:0 auto; text-align:center;}
+				#artHeader h3{width:100%; font-size:34px; font-weight:400; padding-top:100px;}
+				#artHeader h2{width:100%; font-size:40px; padding-top:20px;}
+				.date{width:100%; font-size:20px; padding-top:20px;}
+
+			#artworkArea{width:100%; background-color:#f4f4f4; text-align:center; margin-top:50px;}
+				#artworkArea .imgArea{height:470px; margin:0 auto;}
+					#artworkArea p img{height:100%;}
+					.license{width:420px; margin:0 auto; padding:10px 0; font-size:14px; text-align:left; line-height:20px;}
+		
+	/*######################## artContent + tabArea ####################*/	
+		#artContent{width:1280px; margin:50px auto 0; padding-bottom:50px;}
+		#artContent:after{content:""; display:block; clear:both;}
+			.tabArea{width:740px; overflow:hidden; float:left; margin-right:50px; margin-left:10px;}
+				.tab{width:100%; height:50px; border-bottom:1px solid #ccc;}
+				.tab:after{content:""; display:block; clear:both;}
+					.tab li{width:245px; height:50px; float:left; border-left:1px solid #ccc;}
+						.tab li a{display:block; width:100%; height:50px; font-size:20px; text-align:center; border-top:6px solid rgba(97,46,110,0); line-height:45px;}
+						.tab li:last-child{border-right:1px solid #ccc;}
+						.tab li a.selected{border-top:6px solid rgba(97,46,110,1);}
+
+			.panel{width:100%; line-height:25px; font-size:15px;}
+				.panel li{width:100%; padding-top:20px;}
+					.panel li p{margin-bottom:30px;}
+					.panel li .showPart{width:100%; overflow:hidden; position: relative;}
+					.panel li .showPart:after{position:absolute; left:0; bottom:0; height:20%; width:100%; content:"";
+					background-image:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-ms-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-moz-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);background-image:-o-linear-gradient(bottom, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 80%);}
+					.panel li .showPart.hidden:after{display:none;}/* 문단아래 그라데이션 없애기 */
+					.panel li p.middlePoint{width:600px; margin:0 auto; font-size:20px; margin-bottom:30px; line-height:30px;}
+					
+					.readMore, .hide{display:block; width:120px; height:40px; background-color:rgba(20,20,20,0.1); font-size:18px; line-height:40px; text-align:center; margin-top:20px; margin-bottom:20px;}
+		/*기*/
+		/*능*/
+		.tab li a:hover, .tab li a:focus{text-decoration:none;}
+		.readMore:hover, .readMore:focus, .hide:hover, .hide:focus{text-decoration:none; background-color:rgba(20,20,20,0.3); }
+
+	/*######################## artContent + descArea ####################*/
+		.descArea{width:480px; float:left;}
+			.descArea ul{width:99%; border:1px dotted #ccc;}
+				.descArea ul li{width:100%; border-bottom:1px dotted #ccc; line-height:40px; font-size:18px; padding:5px 0;}
+				.descArea ul li:last-child{border-bottom:none;}
+				.descArea ul li:after{content:""; display:block; clear:both;}
+					.descArea ul li p{width:100%; float:left;}
+					.descArea ul li p.descDt{width:30%; text-indent:10px; text-transform:uppercase;}
+					.descArea ul li p.descDd{width:70%;}
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+		/* 추가작업2 */
+		@media all and (min-width:1301px) and (max-width:1700px){
+		}
+
+		/* 추가작업1 */
+		@media all and (min-width:1025px) and (max-width:1300px){	
+		}
+
+		/* 작업순서3: 태블릿PC 버전 */
+		@media all and (min-width:768px) and (max-width:1024px){
+		
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{font-size:30px;}
+						#artHeader h2{font-size:36px; padding-top:10px;}
+						.date{padding-top:10px;}
+
+						#artworkArea .imgArea{height:400px;}
+							
+							.license{width:460px; font-size:12px; line-height:17px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:90%;}
+					.tabArea{width:60%; margin-right:5%; margin-left:0;}
+						.tab li{width:133px;}
+							.tab li a{height:40px; padding-top:10px; font-size:16px; line-height:20px;}
+								.tab li:last-child a{height:48px; padding-top:2px;}
+
+					.panel{line-height:20px; font-size:13px;}
+						.panel li p.middlePoint{width:380px; font-size:15px; margin-bottom:30px; line-height:20px;}
+						.hide{margin-bottom:20px;}
+
+				
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:35%; float:left;}
+					.descArea ul{width:100%;}
+						.descArea ul li{line-height:24px; font-size:14px;}
+							.descArea ul li p.descDt{width:45%;}	
+							.descArea ul li p.descDd{width:55%;}
+
+		}
+
+
+		/* 작업순서2: 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{width:100%; font-size:20px; padding-top:30px;}
+						#artHeader h2{width:100%; font-size:24px; padding-top:10px;}
+						.date{font-size:14px; padding-top:10px;}
+
+					#artworkArea{margin-top:20px;}
+						#artworkArea .imgArea{height:220px;}
+							.license{width:240px; padding:10px 40px; font-size:9px;  line-height:12px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:100%; margin:0 auto;}
+					.tabArea{width:100%; margin-right:0; margin-left:0;}
+							.tab li{width:130px;}
+								.tab li a{font-size:12px;}
+							
+
+					.panel{width:100%; line-height:16px;}
+						.panel li{width:90%; margin:0 auto; font-size:10px;}
+							.panel li p{margin-bottom:20px;}	
+							.panel li p.middlePoint{width:320px; font-size:14px; line-height:20px;}
+								.readMore{margin-top:0; margin-bottom:20px;}
+
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:100%;}
+					.descArea ul{width:270px; margin:0 auto;}
+						.descArea ul li{line-height:20px; font-size:11px;}
+							.descArea ul li p.descDt{width:35%; text-indent:5px;}
+					.descArea ul li p.descDd{width:65%;}
+		}
+
+
+		/* 작업순서1: 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			
+			/*######################## container + artHeader + imgArea ####################*/
+					#artHeader{width:100%;}
+						#artHeader h3{width:100%; font-size:20px; padding-top:20px;}
+						#artHeader h2{width:100%; font-size:24px; padding-top:10px;}
+						.date{font-size:14px; padding-top:10px;}
+
+					#artworkArea{margin-top:20px;}
+						#artworkArea .imgArea{height:200px;}
+							.license{width:230px; padding:10px 40px; font-size:10px;  line-height:12px;}
+		
+			/*######################## artContent + tabArea ####################*/	
+				#artContent{width:100%; margin:0 auto;}
+					.tabArea{width:100%; margin-right:0; margin-left:0;}
+							.tab li{width:32%;}
+								.tab li a{height:25px; padding-top:15px; font-size:12px; line-height:14px;}
+		
+
+					.panel{width:100%; line-height:17px; font-size:11px;}
+						.panel li{width:90%; margin:0 auto;}
+							.panel li p{margin-bottom:20px;}
+							.panel li p.middlePoint{width:260px; font-size:13px; line-height:18px;}
+								.readMore{margin-top:0; margin-bottom:20px;}
+
+
+			/*######################## artContent + descArea ####################*/
+				.descArea{width:100%;}
+					.descArea ul{width:270px; margin:0 auto;}
+						.descArea ul li{line-height:20px; font-size:12px;}
+							.descArea ul li p.descDt{width:35%; text-indent:5px;}
+					.descArea ul li p.descDd{width:65%;}
+			
+			
+		}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+		
+		/*################### artContent Tap #####################*/
+			$(".panel li:not(:first)").hide();
+					
+				$(".tab li a").on("click focusin",function(){
+					$(".panel li").hide();
+					
+					$($(this).attr("href")).show();
+					$(".tab li a").removeClass();
+					$(this).addClass("selected");
+					
+				});
+		
+		/*################### artContent panel0 #####################*/
+			$(".hidePart").hide();
+			$(".hide").hide();
+			$(".readMore").click(function(){
+				$(".readMore").toggle();
+				$(".hide").toggle();
+				$(".hidePart").slideToggle(1500);
+				$(".showPart").addClass("hidden");
+			
+			});
+			$(".hide").click(function(){
+				$(".readMore").toggle();
+				$(".hide").toggle();
+				$(".hidePart").slideToggle(1500);
+				$(".showPart").removeClass("hidden");
+			});
+	});
+  </script>
+
+
+ </head>
+
+ <body>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">	
+				<div id="header">
+					<!--##############   h1    ##############-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--##############   gnb    ##############-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--##############  infoMenu   ##############-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<div id="searchForm">
+									<input id="search" type="text" name="search" title="search" placeholder="search here :)" autofocus>
+									<p class="searchBtn" onclick="searching();">
+										<a href="#none" title="Search" >
+											<img src="img/header/search64.png" alt="search icon"/>
+										</a>
+									</p>
+										
+									<div id="searchWord">
+										<h4>Suggested terms:</h4>
+										<ul>
+											<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh</a></li>
+											<li><a href="#none" title="Andy Warhol">Andy Warhol</a></li>
+											<li><a href="#none" title="Support">Support</a></li>
+											<li><a href="#none" title="Exhibition">Exhibition</a></li>
+											<li><a href="#none" title="Rene magritte">Rene magritte</a></li>
+											<li><a href="#none" title="Feminist art">Feminist art</a></li>
+											<li><a href="#none" title="Impressionism">Impressionism</a></li>
+											<li><a href="#none" title="Pop art">Pop art</a></li>
+											<li><a href="#none" title="Abstract art">Abstract art</a></li>
+											<li><a href="#none" title="David hockney">David hockney</a></li>
+										</ul>
+									</div>
+								</div>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--##############  joinBtn  ##############-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--############## sideBtn ##############-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<div id="sideSearchForm">
+								<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+								<p class="searchBtn" onclick="sideSearching();">
+									<a href="#none" title="Search">
+										<img src="img/header/search_white.png" alt="search icon"/>
+									</a>
+								</p>
+							</div>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+			
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<section id="artHeader">
+				<h3>John Singer Sargents</h3>
+				<h2>Carnation, Lily, Lily, Rose</h2>
+				<p class="date">1885–6</p>
+			</section>
+			<div id="artworkArea">
+				<p class="imgArea">
+					<img src="img/art_artists/artwork0.jpg" alt="Carnation, Lily, Lily, Rose-John Singer Sargent"/>
+				</p>
+				<p class="license">Image released under Creative Commons CC-BY-NC-ND (3.0 Unported)<br/><a href="https://www.tate-images.com/results.asp?image=N01615" title="License this image">License this image</a></p>
+			</div>
+			<div id="artContent">
+				<div class="tabArea">
+					<ul class="tab">
+						<li>
+							<a class="selected" href="#panel0" title="Summary"><strong>Summary</strong></a>
+						</li>
+						<li>
+							<a href="#panel1" title="Display caption"><strong>Display caption</strong></a>
+						</li>
+						<li>
+							<a href="#panel2" title="Catalogue entry"><strong>Catalogue entry</strong></a>
+						</li>
+					</ul>
+					<ul class="panel">
+						<li id="panel0">
+							<div class="showPart">
+								<p>
+									The inspiration for this picture came during a boating expedition Sargent took on the Thames at Pangbourne in September 1885, with the American artist Edwin Austin Abbey, during which he saw Chinese lanterns hanging among trees and lilies. He began the picture while staying at the home of the painter F.D. Millet at Broadway, Worcestershire, shortly after his move to Britain from Paris. At first he used the Millets's five-year-old daughter Katharine as his model, but she was soon replaced by Polly and Dorothy (Dolly) Barnard, the daughters of the illustrator Frederick Barnard, because they had the exact haircolour Sargent was seeking. Dolly, aged eleven, is on the left; Polly, aged seven, is on the right. A sketchbook at the Fogg Museum, Cambridge, includes Sargent's outline designs for the painting, and two drawings at the Tate (Tate Gallery A00850-1) record the precise poses he required for the girls' profiles.
+								</p>
+								<p>
+									He worked on the picture, one of the few figure compositions he ever made out of doors in the Impressionist manner, from September to early November 1885, and again at the Millets's new home, Russell House, Broadway, during the summer of 1886, completing it some time in October. Sargent was able to work for only a few minutes each evening when the light was exactly right. He would place his easel and paints beforehand, and pose his models in anticipation of the few moments when he could paint the mauvish light of dusk. As autumn came and the flowers died, he was forced to replace the blossoms with artificial flowers. His friend Edmund Gosse recorded Sargent's working method:
+								</p>
+							</div>
+							<a class="readMore" href="#none" title="Read more">Read more</a>
+							<div class="hidePart">
+								<p class="middlePoint">
+									Instantly, he took up his place at a distance from the canvas, and at a certain notation of the light ran forward over the lawn with the action of a wag-tail, planting at the same time, rapid dabs of paint on the picture, and then retiring again, only, with equal suddenness, to repeat the wag-tail action. All this occupied but two or three minutes, the light rapidly declining, and then, while he left the young ladies to remove his machinery, Sargent would join us again, so long as the twilight permitted, in a last turn at lawn tennis.(quoted in Charteris, pp.74-5)
+								</p>
+								<p>
+									Edwin Howland Blashfield, a member of the artists' colony at Broadway that year, recalled that when he saw the canvas each morning, the previous evening's work seemed to have been scraped off, and that this happened repeatedly at each stage. Sargent cut two feet off the left side of the canvas, leaving it approximately square, in order to concentrate the composition.<br/>The picture was both acclaimed and decried at the 1887 Royal Academy exhibition. The title comes from the song 'The Wreath', by the eighteenth-century composer of operas Joseph Mazzinghi, which was popular in the 1880s. Sargent and his circle frequently sang around the piano at Broadway. The refrain of the song asks the question 'Have you seen my Flora pass this way?' to which the answer is 'Carnation, Lily, Lily, Rose'.
+								</p>
+								<p>
+									The picture was bought for the Tate Gallery in 1887, under the terms of the Chantrey bequest, largely at the insistence of the Royal Academy President, Sir Frederic Leighton. A portrait by Sargent of Mrs Barnard (1885), made at the same time as Carnation, Lily, Lily, Rose, is also in the Tate (Tate Gallery N05901).
+								</p>
+								<p>
+									<b>Further reading </b><br/>
+									The Hon. Evan Charteris, <i>John Sargent</i>, London 1927, pp.74-5, 78, 83-4, 96, 178, 252<br/>Mary Chamot, Dennis Farr and Martin Butlin, <i>Tate Gallery Catalogues: The Modern British Paintings, Drawings and Sculpture</i>, II, London 1965, pp.587-8
+								</p>
+								<p>
+									Terry Riggs<br/>
+									February 1998
+								</p>
+							</div>
+							<a class="hide" href="#none" title="hide">hide</a>
+						</li>
+						<li id="panel1">
+							<p>
+								This painting is set in a garden in the Cotswolds village of Broadway, where John Singer Sargent stayed in the summer of 1885. The children lighting Japanese lanterns with tapers are Dolly (left) and Polly Barnard. Their father was the illustrator Frederick Barnard – a friend of Sargent’s. Sargent wanted to capture the exact level of light at dusk so he painted the picture out of doors, in the impressionist manner. As autumn came and the flowers died he resorted to painting flowers in pots. The title comes from the refrain of a popular song The Wreath by Joseph Mazzinghi.
+							</p>
+							<p>
+								<i>Gallery label, November 2016</i>
+							</p>
+						</li>
+						<li id="panel2">
+							<div class="showPart">
+								<p>
+									<b>N01615</b> CARNATION, LILY, LILY, ROSE 1885–6
+								</p>
+								<p>
+									Inscr. ‘John S. Sargent’ t.l.<br/>
+									Canvas, 68 1/2×60 1/2 (174×154); a 3/4 (2) wide painted strip turned over along top and left edges.<br/> 
+									Chantrey Purchase from the artist 1887.<br/> 
+									Exh: R.A., 1887 (359); R.A., winter 1926 (47).<br/> 
+									Lit: E. V.Lucas, Edwin Austin Abbey, R.A., 1, 1921, p.151; Downes, 1925, pp.24–5, 140–1; Charteris, 1927, pp.72, 73–5, 78, 84–5, 96, 178–9, 282–3; Mount, 1955, pp.101–4, 108, 110–12, 114, 411–12; McKibbin, 1956, pp.83, 87; Mount, 1957, pp.85–8, 91, 93–4, 96–7, 102, 333, repr. pl.5; Mount, Art Quarterly, XXVI, 1963, p.406.<br/> 
+									Repr: Art Journal, 1888, facing p.65; Wood, n.d., p.40 (in colour); Pousette-Dart, 1924, n.p.; Manson and Meynell, 1927, n.p.
+								</p>
+								<p>
+									This is one of the few finished pictures the artist painted out of doors in England. The scene is of two white-clad children in a garden lighting Chinese lanterns among the flowers on a twilit summer evening. The idea for the lighting effect in this picture came to the artist while on a boating trip with Edwin Abbey in 1885. One September evening by the Thames at Pangbourne he saw Chinese lanterns hung among the trees and beds of lilies. Charteris points out, however, that a sketch made at Lavington Rectory in 1884 for the portrait of ‘Vincent Cartwright Vickers and Dorothy Vickers’ anticipates the composition of ‘Carnation, Lily, Lily, Rose’ in so far as it shows two children walking in a garden with a watering-can against a background of tall white lilies (repr. in Studio, XC, 1925, p.79; measures 53 1/2×35 1/2 in., and apparently shown in the R.A. memorial exhibition, 1926, although not listed in the catalogue).
+								</p>
+							</div>
+							<a class="readMore" href="#none" title="Read more">Read more</a>
+							<div class="hidePart">
+								<p>
+									The artist went on from Pangbourne to stay with Mr and Mrs F. D. Millet at Farnham House, Broadway, Worcestershire, and began work on the large canvas, choosing for his model the Millets' small daughter, Katharine. Miss Millet, then aged five, was superseded by Polly and Dorothy (Dolly) Barnard, daughters of Frederick Barnard, the illustrator, who was living near by (for a portrait of Mrs Barnard, see N05901). Dorothy aged eleven is on the left, and Polly, aged seven, on the right. Their hair was exactly the colour Sargent wanted and, in order to catch them in natural poses he made many pencil studies and sketches of them on the spot as they played, two of which are in the Tate, A00850 and A00851.
+								</p>
+								<p>
+									Sargent worked on this picture from September (letter of 10 September [1885] from Sargent to Edward Russell, in Tate Gallery archives and quoted in extenso by Mount, 1955, p.104 and 1957, pp.87–8) until early November 1885 and again at the Millets' new home, Russell House, Broadway, during the summer of 1886, finishing it some time in October of that year. Progress was necessarily slow, for the picture was painted out of doors and work could only proceed for a few minutes each evening when the right kind of mauvish light was present. Artificial flowers replaced the dying natural blossoms as autumn approached. Mount notes (1955, pp.111–12, 412) that Edwin Howland Blashfield, one of the group of artists working at Broadway in 1885, recalled that when he saw the canvas each morning it appeared to have been scraped down so that all the previous night's work was erased, and that this happened again and again. Furthermore, Sargent reduced the canvas by 2 ft. cut from the left, leaving it approximately square, and thereby concentrated the composition which until then had dissatisfied him.
+								</p>
+								<p>
+									A list of five oil studies, two measuring 28×18 in. (formerly in Mrs F. D. Millet's collection), and a larger version, 53 1/2×35 1/2 in. (Master and Miss Vickers, see above), is given by McKibbin, and the variations in the proportions of these works seem to suggest that it was some time before Sargent decided upon the shape of the composition. The version (23 1/2×19 1/2in.) formerly belonging to Sir Alan Parsons was sold at Sotheby's, 21 November 1962 (56), bt. Patch for Newhouse Galleries, New York (repr. The Ivory Hammer; the year at Sotheby's 219th Season 1962–63, 1963, p.53). A sixth study, not traced, was shown at Copley Hall, Boston, 1899; this and a study of ‘Poppies’, 24×36 in., which was sold with the two studies belonging to Mrs Millet at Sotheby's, 10 June 1942 (88), are not mentioned by McKibbin.
+								</p>
+								<p>
+									The title of the painting is taken from a line of a popular song, identified by McKibbin as ‘The Wreath’ by Joseph Mazzinghi, in which the question ‘Have you seen my Flora pass this way?’ is answered with the words ‘Carnation, Lily, Lily, Rose’ (quoted Charteris, p.78). A parody of this title, almost certainly wrongly attributed to J. McN. Whistler, was ‘Darnation, Silly, Silly Pose’; indeed Charteris (pp.178–9) has suggested that Sargent was himself responsible for it, remarking on his habit of bestowing mock titles on his work
+								</p>
+								<p>
+									<b>Published in: </b><br/>
+									Mary Chamot, Dennis Farr and Martin Butlin,<i> The Modern British Paintings, Drawings and Sculpture</i>, London 1964, II 
+								</p>
+							</div>
+							<a class="hide" href="#none" title="hide">hide</a>
+						</li>
+					</ul>
+				</div>
+				<div class="descArea">
+					<ul>
+						<li>
+							<p class="descDt">artist</p>
+							<p class="descDd">John Singer Sargent<br/>1856–1925</p>
+						</li>
+						<li>
+							<p class="descDt">medium</p>
+							<p class="descDd">Oil paint on canvas</p>
+						</li>
+						<li>
+							<p class="descDt">dimensions</p>
+							<p class="descDd">Support: 1740 x 1537 mm<br/>frame: 2185 x 1970 x 130 mm</p>
+						</li>
+						<li>
+							<p class="descDt">collection</p>
+							<p class="descDd">Tate</p>
+						</li>
+						<li>
+							<p class="descDt">acquisition</p>
+							<p class="descDd">Presented by the Trustees of the Chantrey Bequest 1887</p>
+						</li>
+						<li>
+							<p class="descDt">reference</p>
+							<p class="descDd">T07573</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patrons</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<span class="plusMinus"><span class="plus">+</span><span class="minus">-</span></span></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="m_email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="m_emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>

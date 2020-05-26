@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <title> Exhibitions &amp; Events | Tate </title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+  <link rel="shortcut icon" href="img/header/favicon.ico"/>
+  <!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/i8.css"/>
+  <![endif]-->
+  <!--i8이하에서 배경색 투명도가 조절되지 않아 헤더색을 #f4f4f4 로 지정함-->
+
+  <style>
+	/* 모바일에서 reset.css에 있는 폰트가 안먹혀서 따로 줌*/
+	@font-face{font-family:"Tate"; src:url("font/Tate-Regular.woff");}
+	body{font-family:"Tate"; letter-spacing:1px;}
+	
+	/*######################### tateWrap #########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+
+
+	/*######################### container + exOption ####################*/
+		#container{width:100%;  overflow:hidden; margin:0 auto;}
+
+			#ex_ev{width:1280px; overflow:hidden; margin:100px auto 0;}
+				#exOption{width:200px; height:746px; float:left;}
+					#exOptionMoving{width:100%; height:666px; margin-top:80px;}
+						#exOptionMoving h2{width:100%; height:50px; line-height:50px;}
+						#exOptionMoving dl{width:100%; margin-top:20px;}
+							#exOptionMoving dl dt{width:100%; height:30px; font-size:15px; line-height:30px; text-indent:4px;}
+							#exOptionMoving dl dd{display:inline-block;  margin-bottom:6px; transition:all 1s;}
+							#exOptionMoving dl dd a{display:block; border:1px solid #ccc; padding:4px 8px; border-radius:20px; font-size:14px;}
+		/*###### 기능 */
+			#exOptionMoving a:hover, #exOptionMoving a:focus{color:#fff; text-decoration:none;
+				background-image:-webkit-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-ms-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-moz-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+				background-image:-o-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);}
+
+
+	/*######################### container + exList ####################*/
+		#exList{width:1080px;  float:right;}
+			#exList h2{height:50px; text-align:center; font-size:46px; font-weight:400; letter-spacing:3px; padding:80px 0 60px;}
+			#exList ul{width:100%;}
+			#exList ul:after{content:""; display:block; clear:both;}
+				#exList li{width:330px; height:420px; background-color:#f4f4f4; float:left; margin-left:22px; margin-bottom:22px; box-shadow:3px 3px 30px rgba(96,96,96,0.2); transition:box-shadow 0.2s;}
+
+					#exList li .imageArea{width:100%; height:300px; overflow:hidden;}
+						#exList li .imageArea a{display:block; width:100%; height:100%; position:relative;}
+							#exList li .imageArea a img{width:100%;}
+
+
+					#exList li .textArea{width:310px; height:100px; font-size:11px; padding:10px;  line-height:17px;}
+						#exList li .textArea strong{font-size:15px; padding:10px 0; font-weight:400;}
+
+					.showBtn{display:none;}
+					.hideBtn{display:none;}
+		/*########## 기능*/
+		#exList li:hover{box-shadow:3px 3px 30px rgba(96,96,96,0.3);}
+		#exList li .textArea a:hover{text-decoration:none;}
+		#exList li .textArea a:hover strong, #exList li .textArea a:focus strong{text-decoration:underline;}
+
+	/*######################### container + page ####################*/
+		#page{width:1280px; height:30px; float:left; padding:40px 0 100px;}
+			#page ul{width:120px; height:30px; margin:0 auto;}
+				#page ul li{width:30px; height:30px; float:left; margin-left:10px; text-align:center; line-height:30px;}
+					#page ul li a{display:block; width:100%; height:100%; font-weight:bold;}
+
+
+
+	
+	/*############## footer #############*/
+		#m_footerWrap{display:none;}
+		#footerWrap{display:block; width:100%; height:330px;}
+			#footer1Wrap{width:100%; height:280px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+					
+				#footer1{width:1250px; height:100%; margin:0 auto; }
+					#footer1 h3{width:100%; height:20px; font-size:15px; padding:40px 0 20px;}/* 40+20+20 ==80px*/
+
+						 #footer1 .about{width:20%; height:100%; float:left;}
+							#footer1 .about h3{width:100%; height:20px; font-size:15px; padding:40px 0 20px;}
+							 #footer1 .about ul{width:100%; height:200px;}
+								#footer1 .about li{width:100%; height:18px; margin-bottom:10px; font-size:14px;}
+
+						#footer1 .support{width:20%; height:100%; float:left;}
+							#footer1 .support h3{width:100%; height:20px; font-size:15px; padding:40px 0 20px;}
+							#footer1 .support ul{width:100%; height:200px;}
+								#footer1 .support li{width:100%; height:18px; margin-bottom:10px; font-size:14px;}
+
+						#footer1 .join{width:34%; height:100%; float:left;}
+							#footer1 .join ul{width:100%; height:40px;}
+								#footer1 .join li{width:40px; height:40px; float:left; margin-right:10px;}
+
+						#footer1 .stay{width:26%; height:100%; float:left;}
+							#footer1 .stay label{vertical-align:middle;}
+							#footer1 .stay input#email{width:180px; height:30px; text-indent:4px; background-color:#fff; border:1px solid #ccc; color:#777; vertical-align:middle;}
+							#footer1 .stay input#emailBtn{width:80px; height:30px; box-shadow:1px 1px 6px #ccc; border:none; color:#313131; background-color:#fff;
+								vertical-align:middle;
+								transition:all 0.3s ease-out;}
+							#footer1 .stay legend{display:none;}
+							#footer1 .stay fieldset{border:none;}
+
+					/*########기능*/
+						input#emailBtn:hover, input#emailBtn:focus{
+							background-image:-webkit-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+							background-image:-ms-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+							background-image:-moz-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%);
+							background-image:-o-linear-gradient(bottom left, rgb(51,37,110) 10%, rgb(97,46,110) 50%, rgb(153,57,109) 70%); color:#fff;}
+
+			#footer2wrap{width:100%; height:50px;}
+
+				#footer2{width:1250px; height:100%; margin:0 auto;}
+					#footer2 .footerLogo{width:8%; height:42px; float:left; padding-top:8px;}
+						#footer2 .footerLogo a img{width:100%;}
+
+					 #footer2 .footerLink{width:92%; height:100%; float:left; padding-top:8px;}
+						#footer2 .footerLink ul{width:100%; height:42px; text-align:right; line-height:42px;}
+
+							#footer2 .footerLink li{display:inline; margin-left:14px;}
+								#footer2 .footerLink li a{font-size:12px; padding:2px 4px;}
+								#footer2 .footerLink li .bar{padding-left:12px; color:#ccc;}
+
+
+
+	/*-------------------------- responsive web ---------------------*/
+
+	/* 추가작업2 */
+	@media all and (min-width:1301px) and (max-width:1700px){
+		#headerWrap{height:84px;}
+			#header{width:82%; height:100%; /*background-color:green;*/}
+				h1{width:130px;/*100px*/top:10px;}
+
+			.gotoTop{width:30px; height:30px; transform:rotate(-90deg); position:fixed; right:30px; bottom:50px; display:block;}
+
+		/*###################### gnb #################*/
+			#gnb{width:55%; margin-left:15%;}
+				#gnb li{width:23%; margin-left:2%;}
+				#gnb li:first-child{margin-left:25%;}
+						#gnb li a{height:50px; padding-top:34px; font-size:14px;}
+
+		
+		/*###################### infoMenu #################*/
+			#infoMenu{width:16%; margin-right:120px; float:right;}
+				#infoMenu .infoMenu li{width:40%; float:right;}
+				#infoMenu .infoMenu li a{font-size:13px;}
+
+		
+		/*###################### joinBtn #################*/
+			#joinBtn{width:100px; height:100px;}
+				#joinBtn p{border-radius:50px;}
+					#joinBtn a{width:100px; height:70px; border-radius:50px; 
+					padding-top:30px; font-size:15px;}
+					#joinBtn .pass{top:-120px;}
+
+	}
+
+	/* 추가작업1 */
+	@media all and (min-width:1025px) and (max-width:1300px){	
+		#headerWrap{height:84px;}
+			#header{width:82%; height:100%; /*background-color:violet;*/}
+				h1{width:130px;/*100px*/top:10px;}
+
+			.gotoTop{width:30px; height:30px; transform:rotate(-90deg); position:fixed; right:30px; bottom:50px; display:block;}
+
+		/*###################### gnb #################*/
+			#gnb{width:50%; margin-left:19%;}
+				#gnb li{width:27%; margin-left:1%;}
+				#gnb li:first-child{margin-left:16%;}
+						#gnb li a{height:50px; padding-top:34px; font-size:14px;}
+
+		
+		/*###################### infoMenu #################*/
+			#infoMenu{width:16%; margin-right:120px; float:right;}
+				#infoMenu .infoMenu li a{font-size:13px;}
+
+		
+		/*###################### joinBtn #################*/
+			#joinBtn{width:100px; height:100px;}
+				#joinBtn p{border-radius:50px;}
+					#joinBtn a{width:100px; height:70px; border-radius:50px; 
+					padding-top:30px; font-size:15px;}
+					#joinBtn .pass{top:-120px;}
+
+	}
+
+	/* 작업순서3: 태블릿PC 버전 */
+	@media all and (min-width:768px) and (max-width:1024px){
+		#skipNav{display:none;}
+			#headerWrap{height:84px;}
+				
+					#header{width:100%; height:84px; /*background-color:gold;*/}
+						h1{width:130px; top:10px;}
+
+					.gotoTop{width:30px; height:30px; transform:rotate(-90deg); position:fixed; right:30px; bottom:50px; display:block;}
+
+			.gotoTop{width:30px; height:30px; right:30px;}
+
+		/*###################### gnb #################*/
+			#gnb{width:48%; margin-left:130px;}
+				#gnb li{width:27%; margin-left:1%;}
+				#gnb li:first-child{margin-left:17%;}
+						#gnb li a{height:54px; padding-top:30px; font-size:14px;}
+
+		
+		/*###################### infoMenu #################*/
+			#infoMenu{width:20%; margin-right:100px; float:left;}
+				#infoMenu li a{font-size:13px;}
+		
+		/*###################### infoMenu : search #################*/
+			
+		
+		/*###################### joinBtn #################*/
+			#joinBtn{width:100px; height:100px;}
+				#joinBtn p{border-radius:50px;}
+					#joinBtn a{width:100px; height:70px; border-radius:50px; 
+					padding-top:30px; font-size:15px;}
+					#joinBtn .pass{top:-120px;}
+
+
+		/*######################### container + exOption ####################*/
+			#ex_ev{width:90%;}
+				#exOption{width:100%; height:320px;}
+					#exOptionMoving{width:100%; height:340px; margin-top:0;}
+						#exOptionMoving h2{height:40px; font-size:30px; line-height:40px; padding:30px 0 10px; font-weight:400;}
+						#exOptionMoving dl{margin-top:0;}
+							#exOptionMoving dl dd a{padding:4px 8px; font-size:14px;}
+		
+		
+		/*######################### container + exList ####################*/
+			#exList{width:100%; float:right;}
+				#exList h2{height:30px; font-size:34px; letter-spacing:2px; padding:40px 0 50px;}
+				#exList ul{width:99%; margin:0 auto;}
+					#exList li{width:29%; height:334px; margin:0 2% 2%; box-shadow:2px 2px 10px rgba(96,96,96,0.2);}
+
+						#exList li .imageArea{width:100%; height:194px;}
+						#exList li .textArea{width:96%; height:140px; font-size:11px; padding:0;  line-height:16px; padding:2%;}
+							#exList li .textArea strong{font-size:14px;}
+
+				.showBtn, .hideBtn{display:block; width:150px; height:40px; cursor:pointer; text-align:center; background-color:rgba(20,20,20,0.1); line-height:40px; margin:20px auto 0;}
+					.showBtn img, .hideBtn img{vertical-align:middle; margin-left:10px;}
+				/*########## 기능*/
+				#exList li:hover{box-shadow:2px 2px 10px rgba(96,96,96,0.3);}
+				.showBtn:hover, .hideBtn:hover {background-color:rgba(20,20,20,0.2);}
+
+
+
+		/*######################### container + page ####################*/
+			#page{width:100%;}
+
+
+
+		/*################## footer1 #################*/
+			#footer1{width:95%;}
+			#footer1 .about{width:20%; margin-left:5%;}
+			#footer1 .support{width:20%; margin-left:5%;}
+			#footer1 .join{width:45%; height:140px;}
+			#footer1 .stay{width:45%; height:140px;}
+
+		
+		/*################## footer2 #################*/
+			#footer2{width:95%;}
+	}
+
+
+	/* 작업순서2: 스마트폰 가로버전 */
+	@media all and (min-width:481px) and (max-width:767px){
+		#skipNav{display:none;}
+			#headerWrap{height:60px;  position:static;}
+				#forSearch{height:60px; overflow:visible;}
+					#header{width:100%; height:60px;/* background-color:pink;*/}
+						h1{width:120px; top:10px;}
+						#gnb, #infoMenu, #joinBtn, #searchWrap{display:none;}
+						.gotoTop{width:30px; height:30px; transform:rotate(-90deg); position:fixed; right:30px; bottom:50px; display:block;}
+						#sideMenu{display:block;}
+
+		/*################ sideMenu ##############*/
+				#sideMenu{width:260px; height:60px;  float:right; position:absolute; right:0; top:0; z-index:1;}
+			
+				#sideMenuBtn{width:100%; height:60px;}
+					#sideMenuBtn a{display:block; width:50px; height:40px; padding-top:20px; line-height:12px; float:right;}
+						#sideMenuBtn a span{display:block; height:3px; width:30px; margin-bottom:7px; background-color:#333;}
+						/* 사이드메뉴 버튼 클릭 전 addClass ≡모양*/
+						.middleBarM{transform:rotate(0deg); opacity:1; transition:all 0.7s;}
+						.topBarM{transform:rotate(0deg) translate(0,0);  transition:all 0.7s;}
+						.bottomBarM{transform:rotate(0deg) translate(0,0); transition:all 0.7s;}
+
+						/* 사이드메뉴 버튼 클릭 후 addClass x모양*/
+						.middleBarX{transform:rotate(360deg); opacity:0; transition:all 0.7s;}
+						.topBarX{transform:rotate(-45deg) translate(-7px,7px);  transition:all 0.7s;}
+						.bottomBarX{transform:rotate(45deg) translate(-7px,-7px); transition:all 0.7s;}
+			
+			
+					#sideMenu nav{width:100%; height:600px; background-color:rgba(20,20,20,0.9); color:#fff;}
+
+					#sideSearchForm{width:95%; height:30px;}
+					#sideSearchForm{padding:10px 0;}
+					#sideSearchForm fieldset{border:none;}
+					#sideSearchForm legend{display:none;}
+					#sideSearchForm #sideSearch{width:82%; height:30px; border:none; text-indent:10px; margin-left:10px;}
+					#sideSearchForm .searchBtn{display:inline-block; width:16px; height:16px; vertical-align:middle; margin-left:4px;}
+						#sideSearchForm .searchBtn a{display:inline-block; width:100%; height:100%;}
+							#sideSearchForm .searchBtn a img{width:100%; border:none;}
+
+					#sideGnb{width:100%; height:130px;  border-bottom:1px solid #f4f4f4;}
+						#sideGnb li{width:95%; height:40px; line-height:40px; text-align:right; padding-right:5%;}
+							#sideGnb li a{font-size:15px; color:#fff;}
+
+					#sideInfomenu{width:100%; height:80px;}
+						#sideInfomenu li{width:95%; height:40px; line-height:40px; text-align:right; padding-right:5%;}
+							#sideInfomenu li a{font-size:15px; color:#fff;}
+	
+		
+
+		/*######################### container + exOption ####################*/
+			#ex_ev{width:90%; margin:0 auto;}
+				#exOption{width:100%; height:320px;}
+					#exOptionMoving{width:100%; height:340px; margin-top:0;}
+						#exOptionMoving h2{height:40px; font-size:24px; line-height:40px; padding:30px 0 10px; font-weight:400;}
+						#exOptionMoving dl{margin-top:0;}
+							#exOptionMoving dl dd a{padding:3px 6px; font-size:12px;}
+		
+		
+		/*######################### container + exList ####################*/
+			#exList{width:100%; float:right;}
+				#exList h2{height:30px; font-size:24px; letter-spacing:2px; padding:40px 0 30px;}
+				#exList ul{width:99%; margin:0 auto;}
+					#exList li{width:46%; height:368px; margin:0 2% 4%; box-shadow:2px 2px 10px rgba(96,96,96,0.2);}
+
+						#exList li .imageArea{width:100%; height:243px;}
+						#exList li .textArea{width:96%; height:125px; font-size:11px; padding:0;  line-height:16px; padding:2%;}
+							#exList li .textArea strong{font-size:14px;}
+
+				.showBtn, .hideBtn{display:block; width:150px; height:40px; cursor:pointer; text-align:center; background-color:rgba(20,20,20,0.1); line-height:40px; margin:20px auto 0;}
+					.showBtn img, .hideBtn img{vertical-align:middle; margin-left:10px;}
+				/*########## 기능*/
+				#exList li:hover{box-shadow:2px 2px 10px rgba(96,96,96,0.3);}
+				.showBtn:hover, .hideBtn:hover {background-color:rgba(20,20,20,0.2);}
+
+
+
+		/*######################### container + page ####################*/
+			#page{width:100%;}
+	
+	
+		/*################## m_footer1 #################*/
+			#footerWrap{display:none;}
+			#m_footerWrap{display:block; width:100%;}
+				#m_footer1Wrap{width:100%; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding-top:10px; margin-bottom:10px; }
+					#m_footer1{width:90%; margin:0 auto;}
+						#m_footer1 div{width:100%; margin-bottom:10px;}
+							#m_footer1 h3{width:100%; line-height:20px; font-size:11px; padding:2px 0; cursor:pointer; margin-bottom:6px;}
+								#m_footer1 h3 p{width:20px; height:20px; float:right; overflow:hidden;}
+									#m_footer1 h3 p span{display:block; width:20px; height:20px; font-size:20px; text-align:right; margin-left:-5px;}
+							#m_footer1 .about ul, #m_footer1 .support ul{width:100%;}
+								#m_footer1 .about ul li, #m_footer1 .support ul li{line-height:16px; font-size:9px; margin-bottom:2px; text-indent:10px;}'
+
+							#m_footer1 .join ul{width:100%; padding-top:10px; outline:1px solid red;  background-color:green;}
+							#m_footer1 .join ul:after{content:""; display:block; clear:both;}
+								#m_footer1 .join ul li{width:30px; height:30px; float:left; margin-left:10px;}
+									#m_footer1 .join ul li img{width:100%;}
+
+							#m_footer1 .stay .emailBox{padding-top:10px;}
+								#m_footer1 .stay label{vertical-align:middle; font-size:14px; margin-left:10px;}
+								#m_footer1 .stay input#email{width:180px; height:26px; text-indent:8px; background-color:#fff; border:1px solid #ccc; color:#777; vertical-align:middle; font-size:12px;}
+								#m_footer1 .stay input#emailBtn{width:80px; height:28px; box-shadow:1px 1px 6px #ccc; border:none; color:#313131; background-color:#fff; font-size:13px;
+									vertical-align:middle;
+									transition:all 0.3s ease-out;}
+								#m_footer1 .stay legend{display:none;}
+								#m_footer1 .stay fieldset{border:none;}
+
+			
+		/*################## m_footer2 #################*/
+			#m_footer2Wrap{width:90%; margin:0 auto;}
+				#m_footer2{width:100%; height:30px;}
+				#m_footer2:after{content:""; display:block; clear:both;}
+					#m_footer2 .footerLogo{width:100px;}
+						#m_footer2 .footerLogo{width:15%; float:left;}
+							#m_footer2 .footerLogo a{display:block; width:40px;}
+								#m_footer2 .footerLogo a img{width:100%;}
+
+					#m_footer2 .footerLink{width:85%; float:left;}
+						#m_footer2 .footerLink ul{width:100%; text-align:right;}
+							#m_footer2 .footerLink li{display:inline;}
+								#m_footer2 .footerLink li a{font-size:10px;}
+								#m_footer2 .footerLink li .bar{color:#ccc; padding:0 5px; vertical-align:middle;}
+	}
+
+
+
+	/* 작업순서1: 스마트폰 세로버전 */
+	@media all and (min-width:320px) and (max-width:480px){
+		#skipNav{display:none;}
+			#headerWrap{height:60px; position:static; /*background-color:green;*/}
+				#forSearch{height:60px; overflow:visible;}
+					#header{width:100%; height:60px;}
+						h1{width:100px; top:8px;}
+						#gnb, #infoMenu, #joinBtn, #searchWrap{display:none;}
+						.gotoTop{width:30px; height:30px; right:30px; bottom:30px; padding:5px;}
+						#sideMenu{display:block;}
+
+		/*################ sideMenu ##############*/
+				#sideMenu{width:260px; height:60px;  float:right; position:absolute; right:0; top:0; z-index:1;}
+			
+				#sideMenuBtn{width:100%; height:60px;}
+					#sideMenuBtn a{display:block; width:50px; height:40px; padding-top:20px; line-height:12px; float:right;}
+						#sideMenuBtn a span{display:block; height:3px; width:30px; margin-bottom:7px; background-color:#333;}
+						/* 사이드메뉴 버튼 클릭 전 addClass ≡모양*/
+						.middleBarM{transform:rotate(0deg); opacity:1; transition:all 0.7s;}
+						.topBarM{transform:rotate(0deg) translate(0,0);  transition:all 0.7s;}
+						.bottomBarM{transform:rotate(0deg) translate(0,0); transition:all 0.7s;}
+
+						/* 사이드메뉴 버튼 클릭 후 addClass x모양*/
+						.middleBarX{transform:rotate(360deg); opacity:0; transition:all 0.7s;}
+						.topBarX{transform:rotate(-45deg) translate(-7px,7px);  transition:all 0.7s;}
+						.bottomBarX{transform:rotate(45deg) translate(-7px,-7px); transition:all 0.7s;}
+			
+			
+					#sideMenu nav{width:100%; height:600px; background-color:rgba(20,20,20,0.9); color:#fff;}
+
+					#sideSearchForm{width:95%; height:30px;}
+					#sideSearchForm{padding:10px 0;}
+					#sideSearchForm fieldset{border:none;}
+					#sideSearchForm legend{display:none;}
+					#sideSearchForm #sideSearch{width:82%; height:30px; border:none; text-indent:10px; margin-left:10px;}
+					#sideSearchForm .searchBtn{display:inline-block; width:16px; height:16px; vertical-align:middle; margin-left:4px;}
+						#sideSearchForm .searchBtn a{display:inline-block; width:100%; height:100%;}
+							#sideSearchForm .searchBtn a img{width:100%; border:none;}
+
+					#sideGnb{width:100%; height:130px;  border-bottom:1px solid #f4f4f4;}
+						#sideGnb li{width:95%; height:40px; line-height:40px; text-align:right; padding-right:5%;}
+							#sideGnb li a{font-size:15px; color:#fff;}
+
+					#sideInfomenu{width:100%; height:80px;}
+						#sideInfomenu li{width:95%; height:40px; line-height:40px; text-align:right; padding-right:5%;}
+							#sideInfomenu li a{font-size:15px; color:#fff;}
+
+		
+		/*######################### container + exOption ####################*/
+			#ex_ev{width:90%;margin:0 auto;}
+				#exOption{width:100%; height:400px;}
+					#exOptionMoving{width:100%; height:380px; margin-top:0;}
+						#exOptionMoving h2{height:40px; font-size:24px; line-height:40px; padding:30px 0 10px; font-weight:400;}
+						#exOptionMoving dl{margin-top:0;}
+							#exOptionMoving dl dd a{padding:3px 6px; font-size:12px;}
+		
+		
+		/*######################### container + exList ####################*/
+			#exList{width:100%; float:right;}
+				#exList h2{height:30px; font-size:24px; letter-spacing:2px; padding:40px 0 30px;}
+				#exList ul{width:99%; margin:0 auto;}
+					#exList li{width:48%; height:270px; margin:0 1% 4%; box-shadow:2px 2px 10px rgba(96,96,96,0.2);}
+
+						#exList li .imageArea{width:100%; height:138px;}
+
+						#exList li .textArea{width:98%; height:132px; font-size:9px; padding:0;  line-height:16px; padding:1%;}
+							#exList li .textArea strong{font-size:12px;}
+
+				.showBtn, .hideBtn{display:block; width:150px; height:40px; cursor:pointer; text-align:center; background-color:rgba(20,20,20,0.1); line-height:40px; margin:20px auto 0;}
+					.showBtn img, .hideBtn img{vertical-align:middle; margin-left:10px;}
+				/*########## 기능*/
+				#exList li:hover{box-shadow:2px 2px 10px rgba(96,96,96,0.3);}
+				.showBtn:hover, .hideBtn:hover {background-color:rgba(20,20,20,0.2);}
+
+
+
+		/*######################### container + page ####################*/
+			#page{width:100%;}
+		
+		/*################## m_footer1 #################*/
+			#footerWrap{display:none;}
+			#m_footerWrap{display:block; width:100%;}
+				#m_footer1Wrap{width:100%; border-top:1px solid #ccc; border-bottom:1px solid #ccc; padding-top:10px; margin-bottom:10px; }
+					#m_footer1{width:90%; margin:0 auto;}
+						#m_footer1 div{width:100%; margin-bottom:10px;}
+							#m_footer1 h3{width:100%; line-height:20px; font-size:13px; padding:5px 0; cursor:pointer; margin-bottom:6px;}
+								#m_footer1 h3 p{width:20px; height:20px; float:right; overflow:hidden;}
+									#m_footer1 h3 p span{display:block; width:20px; height:20px; font-size:20px; text-align:right; margin-left:-5px;}
+							#m_footer1 .about ul, #m_footer1 .support ul{width:100%;}
+								#m_footer1 .about ul li, #m_footer1 .support ul li{line-height:20px; font-size:12px; margin-bottom:5px; text-indent:10px;}'
+
+							#m_footer1 .join ul{width:100%; padding-top:10px; outline:1px solid red;  background-color:green;}
+							#m_footer1 .join ul:after{content:""; display:block; clear:both;}
+								#m_footer1 .join ul li{width:30px; height:30px; float:left; margin-left:10px;}
+									#m_footer1 .join ul li img{width:100%;}
+
+							#m_footer1 .stay .emailBox{padding-top:10px;}
+								#m_footer1 .stay label{vertical-align:middle; font-size:12px; margin-left:10px;}
+								#m_footer1 .stay input#email{width:160px; height:26px; text-indent:8px; background-color:#fff; border:1px solid #ccc; color:#777; vertical-align:middle; font-size:11px;}
+								#m_footer1 .stay input#emailBtn{width:70px; height:28px; box-shadow:1px 1px 6px #ccc; border:none; color:#313131; background-color:#fff; font-size:12px;
+									vertical-align:middle;
+									transition:all 0.3s ease-out;}
+								#m_footer1 .stay legend{display:none;}
+								#m_footer1 .stay fieldset{border:none;}
+
+			
+		/*################## m_footer2 #################*/
+			#m_footer2Wrap{width:90%; margin:0 auto;}
+				#m_footer2{width:100%; height:30px;}
+				#m_footer2:after{content:""; display:block; clear:both;}
+					#m_footer2 .footerLogo{width:100px;}
+						#m_footer2 .footerLogo{width:15%; float:left;}
+							#m_footer2 .footerLogo a{display:block; width:40px;}
+								#m_footer2 .footerLogo a img{width:100%;}
+
+					#m_footer2 .footerLink{width:85%; float:left;}
+						#m_footer2 .footerLink ul{width:100%; text-align:right;}
+							#m_footer2 .footerLink li{display:inline;}
+								#m_footer2 .footerLink li a{font-size:10px;}
+								#m_footer2 .footerLink li .bar{color:#ccc; padding:0 5px; vertical-align:middle;}
+	}
+  </style>
+
+  <script>
+	jQuery(document).ready(function(){
+		
+	
+		
+	});
+  </script>
+
+ </head>
+
+ <body>
+	<div id="wrap">
+
+		<header id="headerWrap">
+			<div id="forSearch">
+				<div id="header">
+					<!--################   h1   ################-->
+					<h1>
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="Tate logo"/>
+						</a>
+					</h1>
+
+					<!--################   gnb   ################-->
+					<h2 class="outline">Main menu</h2>
+					<nav id="gnb">
+						<ul>		
+							<li class="art">					
+								<h3 class="outline">ART&amp;ARTISTS</h3>
+								<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+							</li>
+							<li class="exh">
+								
+								<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+								<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+							</li>
+							<li class="plan">
+							
+								<h3 class="outline">PLAN YOUR VISIT</h3>
+								<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+							</li>
+						</ul>
+						<p class="gnbBar"></p>
+					</nav>
+
+					<!--################  infoMenu  ################-->
+					<h2 class="outline">Personal &amp; Search menu</h2>
+					<nav id="infoMenu">
+						<ul class="infoMenu">
+							<li>
+								<h3 class="outline">Login</h3>
+								<a href="login.html" title="Login">
+									<img src="img/header/login.png" alt="login icon"/> Login
+								</a>
+							</li>
+							<li>
+								<h3 class="outline">Search</h3>
+								<a class="search" href="#none" title="Search">
+									<img src="img/header/search.png" alt="search icon"/> Search
+								</a>
+							</li>
+						</ul>
+						<div id="searchWrap">
+							<div id="searchArea">
+								<form id="searchForm" action="#none" method="post">
+									<fieldset>
+										<legend>Search</legend>
+										<input id="search" type="text" name="search" title="search" placeholder="search here :)"  autofocus >
+										<p class="searchBtn" onclick="searching();">
+											<a href="#none" title="Search" >
+												<img src="img/header/search64.png" alt="search icon" "/>
+											</a>
+										</p>
+										<div id="searchWord">
+											<h4>Suggested terms:</h4>
+											<ul>
+												<li><a href="#none" title="Vincent van Gogh">Vincent van Gogh<a/></li>
+												<li><a href="#none" title="Andy Warhol">Andy Warhol<a/></li>
+												<li><a href="#none" title="Support">Support<a/></li>
+												<li><a href="#none" title="Exhibition">Exhibition<a/></li>
+												<li><a href="#none" title="Rene magritte">Rene magritte<a/></li>
+												<li><a href="#none" title="Feminist art">Feminist art<a/></li>
+												<li><a href="#none" title="Impressionism">Impressionism<a/></li>
+												<li><a href="#none" title="Pop art">Pop art<a/></li>
+												<li><a href="#none" title="Abstract art">Abstract art<a/></li>
+												<li><a href="#none" title="David hockney">David hockney<a/></li>
+											</ul>
+										</div>
+									</fieldset>
+								</form>
+								<p class="closeBtn">
+									<a href="#none" title="close">
+										<img src="img/header/close64.png" alt="close icon"/>
+									</a>
+								</p>
+							</div>
+						</div>
+					</nav>
+					
+					<!--################ joinBtn  ################-->
+					<h3 class="outline">Become a memeber</h3>				
+					<div id="joinBtn">
+						<p>
+							<a href="signup.html" title="become a member">
+								BECOME A MEMBER
+								<span class="pass"></span>
+							</a>
+						</p>
+					</div>
+
+					<!--################  sideBtn   ################-->
+					<div id="sideMenu">
+						<div id="sideMenuBtn">
+							<a href="#none" title="sideMenu">
+								<span class="topBar"></span>
+								<span class="middleBar"></span>
+								<span class="bottomBar"></span>
+							</a>
+						</div>
+						<nav>			
+							<form id="sideSearchForm" action="#none" method="post">
+								<fieldset>
+									<legend>Search</legend>
+									<input id="sideSearch" type="text" name="sideSearch" title="sideSearch" placeholder="search here :)">
+									<p class="searchBtn" onclick="sideSearching();">
+										<a href="#none" title="Search">
+											<img src="img/header/search_white.png" alt="search icon"/>
+										</a>
+									</p>
+								</fieldset>
+							</form>
+							<ul id="sideGnb">		
+								<li class="art">					
+									<h3 class="outline">ART&amp;ARTISTS</h3>
+									<a href="art_artists.html" title="ART&amp;ARTISTS">ART &amp; ARTISTS</a>
+								</li>
+								<li class="exh">
+									
+									<h3 class="outline">EXHIBITIONS &amp; EVENTS</h3>
+									<a href="ex_ev1.html" title="EXHIBITIONS&amp;EVENTS">EXHIBITIONS &amp; EVENTS</a>
+								</li>
+								<li class="plan">
+								
+									<h3 class="outline">PLAN YOUR VISIT</h3>
+									<a href="plan_your_visit.html" title="PLAN YOUR VISIT">PLAN YOUR VISIT</a>
+								</li>
+							</ul>
+							<ul id="sideInfomenu">
+								<li class="Login">					
+									<h3 class="outline">Login</h3>
+									<a href="login.html" title="login">Login</a>
+								</li>
+								<li class="become a member">					
+									<h3 class="outline">Become a member</h3>
+									<a href="signup.html" title="become a member">Become a member</a>
+								</li>
+							</ul>
+						</nav>
+
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		<div id="container">
+			<div id="ex_ev">
+				<section id="exOption">
+					<div id="exOptionMoving">
+						<h2>Options</h2>
+						<dl>
+							<dt><strong>WHAT?</strong></dt>
+							<dd><a  class="exhibitions" href="#none" title="exhibitions">Exhibitions</a></dd>
+							<dd><a  class="performances" href="#none" title="performances">Performances</a></dd>
+							<dd><a  class="tours" href="#none" title="tours">Tours</a></dd>
+							<dd><a  class="talks" href="#none" title="talks">Talks</a></dd>
+							<dd><a  class="workshops" href="#none" title="workshops">Workshops</a></dd>
+							<dd><a  class="course" href="#none" title="course">Course</a></dd>
+							<dd><a  class="foodAndDrink" href="#none" title="foodAndDrink">Food and Drink</a></dd>
+							<dd><a  class="lates" href="#none" title="lates">Lates</a></dd>
+						</dl>
+						<dl>
+							<dt><strong>WHERE?</strong></dt>
+							<dd><a  class="tateBritain" href="#none" title="tateBritain">Tate Britain</a></dd>
+							<dd><a  class="tateModern" href="#none" title="tateModern">Tate Modern</a></dd>
+							<dd><a  class="tateLiverpool" href="#none" title="tateLiverpool">Tate Liverpool</a></dd>
+							<dd><a  class="tateStlves" href="#none" title="tateStlves">Tate St lves</a></dd>
+							<dd><a  class="others" href="#none" title="others">Other venues</a></dd>
+						</dl>
+						<dl>
+							<dt><strong>WHEN?</strong></dt>
+							<dd><a  class="OnNow" href="#none" title="On now and coming soon">On now and coming soon</a></dd>
+							<dd><a  class="past" href="#none" title="past">Past</a></dd>
+						</dl>
+						<dl>
+							<dt><strong>PRICE</strong></dt>
+							<dd><a  class="free" href="#none" title="free">Free</a></dd>
+						</dl>
+					</div>
+				</section>
+				<section id="exList">
+					<h2>WHAT'S ON AT TATE</h2>
+					<ul>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-britain/late/late-tate-britain" title="Late at Tate Britain">
+									<img src="img/exhibition_n_event/2p01.jpg" alt="Late at Tate Britain image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="
+								http://www.tate.org.uk/whats-on/tate-britain/late/late-tate-britain" title="Late at Tate Britain">
+									TATE BRITAIN<br/>
+									LATE<br/>
+									<strong>Late at Tate Britain</strong><br/>
+									6 Apr, 1 Jun, 3 Aug, 5 Oct, 7 Dec 2018
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/ey-exhibition-picasso-1932-love-fame-tragedy/cocktails-and-ey" title="Cocktails and The EY Exhibition: Picasso 1932">
+									<img src="img/exhibition_n_event/2p02.jpg" alt="Cocktails and The EY Exhibition: Picasso 1932 image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/ey-exhibition-picasso-1932-love-fame-tragedy/cocktails-and-ey" title="Cocktails and The EY Exhibition: Picasso 1932">
+									TATE MODERN<br/>
+									FOOD AND DRINK<br/>
+									<strong>Cocktails and The EY Exhibition: Picasso 1932</strong><br/>
+									30 Mar – 9 Sep 2018
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/joan-jonas/telling-tales-myths-masks-and-other-media" title="Telling Tales: Myths, Masks and Other Media">
+									<img src="img/exhibition_n_event/2p03.jpg" alt="Telling Tales: Myths, Masks and Other Media image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/joan-jonas/telling-tales-myths-masks-and-other-media" title="Telling Tales: Myths, Masks and Other Media">
+									TATE MODERN<br/>
+									COURSE<br/>
+									<strong>Telling Tales: Myths, Masks and Other Media</strong><br/>
+									Every Mon, 11 Jun – 2 Jul 2018
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/talk/sister-magazine-launch-and-panel-discussion" title="Sister Magazine Launch and Panel Discussion">
+									<img src="img/exhibition_n_event/2p04.jpg" alt="Sister Magazine Launch and Panel Discussion image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/talk/sister-magazine-launch-and-panel-discussion" title="Sister Magazine Launch and Panel Discussion">
+									TATE MODERN<br/>
+									TALK<br/>
+									<strong>Sister Magazine Launch and Panel Discussion</strong><br/>
+									10 Mar 2018<br/>
+									FREE
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/hyundai-commission-superflex/british-sign-language-tour-creative" title="British Sign Language Tour: Creative Interventions">
+									<img src="img/exhibition_n_event/2p05.jpg" alt="British Sign Language Tour: Creative Interventions"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/hyundai-commission-superflex/british-sign-language-tour-creative" title="British Sign Language Tour: Creative Interventions">
+									TATE MODERN<br/>
+									TOUR<br/>
+									<strong>British Sign Language Tour: Creative Interventions</strong><br/>
+									2 Mar 2018<br/>
+									FREE
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/performance/william-kentridge" title="William Kentridge: The Head and the Load">
+									<img src="img/exhibition_n_event/2p06.jpg" alt="William Kentridge: The Head and the Load image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/performance/william-kentridge" title="William Kentridge: The Head and the Load">
+									TATE MODERN<br/>
+									PERFORMANCE<br/>
+									<strong>William Kentridge: The Head and the Load</strong><br/>
+									11–15 Jul 2018
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-britain/exhibition/all-too-human" title="All Too Human: Bacon, Freud and a century of painting life">
+									<img src="img/exhibition_n_event/2p07.jpg" alt="All Too Human: Bacon, Freud and a century of painting life image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-britain/exhibition/all-too-human" title="All Too Human: Bacon, Freud and a century of painting life">
+									TATE BRITAIN<br/>
+									EXHIBITION<br/>
+									<strong>All Too Human: Bacon, Freud and a century of painting life</strong><br/>
+									28 Feb – 27 Aug 2018<br/>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/other-venue/exhibition/artist-rooms/roy-lichtenstein-focus" title="ARTIST ROOMS: Roy Lichtenstein in Focus">
+									<img src="img/exhibition_n_event/2p08.jpg" alt="ARTIST ROOMS: Roy Lichtenstein in Focus image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/other-venue/exhibition/artist-rooms/roy-lichtenstein-focus" title="ARTIST ROOMS: Roy Lichtenstein in Focus">
+									TATE LIVERPOOL<br/>
+									EXHIBITION<br/>
+									<strong>ARTIST ROOMS: Roy Lichtenstein in Focus</strong>
+									Until 17 Jun 2018<br/>
+									FREE
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-st-ives/exhibition/patrick-heron" title="PATRICK HERON">
+									<img src="img/exhibition_n_event/2p09.jpg" alt="PATRICK HERON image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-st-ives/exhibition/patrick-heron" title="PATRICK HERON">
+									TATE ST IVES<br/>
+									EXHIBITION<br/>
+									<strong>PATRICK HERON</strong><br/>
+									19 May – 30 Sep 2018<br/>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/ey-exhibition-picasso-1932-love-fame-tragedy" title="The EY Exhibition: Picasso 1932 – Love, Fame, Tragedy">
+									<img src="img/exhibition_n_event/2p10.jpg" alt="The EY Exhibition: Picasso 1932 – Love, Fame, Tragedy image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/ey-exhibition-picasso-1932-love-fame-tragedy" title="The EY Exhibition: Picasso 1932 – Love, Fame, Tragedy">
+									TATE MODERN<br/>
+									EXHIBITION<br/>
+									<strong>The EY Exhibition: Picasso 1932 – Love, Fame, Tragedy</strong><br/>
+									8 Mar – 9 Sep 2018
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-liverpool/tate-exchange/workshop/exchanging-views" title="Exchanging Views: Narratives of Homelessness">
+									<img src="img/exhibition_n_event/2p11.jpg" alt="Exchanging Views: Narratives of Homelessnessimage"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-liverpool/tate-exchange/workshop/exchanging-views" title="Exchanging Views: Narratives of Homelessness">
+									TATE LIVERPOOL<br/>
+									WORKSHOP<br/>
+									<strong>Exchanging Views: Narratives of Homelessness</strong><br/>
+									9 Mar 2018, 10 Mar 2018, 11 Mar 2018<br/>
+									FREE
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/tate-exchange/workshop/opening-doors" title="Opening Doors: With 198 Contemporary Arts and Learning">
+									<img src="img/exhibition_n_event/2p12.jpg" alt="Opening Doors: With 198 Contemporary Arts and Learning image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/tate-exchange/workshop/opening-doors" title="Opening Doors: With 198 Contemporary Arts and Learning">
+									TATE MODERN<br/>
+									WORKSHOP<br/>
+									<strong>Opening Doors: With 198 Contemporary Arts and Learning</strong><br/>
+									17 Mar 2018<br/>
+									FREE
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/bmw-tate-live-exhibition-ten-days-six-nights/whitman-leckey" title="BMW Tate Live Exhibition: Sylvia Palacios Whitman + Mark Leckey">
+									<img src="img/exhibition_n_event/2p13.jpg" alt="BMW Tate Live Exhibition: Sylvia Palacios Whitman + Mark Leckey image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/bmw-tate-live-exhibition-ten-days-six-nights/whitman-leckey" title="BMW Tate Live Exhibition: Sylvia Palacios Whitman + Mark Leckey">
+									TATE MODERN<br/>
+									PERFORMANCE<br/>
+									<strong>BMW Tate Live Exhibition: Sylvia Palacios Whitman + Mark Leckey</strong><br/>
+									24 Mar 2018<br/>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-liverpool/exhibition/life-motion-egon-schiele-francesca-woodman" title="Life In Motion: Egon Schiele/ Francesca Woodman">
+									<img src="img/exhibition_n_event/2p14.jpg" alt="Life In Motion: Egon Schiele/ Francesca Woodman image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-liverpool/exhibition/life-motion-egon-schiele-francesca-woodman" title="Life In Motion: Egon Schiele/ Francesca Woodman">
+									TATE LIVERPOOL<br/>
+									EXHIBITION<br/>
+									<strong>Life In Motion: Egon Schiele/ Francesca Woodman</strong><br/>
+									24 May – 23 Sep 2018
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="imageArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/joan-jonas" title="Joan Jonas">
+									<img src="img/exhibition_n_event/2p15.jpg" alt="Joan Jonas image"/>
+								</a>
+							</p>
+							<p class="textArea">
+								<a href="http://www.tate.org.uk/whats-on/tate-modern/exhibition/joan-jonas" title="Joan Jonas">
+									TATE BRITAIN<br/>
+									EXHIBITION<br/>
+									<strong>Joan Jonas</strong><br/>
+									14 Mar – 5 Aug 2018<br/>
+								</a>
+							</p>
+						</li>
+					</ul>
+				</section>
+				<div id="page">
+					<ul>
+						<li class="page1"><a href="ex_ev1.html" title="page1">1</a></li>
+						<li class="page2" style="background-color:#f4f4f4;"><a href="ex_ev2.html" title="page2">2</a></li>
+						<li class="page3"><a href="ex_ev3.html" title="page3">3</a></li>
+					</ul>
+				</div>
+			</div>
+			<p class="gotoTop">
+				<a href="#" title="go to top"><img src="img/index/arrow-pointing-to-right.png" alt="arrow_top_img"/></a>
+			</p>
+		</div>
+
+		<footer id="footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="footer1Wrap">
+				<div id="footer1">
+					<div class="about footer1Left">
+						<h3>ABOUT</h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support footer1Left">
+						<h3>SUPPORT</h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patronsn</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN</h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW</h3>
+						<div class="emailBox">
+							<form action="#none" method="post">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer2Wrap">
+				<div id="footer2">
+					<div class="footerLogo">
+						<p>
+							<a href="http://www.tate.org.uk/" title="Return to the Tate hompage">
+								<img src="img/header/logo.png" alt="tate logo"/>
+							</a>
+						</p>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press </a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="preparing.html" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer id="m_footerWrap">
+			<h2 class="outline">Footer</h2>
+			<div id="m_footer1Wrap">
+				<div id="m_footer1">
+					<div class="about">
+						<h3>ABOUT<p><span class="plus">+</span><span class="minus">-</span></p></h3>
+						<ul>
+							<li><a href="preparing.html" title="About us">About us</a></li>
+							<li><a href="preparing.html" title="Our collection">Our collection</a></li>
+							<li><a href="preparing.html" title="Terms and copyright">Terms and copyright</a></li>
+							<li><a href="preparing.html" title="Governance">Governance</a></li>
+							<li><a href="preparing.html" title="Picture library">Picture library</a></li>
+							<li><a href="preparing.html" title="ARTIST ROOMS">ARTIST ROOMS</a></li>
+						</ul>
+					</div>
+					<div class="support">
+						<h3>SUPPORT<p><span class="plus">+</span><span class="minus">-</span></p></h3>
+						<ul>
+							<li><a href="preparing.html" title="Members">Members</a></li>
+							<li><a href="preparing.html" title="Patrons">Patronsn</a></li>
+							<li><a href="preparing.html" title="Donate">Donate</a></li>
+							<li><a href="preparing.html" title="Corporate">Corporate</a></li>
+						</ul>
+					</div>
+					<div class="join">
+						<h3>JOIN IN<p><span class="plus">+</span><span class="minus">-</span></p></h3>
+						<ul>
+							<li>
+								<a href="https://twitter.com/tate" title="twitter for Tate">
+									<img src="img/footer/twt.png" alt="twitter_icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/tategallery" title="facebook for Tate">
+									<img src="img/footer/facebook.png" alt="facebook icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/tate" title="youbute for Tate">
+									<img src="img/footer/youtube.png" alt="youbute icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tate/" title="instatram for Tate">
+									<img src="img/footer/instagram.png" alt="instagram icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://pinterest.com/tategallery/" title="pinterest for Tate">
+									<img src="img/footer/pinterest.png" alt="pinterst icon"/>
+								</a>
+							</li>
+							<li>
+								<a href="http://tatecollectives.tumblr.com/" title="tumblr for Tate">
+									<img src="img/footer/tumblr.png" alt="tumblr icon"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="stay">
+						<h3>STAY IN THE KNOW<p><span class="plus">+</span><span class="minus">-</span></p></h3>
+						<div class="emailBox">
+							<form action="#" method="get">
+								<fieldset>
+									<legend>submit your email address for subscribe</legend>
+									<label for="email">Email</label>
+									<input id="email" type="email" name="email" title="email address" placeholder="email address" autocomplete="off"/>
+									<input id="emailBtn" type="submit" title="Sign Up" value="Sign Up"/>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="m_footer2Wrap">
+				<div id="m_footer2">
+					<div class="footerLogo">
+						<a href="index.html" title="Return to the Tate hompage">
+							<img src="img/header/logo.png" alt="tate logo"/>
+						</a>
+					</div>
+					<div class="footerLink">
+						<h3 class="outline">contact</h3>
+						<ul>							
+							<li><a href="preparing.html" title="Press">Press</a><span class="bar">|</span></li><li><a href="preparing.html" title="Jobs">Jobs</a><span class="bar">|</span></li><li><a href="preparing.html" title="Privacy and cookies ">Privacy and cookies</a><span class="bar">|</span></li><li><a href="#" title="Contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+ </body>
+</html>
