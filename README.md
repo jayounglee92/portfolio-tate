@@ -1,11 +1,25 @@
-﻿# portfolio-tate
+# ✨ portfolio-tate
 
-> 처음 구현해본 웹 작업으로 https://www.tate.org.uk/ 사이트를 참고하여 새로 디자인 및 개발하였습니다.
+> First Web Project for portfolio.  
+> Redesigned and developed from https://www.tate.org.uk/ as reference.  
+> Any functions relevant to php and db like login, sign up are not working now.
+
+![Showing UI](/_info-img/info-tate-01.gif)
 
 ## Description
-- 주요기술 : HTML, CSS, jQuery, 반응형
+- Skill : HTML, CSS, Javascript, Responsive Web, php, mysql, mariaDB, photoshop
+- library : jQuery
 - API : Google Map
-- 툴 : VSCode
-- 형상관리 : GitHub
-- 작업기간 : 한 달 
-- url : https://jayounglee92.github.io/portfolio-tate/
+- Tool : VSCode
+- Period : 1 month
+- URL : https://jayounglee92.github.io/portfolio-tate/
+
+## Contents
+- [x] index  
+- [x] art & artists
+- [x] exhibition & event
+- [x] plan your visit
+- [x] shop
+- [x] artist detail
+- [x] art detail
+- [x] search
