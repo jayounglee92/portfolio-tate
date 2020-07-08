@@ -7,7 +7,7 @@
 ![Showing UI](/_info-img/info-tate-01.gif)
 
 ## Description
-- Skill : HTML, CSS, Javascript, Responsive Web, php, mysql, mariaDB, photoshop
+- Skill : HTML, CSS, Javascript, Responsive Web, Cross-Browsing(gte IE8) , php, mysql, mariaDB, photoshop
 - library : jQuery
 - API : Google Map
 - Tool : VSCode
